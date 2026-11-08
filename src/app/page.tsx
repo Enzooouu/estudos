@@ -1,6 +1,8 @@
 import { About } from '@/components/About';
 import { BoxBuilder } from '@/components/BoxBuilder';
 import { Contact } from '@/components/Contact';
+import { CtaFrame } from '@/components/CtaFrame';
+import { Dock } from '@/components/Dock';
 import { Faq } from '@/components/Faq';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
@@ -45,9 +47,11 @@ export default function Home() {
         <BoxBuilder />
         <About />
         <Faq />
+        <CtaFrame />
         <Contact />
       </main>
       <Footer />
+      <Dock />
     </>
   );
 }

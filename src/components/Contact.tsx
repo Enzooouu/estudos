@@ -1,6 +1,7 @@
 import { site, waLink } from '@/content/site';
 import { Icon } from './Icon';
 import { Reveal } from './Reveal';
+import { SectionHead } from './SectionHead';
 
 /** O e-mail como tipo de exibição. */
 export function Contact() {
@@ -9,20 +10,18 @@ export function Contact() {
     <section
       id="contato"
       aria-labelledby="contato-h"
-      className="bg-ice px-page grid min-h-[72svh] grid-rows-[auto_1fr_auto] gap-12 pt-[clamp(56px,8vw,112px)] pb-10"
+      className="bg-ice px-page grid grid-rows-[auto_1fr_auto] gap-12 lg:min-h-[72svh] pt-[clamp(40px,5vw,72px)] pb-10"
     >
-      <div className="flex flex-wrap items-start justify-between gap-8">
-        <Reveal>
-          <h2 id="contato-h" className="font-title text-h2 max-w-[20ch] leading-[1.12] font-medium tracking-[-0.03em]">
-            Peça sua visita técnica
-          </h2>
-        </Reveal>
-        <Reveal order={1}>
+      <SectionHead
+        id="contato-h"
+        label="Contato"
+        title="Peça sua visita técnica"
+        aside={
           <a className="btn btn-amber" href={waLink('Olá, JEL Box! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
-            <Icon name="whats" /> Chamar no WhatsApp
+            <Icon name="ret" /> Chamar no WhatsApp
           </a>
-        </Reveal>
-      </div>
+        }
+      />
       <Reveal order={2} className="self-end">
         <a
           href={`mailto:${site.email}`}

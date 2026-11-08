@@ -19,12 +19,18 @@ export const site = {
 export const waLink = (msg: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
 
-export const nav = [
-  { href: '#produtos', label: 'Produtos' },
-  { href: '#processo', label: 'Como trabalhamos' },
-  { href: '#monte', label: 'Monte seu box' },
-  { href: '#duvidas', label: 'Dúvidas' },
+/** Seções da página: o menu usa todas; a barra flutuante mostra a seção atual. */
+export const sections = [
+  { id: 'topo', label: 'Início' },
+  { id: 'produtos', label: 'Produtos' },
+  { id: 'processo', label: 'Como trabalhamos' },
+  { id: 'monte', label: 'Monte seu box' },
+  { id: 'sobre', label: 'Sobre' },
+  { id: 'duvidas', label: 'Dúvidas' },
+  { id: 'contato', label: 'Contato' },
 ] as const;
+
+export const nav = sections.slice(1);
 
 export type ProductId = 'box' | 'janelas' | 'guarda' | 'espelhos' | 'coberturas' | 'serralheria';
 
@@ -33,39 +39,47 @@ export const products: {
   name: string;
   text: string;
   specs: [string, string];
+  /** etiquetas curtas mostradas na lista */
+  tags: string[];
 }[] = [
   {
     id: 'box',
+    tags: ['Temperado 8 mm', 'Correr · abrir · canto'],
     name: 'Box de banheiro',
     text: 'Vidro temperado de 8 mm em kit de correr, de abrir ou de canto, com perfis de alumínio na cor que combinar com os metais do banheiro. Também fazemos o box até o teto, que segura o vapor dentro.',
     specs: ['Incolor, fumê, bronze ou jateado', 'Perfil preto, branco, natural ou dourado'],
   },
   {
     id: 'janelas',
+    tags: ['Alumínio', 'Correr · maxim-ar'],
     name: 'Janelas e portas',
     text: 'Esquadrias de alumínio de correr, maxim-ar, camarão e pivotantes, com vidro comum, temperado ou laminado. Cada folha é feita para o vão medido, sem ajuste com massa.',
     specs: ['Linhas residenciais e linha suprema', 'Vedação com escovas e borrachas EPDM'],
   },
   {
     id: 'guarda',
+    tags: ['Laminado', 'Sacadas · escadas'],
     name: 'Guarda-corpos',
     text: 'Para sacadas, escadas e mezaninos: vidro laminado temperado fixado em perfil de base ou em botões, com ou sem corrimão. Proteção que não tira a vista.',
     specs: ['Altura mínima de 1,10 m em sacadas', 'Corrimão em alumínio ou aço inox'],
   },
   {
     id: 'espelhos',
+    tags: ['Lapidado', 'Bisotado'],
     name: 'Espelhos',
     text: 'Espelhos lapidados ou bisotados para banheiro, sala e academia, com recortes para tomadas e fixação por cola neutra ou presilhas.',
     specs: ['Espessuras de 3 e 4 mm', 'Com ou sem moldura de alumínio'],
   },
   {
     id: 'coberturas',
+    tags: ['Laminado', 'Estrutura metálica'],
     name: 'Coberturas',
     text: 'Coberturas de vidro laminado para varandas, entradas e áreas de serviço, sobre estrutura metálica pintada, com a inclinação certa para a água correr.',
     specs: ['Vidro laminado, que não se solta se trincar', 'Calhas e rufos inclusos no projeto'],
   },
   {
     id: 'serralheria',
+    tags: ['Aço', 'Portões · grades'],
     name: 'Serralheria',
     text: 'Portões, grades, escadas e estruturas em aço e alumínio, soldadas na oficina e pintadas antes de chegar à obra. Preparamos para motor quando o portão pede.',
     specs: ['Portões de correr, de giro e basculantes', 'Pintura eletrostática'],

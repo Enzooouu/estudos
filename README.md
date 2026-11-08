@@ -9,6 +9,7 @@ Site da JEL Box, vidraçaria e serralheria, seguindo o manual de identidade visu
 - **Next.js 16** (App Router) com **React 19** e **TypeScript**
 - **Tailwind CSS 4**: tokens da marca em `@theme` (`src/app/globals.css`)
 - **Motion** (`motion/react`, antigo Framer Motion) para entradas e efeitos de rolagem
+- **Lenis** para a rolagem suave
 - Exportação estática (`output: 'export'`): o build gera HTML pronto em `out/`, que pode ser
   hospedado em qualquer servidor estático (Vercel, Netlify, Cloudflare Pages, hospedagem comum)
 
@@ -30,11 +31,17 @@ src/
     page.tsx         página + dados estruturados (JSON-LD)
     globals.css      tokens da marca e estilos dos desenhos técnicos
     sitemap.ts, robots.ts, icon.svg
-  components/        Hero, Nav, Products, Process, BoxBuilder, About, Faq, Contact, Footer…
+  components/        Hero, TopBar, Dock (barra flutuante), Products, Process, BoxBuilder,
+                     About, Faq, CtaFrame, Contact, Footer…
     drawings/        desenhos técnicos (SVG) dos produtos e das etapas
   content/site.ts    textos, produtos, dúvidas e dados de contato
   lib/box.ts         regras do "Monte seu box"
 ```
+
+## Referência de design
+
+O estudo do site fluid.glass (estrutura, medidas, padrões e o que foi aplicado aqui) está em
+`docs/referencia-fluid-glass.md`.
 
 ## Efeito de vidro
 

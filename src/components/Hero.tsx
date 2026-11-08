@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { waLink } from '@/content/site';
 import { Icon } from './Icon';
-import { Nav } from './Nav';
+import { TopBar } from './TopBar';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -27,9 +27,9 @@ export function Hero() {
     <header
       ref={ref}
       id="topo"
-      className="bg-deep text-frost relative isolate grid min-h-[max(100svh,680px)] grid-rows-[auto_auto_1fr] overflow-hidden"
+      className="bg-deep text-frost relative isolate grid min-h-[max(100svh,640px)] grid-rows-[auto_auto_1fr] md:min-h-[780px] lg:min-h-[max(100svh,680px)] overflow-hidden"
     >
-      <Nav />
+      <TopBar />
 
       <div className="px-page relative z-30 max-w-[calc(560px+2*var(--m))] pt-8 md:pt-[clamp(40px,7vh,96px)]">
         <motion.p data-reveal {...rise(0)} className="font-title text-h2 leading-[1.1] font-medium tracking-[-0.03em]">
@@ -41,11 +41,10 @@ export function Hero() {
         </motion.p>
         <motion.div data-reveal {...rise(2)} className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-5 md:mt-9">
           <a className="btn btn-amber" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
-            <Icon name="whats" /> Pedir orçamento
+            <Icon name="ret" /> Pedir orçamento
           </a>
-          <a href="#monte" className="text-ice group inline-flex items-center gap-2.5 border-b border-current pb-1 font-medium">
-            Desenhar meu box
-            <Icon name="arrow" className="!h-[18px] !w-[18px] transition-transform duration-300 group-hover:translate-x-1.5" />
+          <a href="#monte" className="btn btn-text text-ice hover:!text-frost">
+            <Icon name="ret" /> Desenhar meu box
           </a>
         </motion.div>
       </div>
@@ -69,7 +68,7 @@ export function Hero() {
       </div>
 
       {/* trilho superior: a linha arquitetônica onde o painel corre */}
-      <div aria-hidden="true" className="bg-ice/35 absolute inset-x-[var(--m)] bottom-[66vw] z-20 h-px md:top-[92px] md:bottom-auto" />
+      <div aria-hidden="true" className="bg-ice/35 absolute inset-x-[var(--m)] bottom-[66vw] z-20 h-px md:bottom-[46vw] lg:top-[92px] lg:bottom-auto" />
 
       {/* painel de vidro: entra deslizando e depois acompanha a rolagem */}
       <motion.div
@@ -77,7 +76,7 @@ export function Hero() {
         initial={{ opacity: 0, x: '30vw' }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.4, ease, delay: 0.35 }}
-        className="absolute right-[10vw] bottom-0 z-20 h-[66vw] w-[34vw] md:top-[92px] md:right-[calc(var(--m)+4vw)] md:h-auto md:w-[clamp(200px,27vw,420px)]"
+        className="absolute right-[10vw] bottom-0 z-20 h-[66vw] w-[34vw] md:right-[calc(var(--m)+4vw)] md:h-[46vw] md:w-[27vw] lg:top-[92px] lg:h-auto lg:w-[clamp(200px,27vw,420px)]"
       >
         <motion.div style={{ x: still ? 0 : paneX }} className="glass-pane border-ice/85 relative h-full border-x-[3px]">
           <span className="bg-ice/85 absolute -left-[3px] top-0 h-[3px] w-[64%]" />

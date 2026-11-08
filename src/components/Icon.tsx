@@ -38,7 +38,13 @@ const paths = {
       <path d="M16.5 7h.01" />
     </>
   ),
-  menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+  ret: (
+    <>
+      <path d="M6 4v9h13" />
+      <path d="M15 9l4 4-4 4" />
+    </>
+  ),
+  menu: <path d="M4 8h16M4 12h16M4 16h16" />,
   close: <path d="M5 5l14 14M19 5L5 19" />,
 } as const;
 

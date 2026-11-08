@@ -18,6 +18,7 @@ import {
 import { BoxElevation, BoxPlan } from './BoxDrawing';
 import { Icon } from './Icon';
 import { Reveal } from './Reveal';
+import { SectionHead } from './SectionHead';
 
 function Choices<T extends string>({
   legend,
@@ -122,17 +123,15 @@ export function BoxBuilder() {
 
   return (
     <section id="monte" aria-labelledby="monte-h" className="px-page pt-[var(--gap)]">
-      <div className="mb-16 grid items-end gap-5 lg:grid-cols-2 lg:gap-[clamp(32px,5vw,96px)]">
-        <Reveal>
-          <h2 id="monte-h" className="font-title text-h2 leading-[1.1] font-medium tracking-[-0.03em]">
-            Monte seu box
-          </h2>
-        </Reveal>
-        <Reveal order={1}>
-          <p className="max-w-[44ch]">
-            Escolha o modelo e as medidas do vão. O desenho sai em escala, e a especificação vai pronta para o nosso WhatsApp.
-          </p>
-        </Reveal>
+      <div className="mb-14 lg:mb-20">
+        <SectionHead
+          id="monte-h"
+          label="Monte seu box"
+          title="Desenhe o seu, em escala"
+          aside={
+            <p>Escolha o modelo e as medidas do vão. A especificação vai pronta para o nosso WhatsApp.</p>
+          }
+        />
       </div>
 
       <form
@@ -199,10 +198,10 @@ export function BoxBuilder() {
             </p>
             <div className="flex flex-wrap gap-2">
               <a className="btn btn-amber" href={waLink(message(c))} target="_blank" rel="noopener">
-                <Icon name="whats" /> Enviar pelo WhatsApp
+                <Icon name="ret" /> Enviar pelo WhatsApp
               </a>
               <button type="submit" className="btn btn-ice">
-                <Icon name="mail" /> Enviar por e-mail
+                <Icon name="ret" /> Enviar por e-mail
               </button>
             </div>
             <p className="text-small text-muted">Medidas aproximadas: o valor final sai depois da medição no local.</p>
