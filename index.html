@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JEL Box · Vidraçaria e serralheria sob medida</title>
+  <meta name="description" content="JEL Box: box de banheiro, janelas, portas, guarda-corpos, espelhos e estruturas metálicas em vidro temperado e alumínio, medidos no local e instalados pela nossa equipe.">
+  <meta name="theme-color" content="#12344D">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- Ícones outline: todos em grade 24×24, traço 1.5, pontas retas. -->
+<svg width="0" height="0" class="sr-only" aria-hidden="true">
+  <symbol id="i-whats" viewBox="0 0 24 24"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9a4.6 4.6 0 0 1-2.8-2.8l.9-1-1-2z"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l1.5 4.5-2.3 1.4a10 10 0 0 0 5.9 5.9l1.4-2.3L20 15v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 5l9 8 9-8"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15"/><path d="M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 1 0 18 9 9 0 0 1 0-18z"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 15L15 3l6 6L9 21z"/><path d="M7 11l2 2M10 8l2 2M13 5l2 2"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M12 8.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7z"/><path d="M16.5 7h.01"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<a class="skip" href="#produtos">Pular para o conteúdo</a>
+
+<!-- ============ TOPO ============ -->
+<header class="hero" id="topo">
+  <nav class="nav" aria-label="Principal">
+    <a class="brand" href="#topo" aria-label="JEL Box, início">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M20 3H3v26h26V12"/><path d="M16 3v26"/></svg>
+      <span>JEL Box</span>
+    </a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+      <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span>
+    </button>
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#produtos">Produtos</a></li>
+      <li><a href="#processo">Como trabalhamos</a></li>
+      <li><a href="#monte">Monte seu box</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+      <li><a class="nav__cta" href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero__intro">
+    <p class="hero__title">Vidraçaria e serralheria</p>
+    <p class="hero__lead">Box de banheiro, janelas, portas e guarda-corpos em vidro temperado e alumínio, sob medida. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.</p>
+    <div class="hero__actions">
+      <a class="btn btn--amber js-whats" data-msg="Olá, JEL Box! Gostaria de um orçamento." href="https://wa.me/5500000000000">
+        <svg class="icon" aria-hidden="true"><use href="#i-whats"/></svg> Pedir orçamento
+      </a>
+      <a class="link-arrow link-arrow--light" href="#monte">Desenhar meu box <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+
+  <!-- O nome como monumento; um painel de vidro corre sobre ele no trilho. -->
+  <div class="hero__stage">
+    <h1 class="hero__word"><span class="sr-only">JEL Box, vidraçaria e serralheria sob medida</span><span aria-hidden="true">JEL<span class="hero__gap"> </span>BOX</span></h1>
+  </div>
+  <div class="hero__rail" aria-hidden="true"></div>
+  <div class="hero__pane" aria-hidden="true">
+    <span class="hero__handle"></span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ PRODUTOS ============ -->
+<section class="products" id="produtos" aria-labelledby="produtos-h">
+  <div class="products__plate" data-reveal>
+    <div class="frame frame--open">
+      <!-- Box de banheiro -->
+      <svg class="drawing" data-panel="box" viewBox="0 0 400 400" role="img" aria-label="Desenho técnico de um box de banheiro frontal de correr, 120 por 190 centímetros">
+        <rect class="dw-wall" x="36" y="40" width="22" height="310"/>
+        <rect class="dw-wall" x="342" y="40" width="22" height="310"/>
+        <path class="dw-line" d="M24 350h352"/>
+        <rect class="dw-profile" x="58" y="96" width="284" height="7"/>
+        <rect class="dw-glass" x="62" y="103" width="142" height="243"/>
+        <rect class="dw-glass dw-glass--front" x="196" y="105" width="142" height="241"/>
+        <path class="dw-line dw-thick" d="M212 196v62"/>
+        <path class="dw-dim" d="M58 374h284M54 378l8-8M338 378l8-8M58 366v14M342 366v14"/>
+        <text class="dw-text" x="200" y="394" text-anchor="middle">120 cm</text>
+        <path class="dw-dim" d="M16 103v243M12 107l8-8M12 350l8-8"/>
+        <text class="dw-text" x="0" y="0" transform="translate(10 226) rotate(-90)" text-anchor="middle">190 cm</text>
+      </svg>
+      <!-- Janelas e portas -->
+      <svg class="drawing" data-panel="janelas" viewBox="0 0 400 400" role="img" aria-label="Desenho técnico de uma janela de correr de quatro folhas em vão de alvenaria" hidden>
+        <rect class="dw-wall" x="20" y="40" width="360" height="54"/>
+        <rect class="dw-wall" x="20" y="300" width="360" height="60"/>
+        <rect class="dw-wall" x="20" y="94" width="40" height="206"/>
+        <rect class="dw-wall" x="340" y="94" width="40" height="206"/>
+        <rect class="dw-profile-o" x="60" y="94" width="280" height="206"/>
+        <rect class="dw-glass" x="68" y="102" width="70" height="190"/>
+        <rect class="dw-glass dw-glass--front" x="132" y="104" width="70" height="186"/>
+        <rect class="dw-glass dw-glass--front" x="198" y="104" width="70" height="186"/>
+        <rect class="dw-glass" x="262" y="102" width="70" height="190"/>
+        <path class="dw-line dw-thick" d="M196 180v28M204 180v28"/>
+        <path class="dw-line" d="M52 300h296v10H52z"/>
+        <path class="dw-dim" d="M60 330h280M56 334l8-8M336 334l8-8"/>
+        <text class="dw-text" x="200" y="350" text-anchor="middle">200 cm</text>
+      </svg>
+      <!-- Guarda-corpo -->
+      <svg class="drawing" data-panel="guarda" viewBox="0 0 400 400" role="img" aria-label="Desenho técnico de guarda-corpo de vidro laminado com perfil de base e corrimão" hidden>
+        <rect class="dw-wall" x="20" y="290" width="360" height="40"/>
+        <path class="dw-line" d="M20 290h360"/>
+        <rect class="dw-profile" x="40" y="270" width="320" height="20"/>
+        <rect class="dw-glass" x="46" y="120" width="98" height="150"/>
+        <rect class="dw-glass" x="151" y="120" width="98" height="150"/>
+        <rect class="dw-glass" x="256" y="120" width="98" height="150"/>
+        <rect class="dw-profile" x="36" y="108" width="328" height="12"/>
+        <path class="dw-dim" d="M384 108v182M380 112l8-8M380 294l8-8"/>
+        <text class="dw-text" x="0" y="0" transform="translate(396 200) rotate(-90)" text-anchor="middle">110 cm</text>
+        <path class="dw-line dw-thin" d="M70 140l30-14M175 140l30-14M280 140l30-14"/>
+      </svg>
+      <!-- Espelhos -->
+      <svg class="drawing" data-panel="espelhos" viewBox="0 0 400 400" role="img" aria-label="Desenho de um espelho retangular sobre uma bancada com cuba" hidden>
+        <rect class="dw-glass dw-mirror" x="90" y="50" width="220" height="180"/>
+        <path class="dw-line dw-thin" d="M120 200l70-120M150 200l50-86M250 120l30-50"/>
+        <rect class="dw-wall" x="40" y="270" width="320" height="22"/>
+        <path class="dw-line" d="M150 270c0 40 100 40 100 0"/>
+        <path class="dw-line dw-thick" d="M200 246v24M188 246h24"/>
+        <path class="dw-dim" d="M90 34h220M86 38l8-8M306 38l8-8"/>
+        <text class="dw-text" x="200" y="24" text-anchor="middle">90 cm</text>
+        <path class="dw-dim" d="M330 50v180M326 54l8-8M326 234l8-8"/>
+        <text class="dw-text" x="0" y="0" transform="translate(348 140) rotate(-90)" text-anchor="middle">70 cm</text>
+      </svg>
+      <!-- Coberturas -->
+      <svg class="drawing" data-panel="coberturas" viewBox="0 0 400 400" role="img" aria-label="Corte de cobertura de vidro laminado inclinada sobre vigas metálicas" hidden>
+        <rect class="dw-wall" x="20" y="60" width="36" height="290"/>
+        <path class="dw-line" d="M20 350h360"/>
+        <path class="dw-glass" d="M56 110L370 160v8L56 118z"/>
+        <path class="dw-profile" d="M56 120L360 168v10L56 130z"/>
+        <rect class="dw-profile" x="330" y="172" width="12" height="178"/>
+        <path class="dw-line dw-thin" d="M120 132v-10M190 144v-10M260 155v-10"/>
+        <path class="dw-dim" d="M90 92l230 37"/>
+        <text class="dw-text" x="200" y="96" text-anchor="middle" transform="rotate(9 200 96)">inclinação mín. 10%</text>
+      </svg>
+      <!-- Serralheria -->
+      <svg class="drawing" data-panel="serralheria" viewBox="0 0 400 400" role="img" aria-label="Desenho técnico de portão de correr em aço com frisos verticais" hidden>
+        <rect class="dw-wall" x="20" y="60" width="34" height="270"/>
+        <rect class="dw-wall" x="346" y="60" width="34" height="270"/>
+        <path class="dw-line" d="M20 330h360"/>
+        <rect class="dw-profile-o" x="60" y="90" width="280" height="232"/>
+        <path class="dw-line" d="M82 98v216M104 98v216M126 98v216M148 98v216M170 98v216M192 98v216M214 98v216M236 98v216M258 98v216M280 98v216M302 98v216M324 98v216"/>
+        <circle class="dw-line" cx="100" cy="328" r="6"/>
+        <circle class="dw-line" cx="300" cy="328" r="6"/>
+        <path class="dw-dim" d="M60 356h280M56 360l8-8M336 360l8-8"/>
+        <text class="dw-text" x="200" y="378" text-anchor="middle">350 cm</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="products__body">
+    <h2 id="produtos-h" class="h2" data-reveal>O que fazemos</h2>
+    <div class="tabs" role="tablist" aria-label="Produtos" data-reveal>
+      <button role="tab" id="t-box" aria-controls="p-box" aria-selected="true" data-tab="box">Box de banheiro</button>
+      <button role="tab" id="t-janelas" aria-controls="p-janelas" aria-selected="false" tabindex="-1" data-tab="janelas">Janelas e portas</button>
+      <button role="tab" id="t-guarda" aria-controls="p-guarda" aria-selected="false" tabindex="-1" data-tab="guarda">Guarda-corpos</button>
+      <button role="tab" id="t-espelhos" aria-controls="p-espelhos" aria-selected="false" tabindex="-1" data-tab="espelhos">Espelhos</button>
+      <button role="tab" id="t-coberturas" aria-controls="p-coberturas" aria-selected="false" tabindex="-1" data-tab="coberturas">Coberturas</button>
+      <button role="tab" id="t-serralheria" aria-controls="p-serralheria" aria-selected="false" tabindex="-1" data-tab="serralheria">Serralheria</button>
+    </div>
+
+    <div class="panels" data-reveal>
+      <div class="panel" role="tabpanel" id="p-box" aria-labelledby="t-box" data-panel="box">
+        <h3 class="h3">Box de banheiro</h3>
+        <p>Vidro temperado de 8 mm em kit de correr, de abrir ou de canto, com perfis de alumínio na cor que combinar com os metais do banheiro. Também fazemos o box até o teto, que segura o vapor dentro.</p>
+        <ul class="specs"><li>Incolor, fumê, bronze ou jateado</li><li>Perfil preto, branco, natural ou dourado</li></ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p-janelas" aria-labelledby="t-janelas" data-panel="janelas" hidden>
+        <h3 class="h3">Janelas e portas</h3>
+        <p>Esquadrias de alumínio de correr, maxim-ar, camarão e pivotantes, com vidro comum, temperado ou laminado. Cada folha é feita para o vão medido, sem ajuste com massa.</p>
+        <ul class="specs"><li>Linhas residenciais e linha suprema</li><li>Vedação com escovas e borrachas EPDM</li></ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p-guarda" aria-labelledby="t-guarda" data-panel="guarda" hidden>
+        <h3 class="h3">Guarda-corpos</h3>
+        <p>Para sacadas, escadas e mezaninos: vidro laminado temperado fixado em perfil de base ou em botões, com ou sem corrimão. Proteção que não tira a vista.</p>
+        <ul class="specs"><li>Altura mínima de 1,10 m em sacadas</li><li>Corrimão em alumínio ou aço inox</li></ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p-espelhos" aria-labelledby="t-espelhos" data-panel="espelhos" hidden>
+        <h3 class="h3">Espelhos</h3>
+        <p>Espelhos lapidados ou bisotados para banheiro, sala e academia, com recortes para tomadas e fixação por cola neutra ou presilhas.</p>
+        <ul class="specs"><li>Espessuras de 3 e 4 mm</li><li>Com ou sem moldura de alumínio</li></ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p-coberturas" aria-labelledby="t-coberturas" data-panel="coberturas" hidden>
+        <h3 class="h3">Coberturas</h3>
+        <p>Coberturas de vidro laminado para varandas, entradas e áreas de serviço, sobre estrutura metálica pintada, com a inclinação certa para a água correr.</p>
+        <ul class="specs"><li>Vidro laminado, que não se solta se trincar</li><li>Calhas e rufos inclusos no projeto</li></ul>
+      </div>
+      <div class="panel" role="tabpanel" id="p-serralheria" aria-labelledby="t-serralheria" data-panel="serralheria" hidden>
+        <h3 class="h3">Serralheria</h3>
+        <p>Portões, grades, escadas e estruturas em aço e alumínio, soldadas na oficina e pintadas antes de chegar à obra. Preparamos para motor quando o portão pede.</p>
+        <ul class="specs"><li>Portões de correr, de giro e basculantes</li><li>Pintura eletrostática</li></ul>
+      </div>
+    </div>
+
+    <div class="cells" data-reveal>
+      <a class="cell cell--ink js-whats js-product-quote" data-msg="Olá, JEL Box! Gostaria de um orçamento de box de banheiro." href="https://wa.me/5500000000000">
+        <span>Orçar este produto</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="cell cell--soft" href="#duvidas"><span>Ver dúvidas comuns</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESSO ============ -->
+<section class="process" id="processo" aria-labelledby="processo-h">
+  <h2 id="processo-h" class="h2 process__h" data-reveal>Do vão medido ao vidro instalado</h2>
+
+  <article class="step" data-reveal>
+    <div class="step__text">
+      <h3 class="step__verb">Medir</h3>
+      <p>Vamos até a obra e medimos o vão em três pontos de largura e de altura. Parede fora de esquadro aparece aqui, não no dia da instalação.</p>
+    </div>
+    <svg class="step__drawing" viewBox="0 0 400 300" role="img" aria-label="Vão de parede com cotas de largura em três alturas">
+      <rect class="dw-wall" x="30" y="20" width="60" height="260"/>
+      <rect class="dw-wall" x="310" y="20" width="60" height="260"/>
+      <path class="dw-dim" d="M90 70h220M90 150h220M90 230h220M86 74l8-8M306 74l8-8M86 154l8-8M306 154l8-8M86 234l8-8M306 234l8-8"/>
+      <text class="dw-text" x="200" y="62" text-anchor="middle">121,5</text>
+      <text class="dw-text" x="200" y="142" text-anchor="middle">121,0</text>
+      <text class="dw-text" x="200" y="222" text-anchor="middle">120,8</text>
+    </svg>
+  </article>
+
+  <article class="step step--ice" data-reveal>
+    <div class="step__text">
+      <h3 class="step__verb">Projetar</h3>
+      <p>Com as medidas, desenhamos a peça: folgas, sobreposição das folhas, furos de ferragem e o perfil certo para o peso do vidro.</p>
+    </div>
+    <svg class="step__drawing" viewBox="0 0 400 300" role="img" aria-label="Corte de um perfil de alumínio em U segurando a borda de um vidro">
+      <path class="dw-profile-o" d="M140 40v200h120V40h-20v180h-80V40z"/>
+      <rect class="dw-glass" x="186" y="10" width="28" height="200"/>
+      <path class="dw-line dw-thin" d="M160 210h26M214 210h26"/>
+      <path class="dw-dim" d="M186 262h28M182 266l8-8M210 266l8-8"/>
+      <text class="dw-text" x="200" y="286" text-anchor="middle">8 mm</text>
+    </svg>
+  </article>
+
+  <article class="step" data-reveal>
+    <div class="step__text">
+      <h3 class="step__verb">Produzir</h3>
+      <p>O vidro é cortado, lapidado e furado antes da têmpera, porque depois de temperado ele não aceita mais corte. Perfis e ferragens são separados por obra.</p>
+    </div>
+    <svg class="step__drawing" viewBox="0 0 400 300" role="img" aria-label="Chapa de vidro com linha de corte e furos marcados">
+      <rect class="dw-glass" x="40" y="40" width="320" height="220"/>
+      <path class="dw-line dw-dash" d="M250 40v220"/>
+      <circle class="dw-line" cx="80" cy="150" r="9"/>
+      <circle class="dw-line" cx="220" cy="150" r="9"/>
+      <path class="dw-line dw-thin" d="M60 70l40-20M60 100l70-36"/>
+    </svg>
+  </article>
+
+  <article class="step step--deep" data-reveal>
+    <div class="step__text">
+      <h3 class="step__verb">Instalar</h3>
+      <p>A mesma equipe que mediu instala, nivela, veda com silicone neutro e só sai depois de abrir e fechar cada folha com você.</p>
+    </div>
+    <svg class="step__drawing" viewBox="0 0 400 300" role="img" aria-label="Box instalado com nível de bolha sobre o trilho">
+      <rect class="dw-wall" x="30" y="20" width="30" height="260"/>
+      <rect class="dw-wall" x="340" y="20" width="30" height="260"/>
+      <path class="dw-line" d="M20 280h360"/>
+      <rect class="dw-profile" x="60" y="70" width="280" height="7"/>
+      <rect class="dw-glass" x="64" y="77" width="142" height="199"/>
+      <rect class="dw-glass dw-glass--front" x="196" y="79" width="142" height="197"/>
+      <rect class="dw-line" x="140" y="44" width="120" height="16"/>
+      <rect class="dw-amber" x="192" y="48" width="16" height="8"/>
+    </svg>
+  </article>
+</section>
+
+<!-- ============ MONTE SEU BOX ============ -->
+<section class="builder" id="monte" aria-labelledby="monte-h">
+  <div class="builder__head">
+    <h2 id="monte-h" class="h2" data-reveal>Monte seu box</h2>
+    <p class="builder__lead" data-reveal>Escolha o modelo e as medidas do vão. O desenho sai em escala, e a especificação vai pronta para o nosso WhatsApp.</p>
+  </div>
+
+  <form class="builder__grid" id="builder" action="mailto:contato@jelbox.com.br" method="post" enctype="text/plain">
+    <div class="builder__controls" data-reveal>
+      <fieldset class="field">
+        <legend>Modelo</legend>
+        <div class="choices">
+          <label><input type="radio" name="modelo" value="correr" checked><span>Frontal de correr</span></label>
+          <label><input type="radio" name="modelo" value="canto"><span>De canto</span></label>
+          <label><input type="radio" name="modelo" value="abrir"><span>De abrir</span></label>
+          <label><input type="radio" name="modelo" value="teto"><span>Até o teto</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="largura">Largura do vão <output id="largura-out" for="largura">120 cm</output></label>
+        <input type="range" id="largura" name="largura" min="60" max="200" step="1" value="120">
+      </div>
+      <div class="field" id="field-lado" hidden>
+        <label for="lado">Lado do canto <output id="lado-out" for="lado">90 cm</output></label>
+        <input type="range" id="lado" name="lado" min="60" max="140" step="1" value="90">
+      </div>
+      <div class="field">
+        <label for="altura">Altura <output id="altura-out" for="altura">190 cm</output></label>
+        <input type="range" id="altura" name="altura" min="180" max="220" step="1" value="190">
+      </div>
+
+      <fieldset class="field">
+        <legend>Vidro temperado 8 mm</legend>
+        <div class="choices choices--swatch">
+          <label><input type="radio" name="vidro" value="incolor" checked><span><i class="sw sw--incolor"></i>Incolor</span></label>
+          <label><input type="radio" name="vidro" value="fumê"><span><i class="sw sw--fume"></i>Fumê</span></label>
+          <label><input type="radio" name="vidro" value="bronze"><span><i class="sw sw--bronze"></i>Bronze</span></label>
+          <label><input type="radio" name="vidro" value="jateado"><span><i class="sw sw--jateado"></i>Jateado</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>Perfil de alumínio</legend>
+        <div class="choices choices--swatch">
+          <label><input type="radio" name="perfil" value="preto" checked><span><i class="sw sw--preto"></i>Preto</span></label>
+          <label><input type="radio" name="perfil" value="branco"><span><i class="sw sw--branco"></i>Branco</span></label>
+          <label><input type="radio" name="perfil" value="natural"><span><i class="sw sw--natural"></i>Natural</span></label>
+          <label><input type="radio" name="perfil" value="dourado"><span><i class="sw sw--dourado"></i>Dourado</span></label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="builder__stage" data-reveal>
+      <div class="frame frame--open frame--stage">
+        <p class="stage__label">Vista frontal</p>
+        <svg id="box-elev" class="drawing drawing--live" viewBox="0 0 420 470" role="img" aria-label="Vista frontal do box escolhido, em escala">
+          <rect class="dw-wall" x="38" y="40" width="22" height="400"/>
+          <rect class="dw-wall" x="270" y="40" width="22" height="400"/>
+          <path class="dw-line" d="M20 440h420"/>
+          <rect class="dw-glass" x="62" y="174" width="88" height="266"/>
+          <rect class="dw-glass dw-glass--front" x="142" y="176" width="88" height="264"/>
+        </svg>
+        <p class="stage__label">Planta</p>
+        <svg id="box-plan" class="drawing drawing--plan" viewBox="0 0 420 150" role="img" aria-label="Planta do box escolhido"></svg>
+      </div>
+      <div class="builder__out">
+        <p class="builder__summary" id="summary" aria-live="polite">Box frontal de correr · 120 × 190 cm · vidro incolor · perfil preto</p>
+        <div class="builder__send">
+          <a class="btn btn--amber" id="send-whats" href="https://wa.me/5500000000000">
+            <svg class="icon" aria-hidden="true"><use href="#i-whats"/></svg> Enviar pelo WhatsApp
+          </a>
+          <button class="btn btn--ghost" type="submit" id="send-mail">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg> Enviar por e-mail
+          </button>
+        </div>
+        <p class="note">Medidas aproximadas: o valor final sai depois da medição no local.</p>
+      </div>
+    </div>
+  </form>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="about" id="sobre" aria-labelledby="sobre-h">
+  <h2 id="sobre-h" class="sr-only">Sobre a JEL Box</h2>
+  <ul class="about__facts" data-reveal>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-ruler"/></svg><span><strong>Medição no local</strong>Antes de qualquer corte</span></li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg><span><strong>Seg a sex, 8h às 18h</strong>Sábado, 8h às 12h</span></li>
+    <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span><strong>(00) 00000-0000</strong>Telefone e WhatsApp</span></li>
+  </ul>
+  <div class="about__text" data-reveal>
+    <p class="statement">
+      <svg class="about__mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M20 3H3v26h26V12"/><path d="M16 3v26"/></svg>
+      <strong>A JEL Box</strong> faz o box que fecha sem pingar, a janela que corre sem esforço e o guarda-corpo que protege sem tirar a vista.
+    </p>
+    <p class="about__body">Trabalhamos com vidro, alumínio e aço. Cada peça é desenhada para o vão de verdade, com folga calculada e ferragem escolhida pelo peso do vidro. Por isso a gente mede antes de orçar.</p>
+  </div>
+</section>
+
+<!-- ============ DÚVIDAS ============ -->
+<section class="faq" id="duvidas" aria-labelledby="duvidas-h">
+  <div class="faq__row faq__row--head">
+    <h2 id="duvidas-h" class="faq__q faq__q--head" data-reveal>Dúvidas comuns</h2>
+  </div>
+  <div class="faq__row" data-reveal>
+    <h3 class="faq__q">Qual a espessura do vidro do box?</h3>
+    <p class="faq__a">8 mm de vidro temperado, que é o que a norma de box de banheiro (ABNT NBR 14207) pede. Se quebrar, ele se desfaz em pedaços pequenos, sem pontas cortantes.</p>
+  </div>
+  <div class="faq__row" data-reveal>
+    <h3 class="faq__q">Temperado ou laminado: qual a diferença?</h3>
+    <p class="faq__a">O temperado é mais resistente a impacto e esfarela ao quebrar. O laminado tem uma película entre duas lâminas que segura os cacos no lugar, por isso vai em guarda-corpos e coberturas.</p>
+  </div>
+  <div class="faq__row" data-reveal>
+    <h3 class="faq__q">Posso mandar a medida eu mesmo?</h3>
+    <p class="faq__a">Pode, para um orçamento inicial. Meça a largura em cima, no meio e embaixo, e a altura dos dois lados. Antes de produzir, nossa equipe confere tudo no local.</p>
+  </div>
+  <div class="faq__row" data-reveal>
+    <h3 class="faq__q">Quanto tempo leva da medição à instalação?</h3>
+    <p class="faq__a">Depende da têmpera do vidro e do acabamento do perfil. Informamos o prazo junto com o orçamento, já contando a data da instalação.</p>
+  </div>
+  <div class="faq__row" data-reveal>
+    <h3 class="faq__q">Box até o teto vale a pena?</h3>
+    <p class="faq__a">Ele segura o vapor dentro da área do banho, então o espelho e o resto do banheiro embaçam bem menos. Pede um exaustor ou uma janela na área do chuveiro.</p>
+  </div>
+  <div class="faq__row" data-reveal>
+    <h3 class="faq__q">Vocês fazem manutenção?</h3>
+    <p class="faq__a">Sim: troca de roldanas, borrachas e puxadores, regulagem de portas e janelas que pararam de correr, e troca de vidro trincado.</p>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="contact" id="contato" aria-labelledby="contato-h">
+  <div class="contact__top">
+    <h2 id="contato-h" class="contact__h" data-reveal>Peça sua visita técnica</h2>
+    <a class="btn btn--amber js-whats" data-msg="Olá, JEL Box! Gostaria de agendar uma medição." href="https://wa.me/5500000000000" data-reveal>
+      <svg class="icon" aria-hidden="true"><use href="#i-whats"/></svg> Chamar no WhatsApp
+    </a>
+  </div>
+  <a class="contact__mail" href="mailto:contato@jelbox.com.br" data-reveal><span>contato@</span><span>jelbox.com.br</span></a>
+  <div class="contact__foot">
+    <p><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg> <a href="tel:+5500000000000">(00) 00000-0000</a></p>
+    <p><svg class="icon" aria-hidden="true"><use href="#i-insta"/></svg> <a href="https://instagram.com/" rel="noopener">@jelbox</a></p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPÉ ============ -->
+<footer class="footer">
+  <div class="footer__cols">
+    <div>
+      <p class="footer__first">JEL Box</p>
+      <p>Vidraçaria e serralheria</p>
+      <p>Endereço da loja</p>
+    </div>
+    <ul>
+      <li class="footer__first">Produtos</li>
+      <li><a href="#produtos">Box de banheiro</a></li>
+      <li><a href="#produtos">Janelas e portas</a></li>
+      <li><a href="#produtos">Guarda-corpos</a></li>
+      <li><a href="#produtos">Serralheria</a></li>
+    </ul>
+    <ul>
+      <li class="footer__first">Atendimento</li>
+      <li>Seg a sex, 8h às 18h</li>
+      <li>Sábado, 8h às 12h</li>
+    </ul>
+    <ul>
+      <li class="footer__first">Contato</li>
+      <li><a href="tel:+5500000000000">(00) 00000-0000</a></li>
+      <li><a href="mailto:contato@jelbox.com.br">contato@jelbox.com.br</a></li>
+      <li><a href="https://instagram.com/" rel="noopener">Instagram</a></li>
+    </ul>
+  </div>
+  <p class="footer__word" aria-hidden="true">JEL BOX</p>
+  <p class="footer__legal">© <span id="year">2026</span> JEL Box. Todos os direitos reservados.</p>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
