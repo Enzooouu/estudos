@@ -107,7 +107,7 @@ const initials = (name: string) =>
     .map((w) => w[0]?.toUpperCase())
     .join('');
 
-/** Cartão: foto e nome em cima, estrelas embaixo deles, depois o texto. */
+/** Cartão: foto e nome em cima, estrelas embaixo deles, o texto e, no fim, quando foi feita. */
 function Card({ review }: { review: Review }) {
   return (
     <figure className={cardBox}>
@@ -120,13 +120,12 @@ function Card({ review }: { review: Review }) {
             {initials(review.name)}
           </span>
         )}
-        <span className="grid min-w-0 gap-0.5 leading-tight">
-          <span className="text-deep truncate font-semibold">{review.name}</span>
-          <span className="text-muted text-[13px]">{review.when ? `${review.when} · Google` : 'Google'}</span>
-        </span>
+        <span className="text-deep min-w-0 truncate font-semibold">{review.name}</span>
       </figcaption>
       <Stars n={review.stars} />
       <blockquote className="line-clamp-5 flex-1 text-[16px] leading-[1.55]">“{review.text}”</blockquote>
+      {/* quando foi feita: embaixo, à direita, como antes */}
+      <p className="text-muted text-right text-[13.5px]">{review.when ? `${review.when} · Google` : 'Google'}</p>
     </figure>
   );
 }
@@ -137,10 +136,7 @@ function Blank() {
     <div className={`${cardBox} min-h-[220px]`}>
       <div className="flex items-center gap-3">
         <span className="bg-line h-11 w-11 shrink-0 rounded-full" />
-        <span className="grid gap-2">
-          <span className="bg-line h-2.5 w-28 rounded-full" />
-          <span className="bg-line h-2 w-16 rounded-full" />
-        </span>
+        <span className="bg-line h-2.5 w-28 rounded-full" />
       </div>
       <Stars n={5} />
       <div className="grid flex-1 content-start gap-2.5 pt-1">
@@ -148,6 +144,7 @@ function Blank() {
         <span className="bg-line h-2.5 w-[92%] rounded-full" />
         <span className="bg-line h-2.5 w-[70%] rounded-full" />
       </div>
+      <span className="bg-line h-2 w-24 self-end rounded-full" />
     </div>
   );
 }
