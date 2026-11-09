@@ -12,22 +12,32 @@ const pick = (id: ProductId) => window.dispatchEvent(new CustomEvent<ProductId>(
 
 /**
  * Barra fixa no topo: JEL Box volta ao início, cada produto leva à sua área.
- * Sempre em grafite, sobre a foto e durante a rolagem.
+ * Transparente sobre a foto do topo; grafite a partir da seção seguinte.
  */
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
+  const [solid, setSolid] = useState(false);
 
+  // transparente enquanto a foto do topo está atrás da barra; grafite depois dela
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const hero = document.getElementById('topo');
+    const onScroll = () => {
+      const bar = window.innerWidth >= 1024 ? 72 : 104;
+      const end = hero ? hero.offsetTop + hero.offsetHeight - bar : 24;
+      setSolid(window.scrollY > end);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, []);
 
   return (
     <header
-      className={`bg-graphite text-frost fixed inset-x-0 top-0 z-50 transition-shadow duration-300 ${
-        scrolled ? 'shadow-[0_1px_0_rgb(214_238_247/0.12)]' : ''
+      className={`text-frost fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-400 ${
+        solid ? 'bg-graphite shadow-[0_1px_0_rgb(214_238_247/0.12)]' : 'bg-transparent'
       }`}
     >
       <div className="px-page flex h-16 items-center justify-between gap-6 lg:h-[72px]">
