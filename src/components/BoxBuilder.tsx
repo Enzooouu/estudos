@@ -48,9 +48,9 @@ function Choices<T extends string>({
               onChange={() => onChange(o.value)}
               className="peer absolute inset-0 m-0 cursor-pointer opacity-0"
             />
-            <span className="bg-ice group-hover:bg-ice-strong peer-checked:bg-frost peer-checked:border-deep peer-focus-visible:outline-bronze flex min-h-[52px] items-center gap-3 border-2 border-transparent px-4 text-base font-medium transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
+            <span className="bg-ice group-hover:bg-ice-strong peer-checked:bg-frost peer-checked:border-deep peer-focus-visible:outline-bronze flex min-h-[52px] items-center gap-3 rounded-[var(--r-sm)] border-2 border-transparent px-4 text-base font-medium transition-colors peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2">
               {o.swatch && (
-                <i aria-hidden="true" className="h-[18px] w-[18px] flex-none border border-deep/35" style={{ background: o.swatch }} />
+                <i aria-hidden="true" className="h-[18px] w-[18px] flex-none rounded-[3px] border border-deep/35" style={{ background: o.swatch }} />
               )}
               {o.label}
             </span>

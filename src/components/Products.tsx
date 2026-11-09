@@ -50,7 +50,7 @@ export function Products() {
       />
 
       <div id="produtos-lista" className="mt-14 grid items-start gap-[clamp(32px,5vw,96px)] lg:mt-20 lg:grid-cols-2">
-        <Reveal className="bg-ice aspect-square w-full max-w-[640px] p-[clamp(28px,4vw,56px)] lg:sticky lg:top-24 lg:max-w-none">
+        <Reveal className="bg-ice aspect-square rounded-[var(--r)] w-full max-w-[640px] p-[clamp(28px,4vw,56px)] lg:sticky lg:top-24 lg:max-w-none">
           <div className="frame-open h-full p-[clamp(20px,3vw,40px)]">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
@@ -92,7 +92,7 @@ export function Products() {
                     {p.tags.map((t) => (
                       <span
                         key={t}
-                        className={`border px-2 py-1 text-[13px] leading-none font-medium transition-colors ${on ? 'border-deep/40' : 'border-line'}`}
+                        className={`rounded-[var(--r-sm)] border px-2 py-1 text-[13px] leading-none font-medium transition-colors ${on ? 'border-deep/40' : 'border-line'}`}
                       >
                         {t}
                       </span>

@@ -39,12 +39,12 @@ export function Location() {
             <iframe
               src={site.mapEmbed}
               title={`Mapa: ${site.name}`}
-              className="aspect-[16/10] w-full border-0 grayscale-[0.4]"
+              className="aspect-[16/10] w-full rounded-[var(--r)] border-0 grayscale-[0.4]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           ) : (
-            <div className="bg-ice text-deep grid aspect-[16/10] w-full place-items-center p-6 text-center">
+            <div className="bg-ice text-deep grid aspect-[16/10] rounded-[var(--r)] w-full place-items-center p-6 text-center">
               <div className="grid justify-items-center gap-2">
                 <Icon name="pin" className="text-bronze !h-7 !w-7" />
                 <p className="font-semibold">Mapa da loja</p>

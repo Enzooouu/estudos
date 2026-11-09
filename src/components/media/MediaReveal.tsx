@@ -32,7 +32,7 @@ export function MediaReveal({
     <motion.div
       ref={ref}
       data-reveal-media
-      className={`relative overflow-hidden ${className}`}
+      className={`relative overflow-hidden rounded-[var(--r)] ${className}`}
       initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
       whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
       viewport={view}

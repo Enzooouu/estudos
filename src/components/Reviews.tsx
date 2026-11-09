@@ -57,7 +57,7 @@ export function Reviews() {
           ))}
         </ul>
       ) : (
-        <Reveal className="border-line grid place-items-center gap-3 border border-dashed px-6 py-16 text-center">
+        <Reveal className="border-line grid place-items-center gap-3 rounded-[var(--r)] border border-dashed px-6 py-16 text-center">
           <Stars n={5} />
           <p className="font-title text-h3 font-medium tracking-[-0.02em]">Avaliações do Google</p>
           <p className="text-muted max-w-[46ch]">

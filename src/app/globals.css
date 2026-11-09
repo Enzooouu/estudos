@@ -28,6 +28,9 @@
 }
 
 :root {
+  /* Cantos: nada no site fica com canto vivo. */
+  --r-sm: 4px; /* botões, etiquetas, controles */
+  --r: 8px; /* fotos, quadros, cartões, painéis */
   --m: clamp(20px, 2.2vw, 32px); /* margem externa única */
   --gap: clamp(104px, 12vw, 176px); /* espaço entre seções */
 }
@@ -87,7 +90,7 @@
     stroke: currentColor;
     stroke-width: 1.5;
     stroke-linecap: square;
-    stroke-linejoin: miter;
+    stroke-linejoin: round;
   }
 
   /* Botões: retângulos retos e compactos, rótulo em maiúsculas com a seta de retorno */
@@ -102,6 +105,7 @@
     line-height: 1;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    border-radius: var(--r-sm);
     cursor: pointer;
     transition:
       transform 0.2s var(--ease-out-expo),
@@ -163,6 +167,7 @@
     width: 6px;
     height: 6px;
     flex: none;
+    border-radius: 1.5px;
     background: currentColor;
   }
 
@@ -182,12 +187,14 @@
   .frame-open::before {
     left: 0;
     top: 0;
+    border-top-left-radius: var(--r);
     border-right: 0;
     border-bottom: 0;
   }
   .frame-open::after {
     right: 0;
     bottom: 0;
+    border-bottom-right-radius: var(--r);
     border-left: 0;
     border-top: 0;
   }
@@ -369,6 +376,7 @@
   }
   .range::-webkit-slider-runnable-track {
     height: 2px;
+    border-radius: 1px;
     background: var(--color-deep);
   }
   .range::-moz-range-track {
@@ -382,7 +390,7 @@
     margin-top: -14px;
     background: var(--color-bronze);
     border: 2px solid var(--color-deep);
-    border-radius: 0;
+    border-radius: 3px;
     transition: transform 0.2s var(--ease-out-expo);
   }
   .range::-moz-range-thumb {
@@ -390,7 +398,7 @@
     height: 28px;
     background: var(--color-bronze);
     border: 2px solid var(--color-deep);
-    border-radius: 0;
+    border-radius: 3px;
   }
   .range:active::-webkit-slider-thumb {
     transform: scaleY(1.12);

@@ -30,7 +30,7 @@ type Props = {
  */
 export function Media({ id, tone = 'light', fill, priority, compact, tagClassName, className = '', sizes = '100vw' }: Props) {
   const m = getMedia(id);
-  const box = fill ? 'absolute inset-0' : 'relative w-full';
+  const box = fill ? 'absolute inset-0' : 'relative w-full rounded-[var(--r)]';
   const style = fill ? undefined : { aspectRatio: m.ratio };
 
   if (m.src && m.kind === 'video') {
@@ -125,7 +125,7 @@ function Placeholder({
   return (
     <figure
       data-placeholder={id}
-      className={`frame-open relative m-0 flex h-full w-full flex-col justify-end overflow-hidden p-[clamp(26px,3.6vw,48px)] ${surface} ${className}`}
+      className={`frame-open relative m-0 flex h-full w-full flex-col justify-end overflow-hidden rounded-[var(--r)] p-[clamp(26px,3.6vw,48px)] ${surface} ${className}`}
       style={{
         aspectRatio: m.ratio,
         ['--frame-color' as string]: dark ? 'rgb(214 238 247 / .35)' : 'rgb(59 110 165 / .55)',
