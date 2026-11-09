@@ -32,7 +32,7 @@ export function Hero() {
     <header
       ref={ref}
       id="topo"
-      className="bg-deep text-frost relative isolate grid min-h-[max(100svh,640px)] grid-rows-[auto_auto_1fr] md:min-h-[780px] lg:min-h-[max(100svh,680px)] overflow-hidden"
+      className="bg-deep text-frost relative isolate grid min-h-[max(100svh,760px)] grid-rows-[auto_auto_1fr] md:min-h-[780px] lg:min-h-[max(100svh,680px)] overflow-hidden"
     >
       {/* vídeo ou foto principal, atrás de tudo, com a sobreposição azul do manual */}
       <motion.div aria-hidden={!hasMedia} className="absolute inset-0 -z-10" style={{ scale: still ? 1 : mediaScale }}>
@@ -42,7 +42,7 @@ export function Hero() {
           priority
           tone="dark"
           className="!bg-deep"
-          tagClassName="left-[var(--m)] bottom-[calc(66vw+28px)] md:bottom-[calc(46vw+28px)] lg:bottom-[calc(15.3vw+56px)]"
+          tagClassName="left-[var(--m)] bottom-[calc(40vw+20px)] md:bottom-[calc(46vw+28px)] lg:bottom-[calc(15.3vw+56px)]"
         />
         {hasMedia && <div className="bg-deep/70 absolute inset-0" />}
       </motion.div>
@@ -92,7 +92,7 @@ export function Hero() {
         initial={{ opacity: 0, x: '30vw' }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.4, ease, delay: 0.35 }}
-        className="absolute right-[10vw] bottom-0 z-20 h-[66vw] w-[34vw] md:right-[calc(var(--m)+4vw)] md:h-[46vw] md:w-[27vw] lg:top-[92px] lg:h-auto lg:w-[clamp(200px,27vw,420px)]"
+        className="absolute right-[6vw] bottom-0 z-20 h-[66vw] w-[30vw] md:right-[calc(var(--m)+4vw)] md:h-[46vw] md:w-[27vw] lg:top-[92px] lg:h-auto lg:w-[clamp(200px,27vw,420px)]"
       >
         <motion.div style={{ x: still ? 0 : paneX }} className="glass-pane border-ice/85 relative h-full border-x-[3px]">
           <span className="bg-ice/85 absolute -left-[3px] top-0 h-[3px] w-[64%]" />
