@@ -122,13 +122,13 @@ export function Header() {
           <motion.div
             ref={panel}
             id="menu-principal"
-            className="glass-deep absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7 max-lg:top-16"
+            className="glass-gray absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7 max-lg:top-16"
             initial={{ opacity: 0, y: -12, scaleY: 0.96 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
             transition={{ duration: 0.4, ease }}
           >
-            <p className="label text-ice/80">Menu</p>
+            <p className="label text-frost/80">Menu</p>
             <nav aria-label="Menu">
               <ul className="mt-5 grid gap-1">
                 {nav.map((n) => (
@@ -144,7 +144,7 @@ export function Header() {
                 ))}
               </ul>
             </nav>
-            <div className="text-ice/85 mt-6 grid gap-1 text-sm">
+            <div className="text-frost/85 mt-6 grid gap-1 text-sm">
               <a href={site.phoneHref} className="hover:text-frost">{site.phoneDisplay}</a>
               <a href={`mailto:${site.email}`} className="hover:text-frost">{site.email}</a>
             </div>

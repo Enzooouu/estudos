@@ -204,6 +204,12 @@
     -webkit-backdrop-filter: blur(18px) saturate(1.2);
     backdrop-filter: blur(18px) saturate(1.2);
   }
+  /* Vidro cinza médio: menu do topo */
+  .glass-gray {
+    background: rgb(107 111 115 / 0.9);
+    -webkit-backdrop-filter: blur(18px) saturate(1.1);
+    backdrop-filter: blur(18px) saturate(1.1);
+  }
   /* Vidro azul claro sobre fundo escuro: painel do rodapé */
   .glass-light {
     background: rgb(59 110 165 / 0.3);
@@ -212,6 +218,9 @@
     box-shadow: inset 0 0 0 1px rgb(214 238 247 / 0.18);
   }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass-gray {
+      background: rgb(107 111 115 / 0.98);
+    }
     .glass-pane {
       background: rgb(46 92 140 / 0.82);
     }
@@ -225,12 +234,16 @@
   @media (prefers-reduced-transparency: reduce) {
     .glass-pane,
     .glass-deep,
+    .glass-gray,
     .glass-light {
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }
     .glass-pane {
       background: rgb(46 92 140 / 0.9);
+    }
+    .glass-gray {
+      background: rgb(107 111 115 / 0.98);
     }
     .glass-deep {
       background: rgb(18 52 77 / 0.97);
