@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { nav, site, waLink } from '@/content/site';
+import { nav, sections, site, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
 import { GlassLens } from './GlassLens';
 import { Icon } from './Icon';
@@ -11,16 +11,18 @@ import { Icon } from './Icon';
 export const PRODUCT_EVENT = 'jel:produto';
 
 const ease = [0.165, 0.84, 0.44, 1] as const; // ease-out-quart
-
+const easeInOut = [0.77, 0, 0.175, 1] as const; // ease-in-out-quart
 
 /**
  * Barra fixa no topo: JEL Box volta ao início e os três traços abrem o menu.
  * Transparente sobre a foto do topo; grafite a partir da seção seguinte.
- * O botão de três traços abre um painel de vidro com todas as seções e o orçamento.
+ * O botão de três traços abre um painel de vidro com as seções numeradas (a atual em bronze),
+ * os contatos e o orçamento, e escurece a página atrás.
  */
 export function Header() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  const [current, setCurrent] = useState<string>(sections[0].id);
   const button = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
 
@@ -45,6 +47,19 @@ export function Header() {
       window.removeEventListener('mousedown', onClick);
     };
   }, [open]);
+
+  // seção atual = a que cruza a linha do meio da tela (marcada no menu)
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setCurrent(e.target.id)),
+      { rootMargin: '-50% 0px -50% 0px' },
+    );
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, []);
 
   // transparente enquanto a foto do topo está atrás da barra; grafite depois dela
   useEffect(() => {
@@ -102,43 +117,100 @@ export function Header() {
       {/* filete de vidro sob a barra, de ponta a ponta */}
       <div aria-hidden="true" className="glass-hairline pointer-events-none absolute inset-x-0 bottom-0" />
 
-
       <AnimatePresence>
         {open && (
-          <motion.div
-            ref={panel}
-            id="menu-principal"
-            className="glass-tint isolate absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7"
-            initial={{ opacity: 0, y: -12, scaleY: 0.96 }}
-            animate={{ opacity: 1, y: 0, scaleY: 1 }}
-            exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
-            transition={{ duration: 0.4, ease }}
-          >
-            <GlassLens />
-            <p className="label text-frost/80">Menu</p>
-            <nav aria-label="Menu">
-              <ul className="mt-5 grid gap-1">
-                {nav.map((n) => (
-                  <li key={n.id}>
-                    <a
-                      href={`#${n.id}`}
-                      onClick={() => setOpen(false)}
-                      className="hover:text-bronze block py-0.5 text-[22px] leading-tight font-medium tracking-[-0.01em] transition-colors"
-                    >
-                      {n.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-            <div className="text-frost/85 mt-6 grid gap-1 text-sm">
-              <a href={site.phoneHref} className="hover:text-frost">{site.phoneDisplay}</a>
-              <a href={`mailto:${site.email}`} className="hover:text-frost">{site.email}</a>
-            </div>
-            <a className="btn btn-bronze mt-6 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
-              <Icon name="ret" /> Pedir orçamento
-            </a>
-          </motion.div>
+          <>
+            {/* escurece a página atrás do menu; clicar fora fecha */}
+            <motion.div
+              key="veu"
+              aria-hidden="true"
+              className="fixed inset-x-0 top-16 bottom-0 -z-10 bg-black/40 lg:top-[72px]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease }}
+            />
+
+            <motion.div
+              key="painel"
+              ref={panel}
+              id="menu-principal"
+              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(420px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              initial={{ clipPath: 'inset(0 0 100% 0)' }}
+              animate={{ clipPath: 'inset(0 0 0% 0)' }}
+              exit={{ clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.45, ease: easeInOut } }}
+              transition={{ duration: 0.7, ease: easeInOut }}
+            >
+              <GlassLens />
+
+              <div className="flex items-center justify-between px-7 pt-7 pb-5">
+                <p className="label text-frost/75">Navegação</p>
+                <p className="text-frost/45 text-[12px] font-semibold tracking-[0.14em] uppercase tabular-nums">{String(nav.length).padStart(2, '0')} seções</p>
+              </div>
+
+              <nav aria-label="Menu">
+                <ul className="border-t border-white/10">
+                  {nav.map((n, i) => {
+                    const here = n.id === current;
+                    return (
+                      <li key={n.id} className="overflow-hidden border-b border-white/10">
+                        <motion.a
+                          href={`#${n.id}`}
+                          onClick={() => setOpen(false)}
+                          aria-current={here ? 'location' : undefined}
+                          className={`group/item flex items-baseline gap-4 px-7 py-3 transition-colors duration-300 hover:bg-white/[0.04] ${
+                            here ? 'text-bronze' : 'text-frost'
+                          }`}
+                          initial={{ y: '100%', opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.8, ease, delay: 0.18 + i * 0.045 }}
+                        >
+                          <span className={`w-6 shrink-0 text-[12px] font-semibold tracking-[0.08em] tabular-nums ${here ? 'text-bronze' : 'text-frost/40'}`}>
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <span className="flex-1 text-[clamp(22px,2vw,26px)] leading-[1.15] font-medium tracking-[-0.015em] transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-1.5">
+                            {n.label}
+                          </span>
+                          <span className="text-bronze -translate-x-2 self-center opacity-0 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-0 group-hover/item:opacity-100 group-focus-visible/item:translate-x-0 group-focus-visible/item:opacity-100">
+                            <Icon name="ret" />
+                          </span>
+                        </motion.a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+
+              <motion.div
+                className="grid gap-6 px-7 pt-7 pb-7"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease, delay: 0.18 + nav.length * 0.045 }}
+              >
+                <dl className="grid grid-cols-2 gap-x-6 gap-y-4 text-[14px] leading-snug">
+                  <div>
+                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">Telefone</dt>
+                    <dd><a href={site.phoneHref} className="link-grow text-frost/90 hover:text-frost">{site.phoneDisplay}</a></dd>
+                  </div>
+                  <div>
+                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">Instagram</dt>
+                    <dd><a href={site.instagram.url} target="_blank" rel="noopener" className="link-grow text-frost/90 hover:text-frost">{site.instagram.handle}</a></dd>
+                  </div>
+                  <div className="col-span-2">
+                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
+                    <dd><a href={`mailto:${site.email}`} className="link-grow text-frost/90 hover:text-frost">{site.email}</a></dd>
+                  </div>
+                  <div className="col-span-2">
+                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">Atendimento</dt>
+                    <dd className="text-frost/90">{site.hours.join(' · ')}</dd>
+                  </div>
+                </dl>
+                <a className="btn btn-bronze w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+                  <Icon name="ret" /> Pedir orçamento pelo WhatsApp
+                </a>
+              </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
