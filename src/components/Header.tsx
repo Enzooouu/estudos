@@ -103,7 +103,7 @@ export function Header() {
             aria-current={onBlog ? 'page' : undefined}
             // botão com contorno: é uma página à parte, diferente do menu (três traços) ao lado
             className={`inline-flex h-9 items-center rounded-[var(--r-sm)] border px-3.5 text-[12.5px] leading-none font-semibold tracking-[0.12em] uppercase transition-colors ${
-              onBlog ? 'border-bronze text-bronze' : 'border-white/30 hover:border-white/60 hover:bg-white/10'
+              onBlog ? 'border-white/80 bg-white/10' : 'border-white/35 hover:border-white/70 hover:bg-white/10'
             }`}
           >
             Blog
