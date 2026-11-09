@@ -36,6 +36,9 @@ export const sections = [
 
 export const nav = sections.slice(1);
 
+/** Itens do menu do topo: só os caminhos principais. */
+export const menu = nav.filter((s) => ['produtos', 'obras', 'monte', 'sobre', 'contato'].includes(s.id));
+
 export type ProductId = 'box' | 'janelas' | 'guarda' | 'espelhos' | 'coberturas' | 'serralheria';
 
 /** Imagem de cada linha de produto no cadastro de mídias. */

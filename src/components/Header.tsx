@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { nav, sections, waLink } from '@/content/site';
+import { menu, sections, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
 import { GlassLens } from './GlassLens';
 import { Icon } from './Icon';
@@ -124,7 +124,7 @@ export function Header() {
               key="painel"
               ref={panel}
               id="menu-principal"
-              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(260px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
               initial={{ clipPath: 'inset(0 0 100% 0)' }}
               animate={{ clipPath: 'inset(0 0 0% 0)' }}
               exit={{ clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.45, ease: easeInOut } }}
@@ -132,9 +132,9 @@ export function Header() {
             >
               <GlassLens />
 
-              <nav aria-label="Menu" className="px-2 pt-3">
+              <nav aria-label="Menu" className="px-2 pt-4">
                 <ul>
-                  {nav.map((n, i) => {
+                  {menu.map((n, i) => {
                     const here = n.id === current;
                     return (
                       <li key={n.id} className="overflow-hidden">
@@ -142,7 +142,7 @@ export function Header() {
                           href={`#${n.id}`}
                           onClick={() => setOpen(false)}
                           aria-current={here ? 'location' : undefined}
-                          className={`group/item flex items-center justify-between px-3 py-2 text-[16px] leading-tight font-medium transition-colors duration-300 hover:text-bronze ${
+                          className={`group/item flex items-center justify-between px-3 py-2.5 text-[19px] leading-tight font-medium transition-colors duration-300 hover:text-bronze ${
                             here ? 'text-bronze' : 'text-frost'
                           }`}
                           initial={{ y: '100%', opacity: 0 }}
@@ -164,7 +164,7 @@ export function Header() {
                 className="px-5 pt-3 pb-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, ease, delay: 0.15 + nav.length * 0.04 }}
+                transition={{ duration: 0.6, ease, delay: 0.15 + menu.length * 0.04 }}
               >
                 <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
                   <Icon name="ret" /> Pedir orçamento
