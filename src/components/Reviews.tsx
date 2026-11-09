@@ -28,9 +28,11 @@ const fill = <T,>(list: T[], min = 8) => {
  */
 export function Reviews() {
   const has = reviews.length > 0;
+  // primeira metade da lista na faixa de cima, segunda metade na de baixo (18 → 9 + 9);
   // com poucas avaliações, as duas faixas usam todas (a de baixo em outra ordem)
-  const top = has ? (reviews.length >= 6 ? reviews.filter((_, i) => i % 2 === 0) : reviews) : [];
-  const bottom = has ? (reviews.length >= 6 ? reviews.filter((_, i) => i % 2 === 1) : [...reviews].reverse()) : [];
+  const half = Math.ceil(reviews.length / 2);
+  const top = has ? (reviews.length >= 6 ? reviews.slice(0, half) : reviews) : [];
+  const bottom = has ? (reviews.length >= 6 ? reviews.slice(half) : [...reviews].reverse()) : [];
 
   return (
     <section id="avaliacoes" aria-labelledby="avaliacoes-h" className="pb-[var(--gap)]">
