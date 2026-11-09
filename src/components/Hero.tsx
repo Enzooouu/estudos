@@ -47,7 +47,7 @@ export function Hero() {
         transition={{ duration: 1.8, ease }}
       >
         <motion.div className="absolute inset-0" style={still ? { scale: 1.04 } : { scale: imgScale, y: imgY }}>
-          <Media id="hero-principal" fill priority sizes="100vw" className="[&_img]:object-[60%_50%]" />
+          <Media id="hero-principal" fill priority sizes="100vw" className="[&_img]:object-[22%_50%] lg:[&_img]:object-[60%_50%]" />
         </motion.div>
         {/* escurecimento neutro: mantém as cores reais da foto, só mais escura para o texto ler bem */}
         <div className="absolute inset-0 bg-black/45" />

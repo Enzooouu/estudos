@@ -33,8 +33,9 @@ export type MediaEntry = {
 export const media = {
   /* ---------- Topo ---------- */
   'hero-principal': {
-    // Fundo do topo: espelho com LED em quarto planejado, escurecido pela camada azul.
-    // Imagem atual com 758 px de largura: troque por uma versão com 2400 px ou mais.
+    // Fundo do topo: banheiro com box de vidro fixo e perfil preto, bancada e espelhos com moldura.
+    // Foto: Rodrigo Aguiar (@rodsph). Arquivos com 2560 px de largura, em proporção 4:3, para o
+    // celular poder mostrar o box (corte à esquerda) e o computador o conjunto (corte central).
     // Para vídeo, use kind: 'video' e src .mp4.
     kind: 'foto',
     label: 'Fotografia principal',
