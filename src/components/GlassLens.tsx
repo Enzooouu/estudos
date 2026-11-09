@@ -3,7 +3,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 
 /** Filtros que o painel aplica ao que está atrás dele, depois da lente. */
-const TINT = 'blur(3px) brightness(0.55) saturate(0.9)';
+const TINT = 'blur(3px) brightness(0.38) saturate(0.8)';
 
 /** quanto o vidro amplia o que está atrás (0,1 = 10%) */
 const ZOOM = 0.1;
