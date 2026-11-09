@@ -233,64 +233,6 @@
     mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
   }
 
-  /* Botão do menu: três traços finos de tamanhos diferentes que viram um X */
-  .menu-icon {
-    position: relative;
-    display: block;
-    width: 26px;
-    height: 14px;
-  }
-  .menu-icon > span {
-    position: absolute;
-    right: 0;
-    height: 1.5px;
-    background: currentColor;
-    transition:
-      transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-      width 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-      opacity 0.3s ease;
-  }
-  .menu-icon > span:nth-child(1) {
-    top: 0;
-    width: 26px;
-  }
-  .menu-icon > span:nth-child(2) {
-    top: calc(50% - 0.75px);
-    width: 18px;
-  }
-  .menu-icon > span:nth-child(3) {
-    bottom: 0;
-    width: 11px;
-  }
-  /* no hover os traços se alinham */
-  .menu-btn:hover .menu-icon > span {
-    width: 26px;
-  }
-  .menu-btn:hover {
-    color: var(--color-bronze);
-  }
-  .menu-btn {
-    transition: color 0.3s ease;
-  }
-  /* aberto: o de cima e o de baixo giram para formar o X, o do meio some */
-  .menu-btn[data-open] .menu-icon > span:nth-child(1) {
-    width: 22px;
-    transform: translate(-2px, 6.25px) rotate(45deg);
-  }
-  .menu-btn[data-open] .menu-icon > span:nth-child(2) {
-    opacity: 0;
-    transform: translateX(8px);
-  }
-  .menu-btn[data-open] .menu-icon > span:nth-child(3) {
-    width: 22px;
-    transform: translate(-2px, -6.25px) rotate(-45deg);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .menu-icon > span {
-      transition: none;
-    }
-  }
-
   /* Vidro azul claro sobre fundo escuro: painel do rodapé */
   .glass-light {
     background: rgb(59 110 165 / 0.3);

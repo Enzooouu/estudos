@@ -97,20 +97,9 @@ export function Header() {
           aria-controls="menu-principal"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setOpen((v) => !v)}
-          data-open={open || undefined}
-          className="menu-btn group -mr-2 inline-flex h-11 shrink-0 cursor-pointer items-center gap-3 pl-2 pr-2"
+          className="-mr-2 grid h-11 w-11 shrink-0 cursor-pointer place-items-center hover:text-bronze transition-colors"
         >
-          <span className="relative hidden h-[13px] overflow-hidden text-[12px] leading-[13px] font-semibold tracking-[0.14em] uppercase sm:block" aria-hidden="true">
-            <span className="block transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-data-[open]:-translate-y-1/2">
-              <span className="block">Menu</span>
-              <span className="block">Fechar</span>
-            </span>
-          </span>
-          <span className="menu-icon" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
+          <Icon name={open ? 'close' : 'menu'} className="!h-7 !w-7" />
         </button>
       </div>
 
@@ -135,7 +124,7 @@ export function Header() {
               key="painel"
               ref={panel}
               id="menu-principal"
-              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(420px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
               initial={{ clipPath: 'inset(0 0 100% 0)' }}
               animate={{ clipPath: 'inset(0 0 0% 0)' }}
               exit={{ clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.45, ease: easeInOut } }}
@@ -143,9 +132,9 @@ export function Header() {
             >
               <GlassLens />
 
-              <div className="flex items-center justify-between px-7 pt-7 pb-5">
-                <p className="label text-frost/75">Navegação</p>
-                <p className="text-frost/45 text-[12px] font-semibold tracking-[0.14em] uppercase tabular-nums">{String(nav.length).padStart(2, '0')} seções</p>
+              <div className="flex items-center justify-between px-5 pt-5 pb-3.5">
+                <p className="label text-frost/75 !text-[11px]">Navegação</p>
+                <p className="text-frost/45 text-[10.5px] font-semibold tracking-[0.14em] uppercase tabular-nums">{String(nav.length).padStart(2, '0')} seções</p>
               </div>
 
               <nav aria-label="Menu">
@@ -158,17 +147,17 @@ export function Header() {
                           href={`#${n.id}`}
                           onClick={() => setOpen(false)}
                           aria-current={here ? 'location' : undefined}
-                          className={`group/item flex items-baseline gap-4 px-7 py-3 transition-colors duration-300 hover:bg-white/[0.04] ${
+                          className={`group/item flex items-baseline gap-3 px-5 py-2 transition-colors duration-300 hover:bg-white/[0.04] ${
                             here ? 'text-bronze' : 'text-frost'
                           }`}
                           initial={{ y: '100%', opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ duration: 0.8, ease, delay: 0.18 + i * 0.045 }}
                         >
-                          <span className={`w-6 shrink-0 text-[12px] font-semibold tracking-[0.08em] tabular-nums ${here ? 'text-bronze' : 'text-frost/40'}`}>
+                          <span className={`w-5 shrink-0 text-[10.5px] font-semibold tracking-[0.08em] tabular-nums ${here ? 'text-bronze' : 'text-frost/40'}`}>
                             {String(i + 1).padStart(2, '0')}
                           </span>
-                          <span className="flex-1 text-[clamp(22px,2vw,26px)] leading-[1.15] font-medium tracking-[-0.015em] transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-1.5">
+                          <span className="flex-1 text-[17px] leading-[1.25] font-medium tracking-[-0.015em] transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-1">
                             {n.label}
                           </span>
                           <span className="text-bronze -translate-x-2 self-center opacity-0 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-0 group-hover/item:opacity-100 group-focus-visible/item:translate-x-0 group-focus-visible/item:opacity-100">
@@ -182,31 +171,31 @@ export function Header() {
               </nav>
 
               <motion.div
-                className="grid gap-6 px-7 pt-7 pb-7"
+                className="grid gap-4 px-5 pt-4 pb-5"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease, delay: 0.18 + nav.length * 0.045 }}
               >
-                <dl className="grid grid-cols-2 gap-x-6 gap-y-4 text-[14px] leading-snug">
+                <dl className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-[13px] leading-snug">
                   <div>
-                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">Telefone</dt>
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Telefone</dt>
                     <dd><a href={site.phoneHref} className="link-grow text-frost/90 hover:text-frost">{site.phoneDisplay}</a></dd>
                   </div>
                   <div>
-                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">Instagram</dt>
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Instagram</dt>
                     <dd><a href={site.instagram.url} target="_blank" rel="noopener" className="link-grow text-frost/90 hover:text-frost">{site.instagram.handle}</a></dd>
                   </div>
                   <div className="col-span-2">
-                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
                     <dd><a href={`mailto:${site.email}`} className="link-grow text-frost/90 hover:text-frost">{site.email}</a></dd>
                   </div>
                   <div className="col-span-2">
-                    <dt className="text-frost/45 mb-1 text-[11px] font-semibold tracking-[0.14em] uppercase">Atendimento</dt>
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Atendimento</dt>
                     <dd className="text-frost/90">{site.hours.join(' · ')}</dd>
                   </div>
                 </dl>
-                <a className="btn btn-bronze w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
-                  <Icon name="ret" /> Pedir orçamento pelo WhatsApp
+                <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+                  <Icon name="ret" /> Pedir orçamento
                 </a>
               </motion.div>
             </motion.div>
