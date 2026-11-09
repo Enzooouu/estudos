@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { nav, products, site, waLink, type ProductId } from '@/content/site';
 import { BrandMark } from './BrandMark';
+import { GlassLens } from './GlassLens';
 import { Icon } from './Icon';
 
 /** Abre a seção de produtos já com o produto escolhido. */
@@ -128,6 +129,7 @@ export function Header() {
             exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
             transition={{ duration: 0.4, ease }}
           >
+            <GlassLens />
             <p className="label text-frost/80">Menu</p>
             <nav aria-label="Menu">
               <ul className="mt-5 grid gap-1">
