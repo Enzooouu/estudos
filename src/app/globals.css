@@ -187,14 +187,14 @@
   .frame-open::before {
     left: 0;
     top: 0;
-    border-top-left-radius: var(--r);
+    border-top-left-radius: var(--frame-r, var(--r));
     border-right: 0;
     border-bottom: 0;
   }
   .frame-open::after {
     right: 0;
     bottom: 0;
-    border-bottom-right-radius: var(--r);
+    border-bottom-right-radius: var(--frame-r, var(--r));
     border-left: 0;
     border-top: 0;
   }

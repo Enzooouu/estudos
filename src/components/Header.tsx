@@ -122,12 +122,13 @@ export function Header() {
 
             <motion.div
               key="painel"
+              // cantos concêntricos: raio externo = raio do botão (4 px) + respiro (20 px)
               ref={panel}
               id="menu-principal"
-              className="glass-tint isolate absolute top-[calc(100%+8px)] right-[var(--m)] rounded-[10px] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
-              initial={{ clipPath: 'inset(0 0 100% 0 round 10px)' }}
-              animate={{ clipPath: 'inset(0 0 0% 0 round 10px)' }}
-              exit={{ clipPath: 'inset(0 0 100% 0 round 10px)', transition: { duration: 0.45, ease: easeInOut } }}
+              className="glass-tint isolate absolute top-[calc(100%+8px)] right-[var(--m)] rounded-[calc(var(--r-sm)+20px)] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              initial={{ clipPath: 'inset(0 0 100% 0 round 24px)' }}
+              animate={{ clipPath: 'inset(0 0 0% 0 round 24px)' }}
+              exit={{ clipPath: 'inset(0 0 100% 0 round 24px)', transition: { duration: 0.45, ease: easeInOut } }}
               transition={{ duration: 0.7, ease: easeInOut }}
             >
               <GlassLens />

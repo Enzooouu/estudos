@@ -27,7 +27,7 @@ export function Footer() {
       </motion.p>
 
       <div className="px-page relative z-10 flex items-center justify-center pt-[clamp(96px,16vh,170px)] pb-[calc(14.7vw+40px)] lg:pb-10">
-        <motion.div style={{ y: still ? 0 : panelY }} className="glass-light text-frost w-full max-w-[380px] rounded-[var(--r)] p-8">
+        <motion.div style={{ y: still ? 0 : panelY }} className="glass-light text-frost w-full max-w-[380px] rounded-[calc(var(--r-sm)+32px)] p-8">
           <BrandMark className="text-bronze h-7 w-7" />
           <p className="label text-ice/80 mt-7">Menu</p>
           <ul className="mt-4 grid gap-0.5">

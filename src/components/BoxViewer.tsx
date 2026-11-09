@@ -70,9 +70,9 @@ export function BoxViewer({ c, summary, yaw }: { c: BoxConfig; summary: string; 
   const leafLabel = c.modelo === 'abrir' ? (open ? 'Fechar porta' : 'Abrir porta') : open ? 'Fechar folha' : 'Abrir folha';
 
   return (
-    <div ref={ref} className="frame-open bg-ice rounded-[var(--r)] p-[clamp(18px,2.6vw,40px)] [--frame-color:var(--color-deep)]">
+    <div ref={ref} className="frame-open bg-ice rounded-[var(--frame-r)] p-[var(--pad)] [--frame-color:var(--color-deep)] [--frame-r:calc(7px+var(--pad))] [--pad:clamp(18px,2.6vw,40px)]">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div role="group" aria-label="Visualização" className="bg-frost inline-flex rounded-[var(--r-sm)] p-1">
+        <div role="group" aria-label="Visualização" className="bg-frost inline-flex rounded-[7px] p-1">
           {(
             [
               ['3d', '3D'],
