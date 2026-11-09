@@ -109,11 +109,11 @@ export function Header() {
       <AnimatePresence>
         {open && (
           <>
-            {/* escurece a página atrás do menu; clicar fora fecha */}
+            {/* escurece a página inteira atrás do menu, inclusive atrás da barra; clicar fora fecha */}
             <motion.div
               key="veu"
               aria-hidden="true"
-              className="fixed inset-x-0 top-16 bottom-0 -z-10 bg-black/40 lg:top-[72px]"
+              className="fixed inset-0 -z-10 bg-black/40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
