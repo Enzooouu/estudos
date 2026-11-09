@@ -5,7 +5,7 @@ import { SectionHead } from './SectionHead';
 
 /** Endereço, horários e mapa da loja. */
 export function Location() {
-  const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.name} ${site.address}`)}`;
+  const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address)}`;
   return (
     <section id="localizacao" aria-labelledby="localizacao-h" className="px-page pb-[var(--gap)]">
       <div className="pb-10 lg:pb-14">
@@ -39,7 +39,7 @@ export function Location() {
             <iframe
               src={site.mapEmbed}
               title={`Mapa: ${site.name}`}
-              className="aspect-[16/10] w-full rounded-[var(--r)] border-0 grayscale-[0.4]"
+              className="bg-ice aspect-[16/10] w-full rounded-[var(--r)] border-0 grayscale-[0.4]"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />

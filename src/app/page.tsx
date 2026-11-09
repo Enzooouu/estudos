@@ -24,6 +24,20 @@ const jsonLd = [
     url: site.url,
     telephone: site.phoneHref.replace('tel:', ''),
     email: site.email,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.addressParts.street,
+      addressLocality: site.addressParts.city,
+      addressRegion: site.addressParts.state,
+      postalCode: site.addressParts.zip,
+      addressCountry: 'BR',
+    },
+    openingHoursSpecification: site.openingHours.map((h) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: h.days,
+      opens: h.opens,
+      closes: h.closes,
+    })),
     makesOffer: products.map((p) => ({
       '@type': 'Offer',
       itemOffered: { '@type': 'Service', name: p.name, description: p.text },

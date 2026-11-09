@@ -3,69 +3,125 @@ import { Icon } from './Icon';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
-const Stars = ({ n }: { n: number }) => (
+type Review = (typeof reviews)[number];
+
+const Stars = ({ n, size = '!h-4 !w-4' }: { n: number; size?: string }) => (
   <span className="text-bronze inline-flex gap-0.5" aria-label={`${n} de 5 estrelas`}>
     {Array.from({ length: 5 }, (_, i) => (
-      <Icon key={i} name="star" className={`!h-4 !w-4 ${i < n ? '!fill-current' : 'opacity-35'}`} />
+      <Icon key={i} name="star" className={`${size} ${i < n ? '!fill-current' : 'opacity-35'}`} />
     ))}
   </span>
 );
 
+/** Repete a lista até ter cartões suficientes para cobrir a tela inteira em cada volta. */
+const fill = <T,>(list: T[], min = 8) => {
+  if (!list.length) return list;
+  const out = [...list];
+  while (out.length < min) out.push(...list);
+  return out;
+};
+
 /**
- * Avaliações reais do Google. Enquanto `reviews` estiver vazia, mostra um espaço reservado
- * explicando o que entra ali.
+ * Avaliações reais do Google em duas faixas que andam sem parar, como no fluid.glass:
+ * a de cima para a direita, a de baixo para a esquerda. Passar o mouse pausa a faixa.
+ * Enquanto `reviews` estiver vazia, as faixas mostram cartões vazios (sem texto inventado).
  */
 export function Reviews() {
-  const link = site.googleUrl ? (
-    <a className="btn btn-text" href={site.googleUrl} target="_blank" rel="noopener">
-      <Icon name="ret" /> Ver no Google
-    </a>
-  ) : null;
+  const has = reviews.length > 0;
+  // com poucas avaliações, as duas faixas usam todas (a de baixo em outra ordem)
+  const top = has ? (reviews.length >= 6 ? reviews.filter((_, i) => i % 2 === 0) : reviews) : [];
+  const bottom = has ? (reviews.length >= 6 ? reviews.filter((_, i) => i % 2 === 1) : [...reviews].reverse()) : [];
 
   return (
-    <section id="avaliacoes" aria-labelledby="avaliacoes-h" className="px-page pb-[var(--gap)]">
-      <div className="pb-10 lg:pb-14">
+    <section id="avaliacoes" aria-labelledby="avaliacoes-h" className="pb-[var(--gap)]">
+      <div className="px-page pb-10 lg:pb-14">
         <SectionHead
           id="avaliacoes-h"
           label="Avaliações"
           title="O que dizem os nossos clientes"
           aside={
             reviewsSummary ? (
-              <p className="flex flex-wrap items-center gap-3">
-                <span className="font-title text-h3 font-medium">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</span>
-                <Stars n={Math.round(reviewsSummary.rating)} />
-                <span className="text-muted text-small">{reviewsSummary.count} avaliações no Google</span>
-              </p>
+              <div className="grid gap-2">
+                <p className="flex flex-wrap items-center gap-3">
+                  <span className="font-title text-h3 font-medium">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</span>
+                  <Stars n={Math.round(reviewsSummary.rating)} />
+                </p>
+                <p className="text-muted text-small">{reviewsSummary.count} avaliações no Google</p>
+                {site.googleUrl && (
+                  <a className="btn btn-text !px-0" href={site.googleUrl} target="_blank" rel="noopener">
+                    <Icon name="ret" /> Ver no Google
+                  </a>
+                )}
+              </div>
             ) : (
-              link
+              <p>Avaliações reais de clientes no Google.</p>
             )
           }
         />
       </div>
 
-      {reviews.length > 0 ? (
-        <ul className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((r, i) => (
-            <Reveal as="li" order={i} key={r.name + i} className="border-line grid content-start gap-4 border-t pt-6">
-              <Stars n={r.stars} />
-              <blockquote className="text-[clamp(17px,1.3vw,20px)] leading-[1.45]">“{r.text}”</blockquote>
-              <p className="text-muted text-small">
-                {r.name}
-                {r.when ? ` · ${r.when}` : ''}
-              </p>
-            </Reveal>
-          ))}
-        </ul>
-      ) : (
-        <Reveal className="border-line grid place-items-center gap-3 rounded-[var(--r)] border border-dashed px-6 py-16 text-center">
-          <Stars n={5} />
-          <p className="font-title text-h3 font-medium tracking-[-0.02em]">Avaliações do Google</p>
-          <p className="text-muted max-w-[46ch]">
-            Aqui entram as avaliações reais dos clientes no Google, com nome, nota e texto. Cadastre em{' '}
-            <code className="text-[0.9em]">src/content/site.ts</code>.
-          </p>
-        </Reveal>
-      )}
+      <Reveal className="relative grid gap-4">
+        <Row items={has ? fill(top) : Array(8).fill(null)} dir="right" />
+        <Row items={has ? fill(bottom) : Array(8).fill(null)} dir="left" />
+
+        {!has && (
+          <div className="pointer-events-none absolute inset-0 grid place-items-center px-6">
+            <p className="bg-frost/90 border-line max-w-[44ch] rounded-[var(--r)] border px-5 py-4 text-center text-[14px] leading-snug shadow-[0_10px_30px_-12px_rgb(31_32_34/0.25)]">
+              <strong className="font-semibold">Avaliações do Google</strong>
+              <br />
+              Os cartões passam a mostrar as avaliações reais dos clientes assim que forem cadastradas em{' '}
+              <code className="text-[0.92em]">src/content/site.ts</code>.
+            </p>
+          </div>
+        )}
+      </Reveal>
     </section>
+  );
+}
+
+/** Uma faixa: a lista duas vezes seguidas; a animação desloca metade da faixa e recomeça. */
+function Row({ items, dir }: { items: (Review | null)[]; dir: 'left' | 'right' }) {
+  return (
+    <div className="marquee">
+      <ul className="marquee-track" data-dir={dir} style={{ ['--dur' as string]: `${items.length * 7}s` }}>
+        {[0, 1].map((copy) =>
+          items.map((r, i) => (
+            <li key={`${copy}-${i}`} aria-hidden={copy === 1 || !r || undefined} className="pr-4">
+              {r ? <Card review={r} /> : <Blank />}
+            </li>
+          )),
+        )}
+      </ul>
+    </div>
+  );
+}
+
+const cardBox = 'flex h-full w-[clamp(280px,27vw,380px)] flex-col gap-4 rounded-[var(--r)] border border-line bg-white/70 p-6';
+
+function Card({ review }: { review: Review }) {
+  return (
+    <figure className={cardBox}>
+      <Stars n={review.stars} />
+      <blockquote className="line-clamp-5 flex-1 text-[16px] leading-[1.55]">“{review.text}”</blockquote>
+      <figcaption className="text-muted flex items-center justify-between gap-3 text-[13.5px]">
+        <span className="text-deep font-semibold">{review.name}</span>
+        <span>{review.when ? `${review.when} · Google` : 'Google'}</span>
+      </figcaption>
+    </figure>
+  );
+}
+
+/** Cartão vazio enquanto não há avaliações: só a forma, sem texto. */
+function Blank() {
+  return (
+    <div className={`${cardBox} min-h-[200px]`}>
+      <Stars n={5} />
+      <div className="grid flex-1 content-start gap-2.5 pt-1">
+        <span className="bg-line h-2.5 w-full rounded-full" />
+        <span className="bg-line h-2.5 w-[92%] rounded-full" />
+        <span className="bg-line h-2.5 w-[70%] rounded-full" />
+      </div>
+      <span className="bg-line h-2.5 w-24 rounded-full" />
+    </div>
   );
 }

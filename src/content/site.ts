@@ -14,12 +14,19 @@ export const site = {
   phoneHref: 'tel:+5500000000000', // EXEMPLO
   email: 'contato@jelbox.com.br', // EXEMPLO
   instagram: { handle: '@jelbox', url: 'https://instagram.com/' }, // EXEMPLO
-  address: 'Endereço da loja', // EXEMPLO
-  hours: ['Seg a sex, 8h às 18h', 'Sábado, 8h às 12h'], // EXEMPLO
+  address: 'R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080',
+  /** endereço em partes, para os dados estruturados do Google */
+  addressParts: { street: 'R. Angatuba, 18', district: 'Rochdale', city: 'Osasco', state: 'SP', zip: '06223-080' },
+  hours: ['Seg a sex, 8h às 11h e 13h às 18h', 'Sábado e domingo, fechado'],
+  /** horários para os dados estruturados do Google (seg a sex, com pausa para o almoço) */
+  openingHours: [
+    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '11:00' },
+    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '18:00' },
+  ],
   /** página da JEL Box no Google (avaliações e mapa) */
   googleUrl: '', // EXEMPLO: link do perfil da empresa no Google
   /** endereço do mapa incorporado (Google Maps > Compartilhar > Incorporar um mapa > src do iframe) */
-  mapEmbed: '', // EXEMPLO
+  mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent('R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080')}&output=embed`,
 } as const;
 
 /**
