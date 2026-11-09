@@ -21,7 +21,7 @@ export const site = {
 export const waLink = (msg: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
 
-/** Seções da página: o menu usa todas; a barra flutuante mostra a seção atual. */
+/** Seções da página, usadas nos menus. */
 export const sections = [
   { id: 'topo', label: 'Início' },
   { id: 'produtos', label: 'Produtos' },

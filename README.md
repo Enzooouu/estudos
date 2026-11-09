@@ -32,7 +32,7 @@ src/
     page.tsx         página + dados estruturados (JSON-LD)
     globals.css      tokens da marca e estilos dos desenhos técnicos
     sitemap.ts, robots.ts, icon.svg
-  components/        Hero, TopBar, Dock (barra flutuante), Products, Process, BoxBuilder,
+  components/        Hero, TopBar, Products, Process, BoxBuilder,
                      About, Faq, CtaFrame, Contact, Footer…
     drawings/        desenhos técnicos (SVG) dos produtos e das etapas
   content/site.ts    textos, produtos, dúvidas e dados de contato

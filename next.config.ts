@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   poweredByHeader: false,
+  // esconde o selo "N" do Next.js que aparece no canto durante o desenvolvimento
+  devIndicators: false,
 };
 
 export default nextConfig;

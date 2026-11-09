@@ -78,7 +78,7 @@ Baixei e examinei os 115 módulos JavaScript e as folhas de estilo do site.
 ## O que foi aplicado na JEL Box
 
 - Topo mínimo com o nome no centro e "Pedir orçamento" à direita.
-- Barra flutuante de vidro com a seção atual e o menu em painel de vidro.
+- A barra flutuante de vidro foi testada e retirada a pedido da JEL Box: a barra do topo já leva a cada produto.
 - Rótulos de seção com quadrado (forma geométrica do manual, no lugar do losango) e linha fina.
 - Botões retos e compactos com a seta de retorno, em âmbar (ação) e azul profundo.
 - Produtos em lista de linhas com etiquetas, no lugar das abas.
