@@ -7,7 +7,7 @@ import Lenis from 'lenis';
 export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const lenis = new Lenis({ autoRaf: true, anchors: { offset: window.innerWidth >= 1024 ? -72 : -104 }, lerp: 0.1 });
+    const lenis = new Lenis({ autoRaf: true, anchors: { offset: window.innerWidth >= 1024 ? -72 : -64 }, lerp: 0.1 });
     document.documentElement.style.scrollBehavior = 'auto';
     return () => lenis.destroy();
   }, []);

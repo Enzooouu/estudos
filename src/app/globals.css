@@ -44,7 +44,7 @@
   }
   /* a barra fixa não cobre o começo da seção ao navegar */
   [id] {
-    scroll-margin-top: 104px;
+    scroll-margin-top: 64px;
   }
   @media (min-width: 1024px) {
     [id] {

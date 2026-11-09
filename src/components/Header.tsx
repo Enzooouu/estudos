@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { nav, products, site, waLink, type ProductId } from '@/content/site';
+import { nav, site, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
 import { GlassLens } from './GlassLens';
 import { Icon } from './Icon';
@@ -12,10 +12,9 @@ export const PRODUCT_EVENT = 'jel:produto';
 
 const ease = [0.165, 0.84, 0.44, 1] as const; // ease-out-quart
 
-const pick = (id: ProductId) => window.dispatchEvent(new CustomEvent<ProductId>(PRODUCT_EVENT, { detail: id }));
 
 /**
- * Barra fixa no topo: JEL Box volta ao início, cada produto leva à sua área.
+ * Barra fixa no topo: JEL Box volta ao início e os três traços abrem o menu.
  * Transparente sobre a foto do topo; grafite a partir da seção seguinte.
  * O botão de três traços abre um painel de vidro com todas as seções e o orçamento.
  */
@@ -51,7 +50,7 @@ export function Header() {
   useEffect(() => {
     const hero = document.getElementById('topo');
     const onScroll = () => {
-      const bar = window.innerWidth >= 1024 ? 72 : 104;
+      const bar = window.innerWidth >= 1024 ? 72 : 64;
       const end = hero ? hero.offsetTop + hero.offsetHeight - bar : 24;
       setSolid(window.scrollY > end);
     };
@@ -76,18 +75,6 @@ export function Header() {
           JEL Box
         </a>
 
-        <nav aria-label="Produtos" className="hidden lg:block">
-          <ul className="flex items-center gap-[clamp(14px,1.6vw,28px)]">
-            {products.map((p) => (
-              <li key={p.id}>
-                <a href="#produtos-lista" onClick={() => pick(p.id)} className="link-grow block py-2 text-[14.5px] font-medium whitespace-nowrap text-ice hover:text-frost">
-                  {p.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         <button
           ref={button}
           type="button"
@@ -101,29 +88,13 @@ export function Header() {
         </button>
       </div>
 
-      {/* celular e tablet: produtos numa linha que desliza para o lado */}
-      <nav aria-label="Produtos" className="lg:hidden">
-        <ul className="px-page flex gap-2 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {products.map((p) => (
-            <li key={p.id} className="shrink-0">
-              <a
-                href="#produtos-lista"
-                onClick={() => pick(p.id)}
-                className="border-ice/30 hover:bg-ice/10 block border px-3 py-1.5 text-[13.5px] font-medium whitespace-nowrap text-ice"
-              >
-                {p.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
 
       <AnimatePresence>
         {open && (
           <motion.div
             ref={panel}
             id="menu-principal"
-            className="glass-tint isolate absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7 max-lg:top-16"
+            className="glass-tint isolate absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7"
             initial={{ opacity: 0, y: -12, scaleY: 0.96 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
