@@ -82,9 +82,20 @@ export function Header() {
           aria-controls="menu-principal"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setOpen((v) => !v)}
-          className="-mr-2 grid h-11 w-11 shrink-0 cursor-pointer place-items-center hover:text-bronze transition-colors"
+          data-open={open || undefined}
+          className="menu-btn group -mr-2 inline-flex h-11 shrink-0 cursor-pointer items-center gap-3 pl-2 pr-2"
         >
-          <Icon name={open ? 'close' : 'menu'} className="!h-7 !w-7" />
+          <span className="relative hidden h-[13px] overflow-hidden text-[12px] leading-[13px] font-semibold tracking-[0.14em] uppercase sm:block" aria-hidden="true">
+            <span className="block transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-data-[open]:-translate-y-1/2">
+              <span className="block">Menu</span>
+              <span className="block">Fechar</span>
+            </span>
+          </span>
+          <span className="menu-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
       </div>
 
