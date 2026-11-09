@@ -13,14 +13,32 @@ const BEVEL = 18;
 const BEVEL_PULL = 22;
 
 /**
- * Lente de vidro: amplia o que está atrás do painel e entorta mais forte perto das bordas,
- * como um vidro grosso de verdade. Vai dentro do painel e age sobre o elemento pai.
+ * Lente de vidro: amplia o que está atrás do painel, como um vidro grosso de verdade.
+ * Vai dentro do painel (que precisa de `isolate`) e age sobre o elemento pai.
  *
- * Usa `backdrop-filter: url(#filtro)`, que só os navegadores Chromium (Chrome, Edge, Samsung
- * Internet, Android) aplicam. Nos outros, e quando o sistema pede menos transparência, o
- * painel fica com o vidro fumê da classe `.glass-tint`.
+ * - Chromium (Chrome, Edge, Samsung Internet, Android): `backdrop-filter: url(#filtro)` com um
+ *   mapa de deslocamento, que amplia qualquer coisa atrás e entorta mais forte nas bordas.
+ * - Safari e Firefox não aplicam esse filtro. Neles, enquanto o painel está sobre a foto do
+ *   topo, uma cópia ampliada da foto, alinhada com a original, faz o papel da lente
+ *   (`PhotoLens`). Fora da foto, fica o vidro fumê da classe `.glass-tint`.
+ * - Com "reduzir transparência" no sistema, nenhuma lente.
  */
 export function GlassLens() {
+  const [mode, setMode] = useState<'filtro' | 'foto' | null>(null);
+
+  useEffect(() => {
+    if (matchMedia('(prefers-reduced-transparency: reduce)').matches) return;
+    const ua = (navigator as Navigator & { userAgentData?: { brands: { brand: string }[] } }).userAgentData;
+    setMode(ua?.brands.some((b) => /Chromium/.test(b.brand)) ? 'filtro' : 'foto');
+  }, []);
+
+  if (mode === 'filtro') return <FilterLens />;
+  if (mode === 'foto') return <PhotoLens />;
+  return null;
+}
+
+/** Lente por filtro SVG no que está atrás do painel (só Chromium). */
+function FilterLens() {
   const id = `lente-${useId().replace(/:/g, '')}`;
   const probe = useRef<HTMLSpanElement>(null);
   const [map, setMap] = useState<{ w: number; h: number; href: string; scale: number } | null>(null);
@@ -28,9 +46,6 @@ export function GlassLens() {
   useEffect(() => {
     const el = probe.current?.parentElement;
     if (!el) return;
-    const ua = (navigator as Navigator & { userAgentData?: { brands: { brand: string }[] } }).userAgentData;
-    const chromium = !!ua?.brands.some((b) => /Chromium/.test(b.brand));
-    if (!chromium || matchMedia('(prefers-reduced-transparency: reduce)').matches) return;
 
     const build = () => {
       const w = Math.round(el.offsetWidth);
@@ -73,6 +88,57 @@ export function GlassLens() {
         </svg>
       )}
     </span>
+  );
+}
+
+/**
+ * Lente por cópia da foto do topo (Safari e Firefox): a mesma foto, no mesmo lugar e tamanho
+ * da original, ampliada a partir do centro do painel e com o mesmo tom da película.
+ * Acompanha a rolagem quadro a quadro enquanto o menu está aberto.
+ */
+function PhotoLens() {
+  const layer = useRef<HTMLDivElement>(null);
+  const copy = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const box = layer.current;
+    const img = copy.current;
+    const panel = box?.parentElement;
+    const src = document.querySelector<HTMLImageElement>('#topo img');
+    if (!box || !img || !panel || !src) return;
+    img.src = src.currentSrc || src.src;
+
+    let raf = 0;
+    const tick = () => {
+      const p = panel.getBoundingClientRect();
+      const s = src.getBoundingClientRect();
+      // o painel pode estar no meio da animação de entrada (escala): converte para medidas locais
+      const kx = p.width / panel.offsetWidth || 1;
+      const ky = p.height / panel.offsetHeight || 1;
+      const over = s.bottom > p.top && s.top < p.bottom && s.right > p.left && s.left < p.right;
+      box.style.visibility = over ? 'visible' : 'hidden';
+      if (over) {
+        img.style.width = `${s.width / kx}px`;
+        img.style.height = `${s.height / ky}px`;
+        img.style.transform = `translate(${(s.left - p.left) / kx}px, ${(s.top - p.top) / ky}px)`;
+        img.style.objectPosition = getComputedStyle(src).objectPosition;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    tick();
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div ref={layer} aria-hidden="true" className="pointer-events-none invisible absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute inset-0" style={{ transform: `scale(${1 + ZOOM})`, filter: TINT }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img ref={copy} alt="" className="absolute top-0 left-0 max-w-none object-cover" />
+        {/* o mesmo escurecimento que a foto tem no topo */}
+        <div className="absolute inset-0 bg-black/45" />
+      </div>
+      <div className="glass-tint-face absolute inset-0" />
+    </div>
   );
 }
 

@@ -123,7 +123,7 @@ export function Header() {
           <motion.div
             ref={panel}
             id="menu-principal"
-            className="glass-tint absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7 max-lg:top-16"
+            className="glass-tint isolate absolute top-full right-[var(--m)] w-[min(320px,calc(100vw-2*var(--m)))] origin-top p-7 max-lg:top-16"
             initial={{ opacity: 0, y: -12, scaleY: 0.96 }}
             animate={{ opacity: 1, y: 0, scaleY: 1 }}
             exit={{ opacity: 0, y: -8, scaleY: 0.98 }}
