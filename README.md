@@ -69,3 +69,27 @@ Troque os dados marcados como `EXEMPLO` em `src/content/site.ts`: endereço do s
 telefone, e-mail, Instagram, endereço da loja e horários. Confira também os textos técnicos
 (normas ABNT citadas, cores de perfil e tipos de vidro oferecidos).
 
+
+## Blog
+
+A página `/blog/` lista os artigos do mais novo para o mais antigo; o mais recente aparece em
+destaque no topo. Cada artigo é um arquivo Markdown em `src/content/blog/`, e o nome do arquivo
+vira o endereço (`como-medir-o-vao-do-box.md` → `/blog/como-medir-o-vao-do-box/`).
+
+Para publicar um artigo, crie o arquivo com este cabeçalho e rode `npm run build`:
+
+```md
+---
+titulo: Título do artigo
+descricao: Uma ou duas frases, usadas na lista e no Google
+data: 2026-11-09
+capa: /media/blog/nome-da-foto.jpg   (opcional)
+produto: box   (opcional: box, janelas, guarda, espelhos, coberturas ou serralheria)
+rascunho: sim   (opcional: o artigo não aparece no site)
+---
+
+Texto do artigo em Markdown: ## para subtítulos, **negrito**, listas com - e tabelas.
+```
+
+Cada artigo ganha título e descrição próprios no Google, dados estruturados de artigo
+(`BlogPosting`) e entra sozinho no `sitemap.xml`.

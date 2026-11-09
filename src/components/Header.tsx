@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'motion/react';
 import { menu, sections, site, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
@@ -22,6 +24,11 @@ const easeInOut = [0.77, 0, 0.175, 1] as const; // ease-in-out-quart
 export function Header() {
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const home = pathname === '/';
+  const onBlog = pathname.startsWith('/blog');
+  // fora da página inicial, os links das seções levam de volta a ela
+  const to = (id: string) => (home ? `#${id}` : `/#${id}`);
   const [current, setCurrent] = useState<string>(sections[0].id);
   const button = useRef<HTMLButtonElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -66,8 +73,8 @@ export function Header() {
     const hero = document.getElementById('topo');
     const onScroll = () => {
       const bar = window.innerWidth >= 1024 ? 72 : 64;
-      const end = hero ? hero.offsetTop + hero.offsetHeight - bar : 24;
-      setSolid(window.scrollY > end);
+      // sem a foto do topo (páginas do blog), a barra já começa cinza
+      setSolid(hero ? window.scrollY > hero.offsetTop + hero.offsetHeight - bar : true);
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -76,7 +83,7 @@ export function Header() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, []);
+  }, [pathname]);
 
   return (
     <header
@@ -85,11 +92,19 @@ export function Header() {
       }`}
     >
       <div className="px-page flex h-16 items-center justify-between gap-6 lg:h-[72px]">
-        <a href="#topo" aria-label="JEL Box, voltar ao início" className="font-title inline-flex shrink-0 items-center gap-2.5 text-[19px] leading-none font-medium tracking-[-0.02em]">
+        <a href={home ? '#topo' : '/'} aria-label="JEL Box, voltar ao início" className="font-title inline-flex shrink-0 items-center gap-2.5 text-[19px] leading-none font-medium tracking-[-0.02em]">
           <BrandMark className="text-bronze h-6 w-6" />
           JEL Box
         </a>
 
+        <div className="-mr-2 flex items-center gap-3 sm:gap-5">
+          <Link
+            href="/blog/"
+            aria-current={onBlog ? 'page' : undefined}
+            className={`link-grow py-2 text-[13px] leading-none font-semibold tracking-[0.12em] uppercase transition-colors hover:text-bronze ${onBlog ? 'text-bronze' : ''}`}
+          >
+            Blog
+          </Link>
         <button
           ref={button}
           type="button"
@@ -97,10 +112,11 @@ export function Header() {
           aria-controls="menu-principal"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setOpen((v) => !v)}
-          className="-mr-2 grid h-11 w-11 shrink-0 cursor-pointer place-items-center hover:text-bronze transition-colors"
+          className="grid h-11 w-11 shrink-0 cursor-pointer place-items-center hover:text-bronze transition-colors"
         >
           <Icon name={open ? 'close' : 'menu'} className="!h-7 !w-7" />
         </button>
+        </div>
       </div>
 
       {/* filete de vidro sob a barra, de ponta a ponta */}
@@ -140,7 +156,7 @@ export function Header() {
                     return (
                       <li key={n.id} className="overflow-hidden">
                         <motion.a
-                          href={`#${n.id}`}
+                          href={to(n.id)}
                           onClick={() => setOpen(false)}
                           aria-current={here ? 'location' : undefined}
                           className={`group/item flex items-center justify-between px-3 py-2.5 text-[19px] leading-tight font-medium transition-colors duration-300 hover:text-bronze ${

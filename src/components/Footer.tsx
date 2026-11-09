@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { nav, site, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
@@ -13,6 +14,7 @@ export function Footer() {
   const scale = useTransform(scrollYProgress, [0, 1], [0.94, 1]);
   const panelY = useTransform(scrollYProgress, [0, 1], [80, 0]);
   const still = useReducedMotion();
+  const home = usePathname() === '/';
 
   return (
     <footer ref={ref} className="bg-deep text-ice relative isolate grid grid-rows-[1fr_auto] lg:min-h-[max(100svh,760px)] overflow-hidden">
@@ -33,7 +35,7 @@ export function Footer() {
           <ul className="mt-4 grid gap-0.5">
             {nav.map((n) => (
               <li key={n.id}>
-                <a href={`#${n.id}`} className="hover:text-bronze block text-[24px] leading-tight font-medium tracking-[-0.01em] transition-colors">
+                <a href={home ? `#${n.id}` : `/#${n.id}`} className="hover:text-bronze block text-[24px] leading-tight font-medium tracking-[-0.01em] transition-colors">
                   {n.label}
                 </a>
               </li>
