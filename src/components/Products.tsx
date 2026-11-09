@@ -1,10 +1,11 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { productMedia, products, waLink, type ProductId } from '@/content/site';
 import { Media } from './media/Media';
 import { Drawing, productDrawings } from './drawings/drawings';
+import { PRODUCT_EVENT } from './Header';
 import { Icon } from './Icon';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
@@ -19,6 +20,13 @@ export function Products() {
   const [active, setActive] = useState<ProductId>('box');
   const rows = useRef<(HTMLButtonElement | null)[]>([]);
   const current = products.find((p) => p.id === active)!;
+
+  // a barra do topo pede um produto: abre ele aqui
+  useEffect(() => {
+    const onPick = (e: Event) => setActive((e as CustomEvent<ProductId>).detail);
+    window.addEventListener(PRODUCT_EVENT, onPick);
+    return () => window.removeEventListener(PRODUCT_EVENT, onPick);
+  }, []);
 
   const onKeyDown = (e: React.KeyboardEvent, i: number) => {
     const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
@@ -41,8 +49,8 @@ export function Products() {
         aside={<p>Vidro temperado, laminado, alumínio e aço, sempre sob medida para o vão.</p>}
       />
 
-      <div className="mt-14 grid items-start gap-[clamp(32px,5vw,96px)] lg:mt-20 lg:grid-cols-2">
-        <Reveal className="bg-ice aspect-square w-full max-w-[640px] p-[clamp(28px,4vw,56px)] lg:sticky lg:top-8 lg:max-w-none">
+      <div id="produtos-lista" className="mt-14 grid items-start gap-[clamp(32px,5vw,96px)] lg:mt-20 lg:grid-cols-2">
+        <Reveal className="bg-ice aspect-square w-full max-w-[640px] p-[clamp(28px,4vw,56px)] lg:sticky lg:top-24 lg:max-w-none">
           <div className="frame-open h-full p-[clamp(20px,3vw,40px)]">
             <AnimatePresence mode="wait" initial={false}>
               <motion.div

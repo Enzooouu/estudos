@@ -40,6 +40,15 @@
       scroll-behavior: auto;
     }
   }
+  /* a barra fixa não cobre o começo da seção ao navegar */
+  [id] {
+    scroll-margin-top: 104px;
+  }
+  @media (min-width: 1024px) {
+    [id] {
+      scroll-margin-top: 72px;
+    }
+  }
   body {
     background: var(--color-frost);
     color: var(--color-deep);

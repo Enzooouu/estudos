@@ -6,7 +6,6 @@ import { waLink } from '@/content/site';
 import { Icon, type IconName } from './Icon';
 import { Media } from './media/Media';
 import { RevealWords } from './RevealWords';
-import { TopBar } from './TopBar';
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -17,7 +16,7 @@ const facts: { icon: IconName; text: string }[] = [
 ];
 
 /**
- * Topo: foto em tela cheia, escurecida pela sobreposição azul do manual,
+ * Topo: foto em tela cheia, escurecida (sem mudar as cores),
  * com o texto à esquerda sobre a parte mais escura.
  */
 export function Hero() {
@@ -50,14 +49,12 @@ export function Hero() {
         <motion.div className="absolute inset-0" style={still ? { scale: 1.04 } : { scale: imgScale, y: imgY }}>
           <Media id="hero-principal" fill priority sizes="100vw" className="[&_img]:object-[60%_50%]" />
         </motion.div>
-        {/* sobreposição azul translúcida (manual) + reforço do lado do texto, para a leitura */}
-        <div className="bg-deep/60 absolute inset-0" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(18_52_77/0.9)_0%,rgb(18_52_77/0.55)_45%,rgb(18_52_77/0)_75%)] max-lg:bg-[linear-gradient(0deg,rgb(18_52_77/0.92)_0%,rgb(18_52_77/0.5)_55%,rgb(18_52_77/0.2)_100%)]" />
+        {/* escurecimento neutro: mantém as cores reais da foto, só mais escura para o texto ler bem */}
+        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(0_0_0/0.55)_0%,rgb(0_0_0/0.25)_45%,rgb(0_0_0/0)_75%)] max-lg:bg-[linear-gradient(0deg,rgb(0_0_0/0.6)_0%,rgb(0_0_0/0.25)_55%,rgb(0_0_0/0)_100%)]" />
       </motion.div>
 
-      <TopBar />
-
-      <div className="px-page flex flex-1 flex-col justify-end pt-16 pb-24 lg:justify-center lg:pt-10 lg:pb-[104px]">
+      <div className="px-page flex flex-1 flex-col justify-end pt-36 pb-24 lg:justify-center lg:pt-28 lg:pb-[104px]">
         <motion.p data-reveal {...rise(0)} className="label text-ice">
           Vidraçaria e serralheria
         </motion.p>
