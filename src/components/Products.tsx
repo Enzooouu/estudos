@@ -2,7 +2,8 @@
 
 import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { products, waLink, type ProductId } from '@/content/site';
+import { productMedia, products, waLink, type ProductId } from '@/content/site';
+import { Media } from './media/Media';
 import { Drawing, productDrawings } from './drawings/drawings';
 import { Icon } from './Icon';
 import { Reveal } from './Reveal';
@@ -105,13 +106,14 @@ export function Products() {
                 role="tabpanel"
                 id={`p-${current.id}`}
                 aria-labelledby={`t-${current.id}`}
-                className="max-w-[48ch]"
+                className="max-w-[560px]"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4, ease }}
               >
-                <p>{current.text}</p>
+                <Media id={productMedia[current.id]} compact sizes="(min-width:1024px) 40vw, 100vw" className="mb-7" />
+                <p className="max-w-[48ch]">{current.text}</p>
                 <ul className="mt-6 grid gap-2.5">
                   {current.specs.map((s) => (
                     <li key={s} className="flex items-baseline gap-3.5">

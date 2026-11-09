@@ -7,13 +7,28 @@ Site de destaque do dia no Awwwards em 30/03/2026, feito pelo estúdio Exo Ape.
 O objetivo é aprender os padrões, não copiar: textos, fotos, logotipo e a fonte (Aeonik, licença
 paga) são deles. A JEL Box mantém as cores e fontes do próprio manual.
 
-## Tecnologia
+## Tecnologia (verificada no código publicado, novembro de 2026)
 
-- **Nuxt (Vue)** com conteúdo vindo do CMS **Storyblok**; imagens servidas pelo CDN do Storyblok
-  já redimensionadas para cada tamanho de tela.
-- **three.js** carregado (efeitos 3D/vidro) e rolagem suave própria: a página não rola pelo
-  documento, e sim por um contêiner animado.
-- Vídeos do Vimeo no topo e no showroom; mapa do Google; avaliações do Google.
+Baixei e examinei os 115 módulos JavaScript e as folhas de estilo do site.
+
+- **Nuxt (Vue)** organiza as páginas e componentes; o HTML chega pronto do servidor (bom para SEO).
+- **Storyblok** guarda textos, projetos, fotos e PDFs; as imagens saem do CDN do Storyblok já
+  redimensionadas por tamanho de tela (`/m/580x725/...`).
+- **three.js não é usado.** Nenhum módulo contém WebGLRenderer, materiais, shaders ou carregadores
+  de modelo. A palavra "three" que aparecia no HTML vinha das avaliações dos clientes ("three large
+  rooflights"). A sensação de profundidade vem de fotografia e vídeo de alta qualidade, máscaras,
+  escala e camadas de vidro em CSS.
+- **GSAP + ScrollTrigger + Flip** fazem todas as animações:
+  - textos que sobem linha por linha de dentro de uma máscara (`yPercent: 100 → 0`, intervalo de
+    0,1 s, 1,5 s, `power3.out`);
+  - imagens que sobem por uma máscara (`yPercent`, `power3.inOut`) e assentam de uma escala menor;
+  - linhas divisórias que se desenham (`scaleX: 0 → 1`) presas à rolagem (`scrub`);
+  - carrossel de avaliações que anda na horizontal conforme a rolagem;
+  - barra de progresso (`scaleX` em 5 s) no vídeo do topo.
+- **Lenis** faz a rolagem suave (`lerp: 0,1`, roda do mouse suavizada, toque nativo).
+- **Vidro em CSS**: `backdrop-filter: blur(2rem)` com preto a 80% (`color-mix`) na barra, no menu e
+  no rodapé, e um cursor de vidro que segue o mouse sobre imagens.
+- Vídeos do Vimeo, mapa e avaliações do Google.
 - Tipografia fluida: todos os tamanhos derivam de `--font-s: calc(100vw / 1600 * 10)`, então a
   página inteira escala com a largura da tela.
 
@@ -71,6 +86,15 @@ paga) são deles. A JEL Box mantém as cores e fontes do próprio manual.
 - Chamada emoldurada com linhas arquitetônicas em perspectiva.
 - Rodapé com o nome gigante translúcido e o painel de vidro do menu no centro.
 - Rolagem suave com Lenis (desligada quando o sistema pede menos movimento).
+
+## Decisões para a JEL Box (segunda etapa)
+
+| Opção | Decisão | Por quê |
+| --- | --- | --- |
+| Migrar para Nuxt | Não | Next.js já entrega o mesmo: HTML estático pronto para SEO, componentes e divisão de código. Migrar reescreveria tudo em Vue sem ganho visível ao visitante. |
+| GSAP | Não, por ora | O Motion, que já está no projeto, cobre o que o fluid.glass faz com GSAP: rolagem ligada à animação (`useScroll`), máscaras, escalas e intervalos. Dois motores de animação somariam ~45 KB e duas formas de limpar animações no React. Se um dia houver cenas fixadas complexas, o GSAP ScrollTrigger é a escolha. |
+| Storyblok | Não, por ora | Ainda não há fotos, obras nem equipe de conteúdo. Um CMS teria custo mensal e manutenção sem conteúdo para gerir. O cadastro em `src/content/media.ts` e `site.ts` usa os mesmos campos que um CMS teria, para migrar sem refazer as seções quando as obras começarem a ser publicadas com frequência. |
+| three.js | Sim, com React Three Fiber e drei | Uma experiência só, com função comercial: o box configurado pelo cliente em 3D. |
 
 ## O que depende da JEL Box
 

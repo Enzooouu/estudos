@@ -6,8 +6,10 @@ import { Dock } from '@/components/Dock';
 import { Faq } from '@/components/Faq';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
+import { Institutional } from '@/components/Institutional';
 import { Process } from '@/components/Process';
 import { Products } from '@/components/Products';
+import { Projects } from '@/components/Projects';
 import { faq, products, site } from '@/content/site';
 
 /** Dados estruturados para o Google: empresa local + perguntas frequentes. */
@@ -43,9 +45,11 @@ export default function Home() {
       <Hero />
       <main>
         <Products />
+        <Projects />
         <Process />
         <BoxBuilder />
         <About />
+        <Institutional />
         <Faq />
         <CtaFrame />
         <Contact />

@@ -2,7 +2,10 @@
 
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { getMedia } from '@/content/media';
 import { waLink } from '@/content/site';
+import { Media } from './media/Media';
+import { RevealWords } from './RevealWords';
 import { Icon } from './Icon';
 import { TopBar } from './TopBar';
 
@@ -14,6 +17,8 @@ export function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const paneX = useTransform(scrollYProgress, [0, 1], ['0vw', '-42vw']);
   const wordScale = useTransform(scrollYProgress, [0, 1], [1, 0.94]);
+  const mediaScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const hasMedia = !!getMedia('hero-principal').src;
   // com "reduzir movimento", nada acompanha a rolagem
   const still = useReducedMotion();
 
@@ -29,12 +34,23 @@ export function Hero() {
       id="topo"
       className="bg-deep text-frost relative isolate grid min-h-[max(100svh,640px)] grid-rows-[auto_auto_1fr] md:min-h-[780px] lg:min-h-[max(100svh,680px)] overflow-hidden"
     >
+      {/* vídeo ou foto principal, atrás de tudo, com a sobreposição azul do manual */}
+      <motion.div aria-hidden={!hasMedia} className="absolute inset-0 -z-10" style={{ scale: still ? 1 : mediaScale }}>
+        <Media
+          id="hero-principal"
+          fill
+          priority
+          tone="dark"
+          className="!bg-deep"
+          tagClassName="left-[var(--m)] bottom-[calc(66vw+28px)] md:bottom-[calc(46vw+28px)] lg:bottom-[calc(15.3vw+56px)]"
+        />
+        {hasMedia && <div className="bg-deep/70 absolute inset-0" />}
+      </motion.div>
+
       <TopBar />
 
       <div className="px-page relative z-30 max-w-[calc(560px+2*var(--m))] pt-8 md:pt-[clamp(40px,7vh,96px)]">
-        <motion.p data-reveal {...rise(0)} className="font-title text-h2 leading-[1.1] font-medium tracking-[-0.03em]">
-          Vidraçaria e serralheria
-        </motion.p>
+        <RevealWords as="p" onMount text="Vidraçaria e serralheria" className="font-title text-h2 leading-[1.1] font-medium tracking-[-0.03em]" />
         <motion.p data-reveal {...rise(1)} className="text-ice mt-6 max-w-[44ch] md:mt-8">
           Box de banheiro, janelas, portas e guarda-corpos em vidro temperado e alumínio, sob medida.
           Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.

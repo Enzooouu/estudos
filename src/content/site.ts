@@ -1,3 +1,5 @@
+import type { MediaId } from './media';
+
 /**
  * Dados da JEL Box em um só lugar.
  * Os valores marcados com "EXEMPLO" precisam ser trocados antes de publicar.
@@ -23,9 +25,11 @@ export const waLink = (msg: string) =>
 export const sections = [
   { id: 'topo', label: 'Início' },
   { id: 'produtos', label: 'Produtos' },
+  { id: 'obras', label: 'Obras' },
   { id: 'processo', label: 'Como trabalhamos' },
   { id: 'monte', label: 'Monte seu box' },
   { id: 'sobre', label: 'Sobre' },
+  { id: 'oficina', label: 'A JEL Box por dentro' },
   { id: 'duvidas', label: 'Dúvidas' },
   { id: 'contato', label: 'Contato' },
 ] as const;
@@ -33,6 +37,28 @@ export const sections = [
 export const nav = sections.slice(1);
 
 export type ProductId = 'box' | 'janelas' | 'guarda' | 'espelhos' | 'coberturas' | 'serralheria';
+
+/** Imagem de cada linha de produto no cadastro de mídias. */
+export const productMedia: Record<ProductId, MediaId> = {
+  box: 'servico-box-banheiro',
+  janelas: 'servico-esquadrias',
+  guarda: 'servico-guarda-corpos',
+  espelhos: 'servico-espelhos',
+  coberturas: 'servico-coberturas',
+  serralheria: 'servico-serralheria',
+};
+
+/**
+ * Obras executadas. Preencha `titulo` e `local` quando houver fotos reais;
+ * enquanto vazios, a legenda mostra só a categoria.
+ */
+export const projects: { media: MediaId; categoria: string; titulo?: string; local?: string; ano?: string }[] = [
+  { media: 'projeto-box-banheiro-01', categoria: 'Box de banheiro' },
+  { media: 'projeto-esquadria-01', categoria: 'Esquadrias de alumínio' },
+  { media: 'projeto-guarda-corpo-01', categoria: 'Guarda-corpo' },
+  { media: 'projeto-cobertura-01', categoria: 'Cobertura de vidro' },
+  { media: 'projeto-serralheria-01', categoria: 'Serralheria' },
+];
 
 export const products: {
   id: ProductId;

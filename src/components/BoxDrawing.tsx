@@ -20,7 +20,7 @@ export function BoxElevation({ c, label }: { c: BoxConfig; label: string }) {
   const dx = x0 - 44;
 
   return (
-    <svg viewBox="0 0 420 470" role="img" aria-label={label} className="mx-auto mb-6 block h-auto max-h-[64vh] w-full overflow-visible">
+    <svg viewBox="0 0 420 470" role="img" aria-label={label} className="mx-auto block h-full w-full overflow-visible">
       <rect className="dw-wall" x={x0 - 22} y={wallTop} width={22} height={floor - wallTop} />
       {c.modelo !== 'canto' && <rect className="dw-wall" x={x1} y={wallTop} width={22} height={floor - wallTop} />}
       {c.modelo === 'teto' && <rect className="dw-wall" x={x0 - 22} y={top - 16} width={W + 44} height={16} />}

@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {/* Sem JavaScript, nada fica escondido esperando animação */}
         <noscript>
-          <style>{'[data-reveal]{opacity:1!important;transform:none!important}'}</style>
+          <style>{'[data-reveal]{opacity:1!important;transform:none!important}[data-reveal-media]{clip-path:none!important}'}</style>
         </noscript>
         <IconSprite />
         <a

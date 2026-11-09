@@ -10,6 +10,7 @@ Site da JEL Box, vidraçaria e serralheria, seguindo o manual de identidade visu
 - **Tailwind CSS 4**: tokens da marca em `@theme` (`src/app/globals.css`)
 - **Motion** (`motion/react`, antigo Framer Motion) para entradas e efeitos de rolagem
 - **Lenis** para a rolagem suave
+- **three.js + React Three Fiber + drei** para o box em 3D do "Monte seu box", carregados sob demanda
 - Exportação estática (`output: 'export'`): o build gera HTML pronto em `out/`, que pode ser
   hospedado em qualquer servidor estático (Vercel, Netlify, Cloudflare Pages, hospedagem comum)
 
@@ -40,8 +41,14 @@ src/
 
 ## Referência de design
 
-O estudo do site fluid.glass (estrutura, medidas, padrões e o que foi aplicado aqui) está em
-`docs/referencia-fluid-glass.md`.
+O estudo do site fluid.glass (tecnologia verificada no código, medidas, padrões e decisões)
+está em `docs/referencia-fluid-glass.md`.
+
+## Mídias e 3D
+
+Fotos, vídeos e o modelo 3D ficam cadastrados em `src/content/media.ts`. Enquanto um arquivo não
+existe, o site mostra um placeholder com a proporção certa e a descrição do que deve entrar ali.
+O passo a passo para trocar, a lista completa e os formatos estão em `docs/midias-e-3d.md`.
 
 ## Efeito de vidro
 
@@ -62,7 +69,3 @@ Troque os dados marcados como `EXEMPLO` em `src/content/site.ts`: endereço do s
 telefone, e-mail, Instagram, endereço da loja e horários. Confira também os textos técnicos
 (normas ABNT citadas, cores de perfil e tipos de vidro oferecidos).
 
-## Fotos
-
-O site usa desenhos técnicos no lugar de fotos. Quando houver fotos reais de obras da JEL Box,
-elas podem entrar com `next/image` no lugar dos desenhos de "O que fazemos" e "Como trabalhamos".

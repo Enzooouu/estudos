@@ -44,6 +44,36 @@ const paths = {
       <path d="M15 9l4 4-4 4" />
     </>
   ),
+  camera: (
+    <>
+      <path d="M3 7h4l2-3h6l2 3h4v13H3z" />
+      <path d="M12 9.5a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" />
+    </>
+  ),
+  video: (
+    <>
+      <path d="M3 6h13v12H3z" />
+      <path d="M16 10l5-3v10l-5-3" />
+    </>
+  ),
+  frame: (
+    <>
+      <path d="M4 3h16v18H4z" />
+      <path d="M12 3v18M4 7h16" />
+    </>
+  ),
+  cube: (
+    <>
+      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
+      <path d="M4 7.5l8 4.5 8-4.5M12 12v9" />
+    </>
+  ),
+  rotate: (
+    <>
+      <path d="M20 12a8 8 0 1 1-2.3-5.7" />
+      <path d="M20 4v5h-5" />
+    </>
+  ),
   menu: <path d="M4 8h16M4 12h16M4 16h16" />,
   close: <path d="M5 5l14 14M19 5L5 19" />,
 } as const;

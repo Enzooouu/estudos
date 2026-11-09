@@ -1,6 +1,7 @@
 import { site } from '@/content/site';
 import { Icon, type IconName } from './Icon';
 import { Reveal } from './Reveal';
+import { RevealWords } from './RevealWords';
 
 const facts: { icon: IconName; title: string; text: string }[] = [
   { icon: 'ruler', title: 'Medição no local', text: 'Antes de qualquer corte' },
@@ -17,11 +18,11 @@ export function About() {
           Sobre a JEL Box
         </h2>
       </Reveal>
-      <Reveal order={1}>
-        <p className="font-title mx-auto mt-8 max-w-[20ch] text-[clamp(24px,3.7vw,56px)] leading-[1.08] font-medium tracking-[-0.035em]">
-          O box que fecha sem pingar e a janela que corre leve.
-        </p>
-      </Reveal>
+      <RevealWords
+        as="p"
+        text="O box que fecha sem pingar e a janela que corre leve."
+        className="font-title mx-auto mt-8 max-w-[20ch] text-[clamp(24px,3.7vw,56px)] leading-[1.08] font-medium tracking-[-0.035em]"
+      />
       <Reveal order={2}>
         <p className="text-muted mx-auto mt-8 max-w-[52ch]">
           Trabalhamos com vidro, alumínio e aço. Cada peça é desenhada para o vão de verdade, com folga calculada e ferragem escolhida pelo peso do vidro, e o guarda-corpo protege sem tirar a vista.

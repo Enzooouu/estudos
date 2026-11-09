@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useScroll, useTransform } from 'motion/react';
 import { site, waLink } from '@/content/site';
 import {
   ALTURA,
@@ -15,7 +16,7 @@ import {
   type Perfil,
   type Vidro,
 } from '@/lib/box';
-import { BoxElevation, BoxPlan } from './BoxDrawing';
+import { BoxViewer } from './BoxViewer';
 import { Icon } from './Icon';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
@@ -101,6 +102,10 @@ function Range({
 /** A coisa viva da página: escolha o box e veja-o desenhado em escala. */
 export function BoxBuilder() {
   const [c, setC] = useState<BoxConfig>(INITIAL);
+  // a cena gira levemente enquanto a seção atravessa a tela
+  const section = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: section, offset: ['start end', 'end start'] });
+  const yaw = useTransform(scrollYProgress, [0, 1], [-0.42, 0.32]);
   const set = (patch: Partial<BoxConfig>) => setC((prev) => ({ ...prev, ...patch }));
 
   const setModelo = (modelo: Modelo) =>
@@ -122,7 +127,7 @@ export function BoxBuilder() {
   };
 
   return (
-    <section id="monte" aria-labelledby="monte-h" className="px-page pt-[var(--gap)]">
+    <section ref={section} id="monte" aria-labelledby="monte-h" className="px-page pt-[var(--gap)]">
       <div className="mb-14 lg:mb-20">
         <SectionHead
           id="monte-h"
@@ -186,12 +191,7 @@ export function BoxBuilder() {
         </Reveal>
 
         <Reveal order={1} className="grid gap-7">
-          <div className="frame-open bg-ice p-[clamp(24px,3vw,44px)] [--frame-color:var(--color-deep)]">
-            <p className="text-small text-muted mb-2 font-semibold">Vista frontal</p>
-            <BoxElevation c={c} label={`Vista frontal: ${summary}`} />
-            <p className="text-small text-muted mb-2 font-semibold">Planta</p>
-            <BoxPlan c={c} />
-          </div>
+          <BoxViewer c={c} summary={summary} yaw={yaw} />
           <div className="grid gap-5">
             <p aria-live="polite" className="font-title text-h3 max-w-[30ch] leading-[1.25] font-medium tracking-[-0.02em]">
               {summary}
