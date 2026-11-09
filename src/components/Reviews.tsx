@@ -98,15 +98,35 @@ function Row({ items, dir }: { items: (Review | null)[]; dir: 'left' | 'right' }
 
 const cardBox = 'flex h-full w-[clamp(280px,27vw,380px)] flex-col gap-4 rounded-[var(--r)] border border-line bg-white/70 p-6';
 
+/** Iniciais do nome, para quando o cliente não tem foto de perfil. */
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]?.toUpperCase())
+    .join('');
+
+/** Cartão: foto e nome em cima, estrelas embaixo deles, depois o texto. */
 function Card({ review }: { review: Review }) {
   return (
     <figure className={cardBox}>
+      <figcaption className="flex items-center gap-3">
+        {review.photo ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={review.photo} alt="" width={44} height={44} loading="lazy" className="h-11 w-11 shrink-0 rounded-full object-cover" />
+        ) : (
+          <span aria-hidden="true" className="bg-ice text-deep grid h-11 w-11 shrink-0 place-items-center rounded-full text-[15px] font-semibold">
+            {initials(review.name)}
+          </span>
+        )}
+        <span className="grid min-w-0 gap-0.5 leading-tight">
+          <span className="text-deep truncate font-semibold">{review.name}</span>
+          <span className="text-muted text-[13px]">{review.when ? `${review.when} · Google` : 'Google'}</span>
+        </span>
+      </figcaption>
       <Stars n={review.stars} />
       <blockquote className="line-clamp-5 flex-1 text-[16px] leading-[1.55]">“{review.text}”</blockquote>
-      <figcaption className="text-muted flex items-center justify-between gap-3 text-[13.5px]">
-        <span className="text-deep font-semibold">{review.name}</span>
-        <span>{review.when ? `${review.when} · Google` : 'Google'}</span>
-      </figcaption>
     </figure>
   );
 }
@@ -114,14 +134,20 @@ function Card({ review }: { review: Review }) {
 /** Cartão vazio enquanto não há avaliações: só a forma, sem texto. */
 function Blank() {
   return (
-    <div className={`${cardBox} min-h-[200px]`}>
+    <div className={`${cardBox} min-h-[220px]`}>
+      <div className="flex items-center gap-3">
+        <span className="bg-line h-11 w-11 shrink-0 rounded-full" />
+        <span className="grid gap-2">
+          <span className="bg-line h-2.5 w-28 rounded-full" />
+          <span className="bg-line h-2 w-16 rounded-full" />
+        </span>
+      </div>
       <Stars n={5} />
       <div className="grid flex-1 content-start gap-2.5 pt-1">
         <span className="bg-line h-2.5 w-full rounded-full" />
         <span className="bg-line h-2.5 w-[92%] rounded-full" />
         <span className="bg-line h-2.5 w-[70%] rounded-full" />
       </div>
-      <span className="bg-line h-2.5 w-24 rounded-full" />
     </div>
   );
 }

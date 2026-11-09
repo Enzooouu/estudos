@@ -31,9 +31,11 @@ export const site = {
 
 /**
  * Avaliações reais do Google. Copie o texto como está, com o nome que o cliente usa no Google.
+ * `photo`: foto de perfil do cliente no Google, salva em public/media/avaliacoes/ (opcional;
+ * sem foto, aparecem as iniciais do nome).
  * Enquanto a lista estiver vazia, a seção mostra um espaço reservado (nunca invente avaliações).
  */
-export const reviews: { name: string; text: string; stars: 1 | 2 | 3 | 4 | 5; when?: string }[] = [];
+export const reviews: { name: string; text: string; stars: 1 | 2 | 3 | 4 | 5; when?: string; photo?: string }[] = [];
 /** nota média e total de avaliações no Google, quando houver */
 export const reviewsSummary: { rating: number; count: number } | null = null;
 
