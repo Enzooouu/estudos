@@ -33,16 +33,17 @@ export type MediaEntry = {
 export const media = {
   /* ---------- Topo ---------- */
   'hero-principal': {
-    // hoje: imagem ilustrativa gerada do modelo 3D (tools/render-hero).
-    // Troque por foto ou vídeo real de uma obra; para vídeo, use kind: 'video' e src .mp4.
+    // Fundo do topo: espelho com LED em quarto planejado, escurecido pela camada azul.
+    // Imagem atual com 758 px de largura: troque por uma versão com 2400 px ou mais.
+    // Para vídeo, use kind: 'video' e src .mp4.
     kind: 'foto',
     label: 'Fotografia principal',
     description:
-      'Foto vertical ou vídeo de 10 a 15 s de uma porta de correr ou box instalado pela JEL Box, luz natural, câmera parada.',
-    ratio: '35 / 41',
+      'Foto horizontal de um ambiente com espelho, box ou esquadria, com área livre à esquerda para o texto. Ideal: 2400 px ou mais.',
+    ratio: '16 / 9',
     src: '/media/hero-principal.jpg',
     sources: { avif: '/media/hero-principal.avif', webp: '/media/hero-principal.webp' },
-    alt: 'Porta de correr em alumínio preto e vidro, iluminada contra um fundo azul (imagem ilustrativa)',
+    alt: '',
   },
 
   /* ---------- Produtos (uma imagem por linha de produto) ---------- */
