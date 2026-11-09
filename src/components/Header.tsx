@@ -66,7 +66,7 @@ export function Header() {
   return (
     <header
       className={`text-frost fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-400 ${
-        solid ? 'bg-graphite shadow-[0_1px_0_rgb(255_255_255/0.08)]' : 'bg-transparent'
+        solid ? 'bg-graphite' : 'bg-transparent'
       }`}
     >
       <div className="px-page flex h-16 items-center justify-between gap-6 lg:h-[72px]">
@@ -87,6 +87,9 @@ export function Header() {
           <Icon name={open ? 'close' : 'menu'} className="!h-7 !w-7" />
         </button>
       </div>
+
+      {/* filete de vidro sob a barra, de ponta a ponta */}
+      <div aria-hidden="true" className="glass-hairline pointer-events-none absolute inset-x-0 bottom-0" />
 
 
       <AnimatePresence>
