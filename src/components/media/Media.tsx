@@ -100,7 +100,7 @@ function Placeholder({
   const tag = (
     <figcaption className={`grid max-w-[34ch] gap-2 ${dark ? 'text-ice' : 'text-deep'}`}>
       <span className="inline-flex items-center gap-2 text-[13px] leading-none font-semibold tracking-[0.1em] uppercase">
-        <Icon name={kindIcon[m.kind]} className="text-amber !h-[18px] !w-[18px]" />
+        <Icon name={kindIcon[m.kind]} className="text-bronze !h-[18px] !w-[18px]" />
         {m.label}
       </span>
       {!compact && (

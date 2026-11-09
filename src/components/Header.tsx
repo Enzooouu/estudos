@@ -12,7 +12,7 @@ const pick = (id: ProductId) => window.dispatchEvent(new CustomEvent<ProductId>(
 
 /**
  * Barra fixa no topo: JEL Box volta ao início, cada produto leva à sua área.
- * Transparente sobre a foto do topo; com vidro azul depois que a página rola.
+ * Sempre em grafite, sobre a foto e durante a rolagem.
  */
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,13 +26,13 @@ export function Header() {
 
   return (
     <header
-      className={`text-frost fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
-        scrolled ? 'glass-deep shadow-[0_1px_0_rgb(214_238_247/0.12)]' : 'bg-transparent'
+      className={`bg-graphite text-frost fixed inset-x-0 top-0 z-50 transition-shadow duration-300 ${
+        scrolled ? 'shadow-[0_1px_0_rgb(214_238_247/0.12)]' : ''
       }`}
     >
       <div className="px-page flex h-16 items-center justify-between gap-6 lg:h-[72px]">
         <a href="#topo" aria-label="JEL Box, voltar ao início" className="font-title inline-flex shrink-0 items-center gap-2.5 text-[19px] leading-none font-medium tracking-[-0.02em]">
-          <BrandMark className="text-amber h-6 w-6" />
+          <BrandMark className="text-bronze h-6 w-6" />
           JEL Box
         </a>
 
@@ -52,7 +52,7 @@ export function Header() {
           href={waLink('Olá, JEL Box! Gostaria de um orçamento.')}
           target="_blank"
           rel="noopener"
-          className="btn btn-amber !min-h-10 shrink-0 !px-4"
+          className="btn btn-bronze !min-h-10 shrink-0 !px-4"
         >
           <Icon name="ret" />
           <span className="hidden sm:inline">Pedir orçamento</span>

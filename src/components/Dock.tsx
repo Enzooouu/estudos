@@ -99,7 +99,7 @@ export function Dock() {
                     <a
                       href={`#${n.id}`}
                       onClick={() => setOpen(false)}
-                      className="hover:text-amber block py-0.5 text-[22px] leading-tight font-medium tracking-[-0.01em] transition-colors"
+                      className="hover:text-bronze block py-0.5 text-[22px] leading-tight font-medium tracking-[-0.01em] transition-colors"
                     >
                       {n.label}
                     </a>
@@ -111,7 +111,7 @@ export function Dock() {
               <a href={site.phoneHref} className="hover:text-frost">{site.phoneDisplay}</a>
               <a href={`mailto:${site.email}`} className="hover:text-frost">{site.email}</a>
             </div>
-            <a className="btn btn-amber mt-6 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+            <a className="btn btn-bronze mt-6 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
               <Icon name="ret" /> Pedir orçamento
             </a>
           </motion.div>
@@ -120,7 +120,7 @@ export function Dock() {
 
       <div className="glass-deep grid h-12 grid-cols-[48px_1fr_48px] items-center">
         <a href="#topo" aria-label="Voltar ao início" className="grid h-full place-items-center" tabIndex={hidden ? -1 : 0}>
-          <BrandMark className="text-amber h-[22px] w-[22px]" />
+          <BrandMark className="text-bronze h-[22px] w-[22px]" />
         </a>
         <span className="relative h-4 overflow-hidden text-center" aria-live="polite">
           <AnimatePresence mode="popLayout" initial={false}>

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#12344D',
+  themeColor: '#343B40',
   width: 'device-width',
   initialScale: 1,
 };
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconSprite />
         <a
           href="#produtos"
-          className="absolute left-[var(--m)] -top-16 z-50 bg-amber px-4 py-2.5 text-deep focus:top-3"
+          className="absolute left-[var(--m)] -top-16 z-50 bg-bronze px-4 py-2.5 text-deep focus:top-3"
         >
           Pular para o conteúdo
         </a>

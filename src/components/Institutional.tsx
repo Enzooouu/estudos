@@ -34,7 +34,7 @@ export function Institutional() {
               <p className="text-frost font-semibold">{site.address}</p>
               <p>{site.hours.join(' · ')}</p>
             </div>
-            <a href="#contato" className="btn btn-amber justify-self-start">
+            <a href="#contato" className="btn btn-bronze justify-self-start">
               <Icon name="ret" /> Agendar uma visita
             </a>
           </Reveal>

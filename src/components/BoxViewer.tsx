@@ -133,7 +133,7 @@ export function BoxViewer({ c, summary, yaw }: { c: BoxConfig; summary: string; 
         {show3D && ready && (
           <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-2 text-[13px]">
             <span className="glass-deep text-ice inline-flex items-center gap-2 px-3 py-2">
-              <Icon name="cube" className="text-amber !h-4 !w-4" />
+              <Icon name="cube" className="text-bronze !h-4 !w-4" />
               {model.src ? 'Modelo 3D do produto' : 'Modelo ilustrativo, gerado pelas medidas'}
             </span>
             <span className="text-muted inline-flex items-center gap-1.5 px-1 py-2">

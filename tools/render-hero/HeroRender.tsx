@@ -65,10 +65,10 @@ function SlidingDoor() {
       {/* folha fixa atrás e folha de correr na frente, entreaberta */}
       <Leaf x={W / 4 - 0.01} z={-0.028} />
       <Leaf x={-W / 4 + 0.01 + 0.34} z={0.028} />
-      {/* puxador âmbar discreto: a cor de ação da marca */}
+      {/* puxador bronze discreto: a cor de ação da marca */}
       <mesh position={[-W / 4 + 0.35 - W / 4 + 0.07, H * 0.48, 0.07]}>
         <boxGeometry args={[0.018, 0.42, 0.018]} />
-        <meshStandardMaterial color="#f5a623" metalness={0.6} roughness={0.35} />
+        <meshStandardMaterial color="#b88b52" metalness={0.6} roughness={0.35} />
       </mesh>
     </group>
   );
@@ -135,7 +135,7 @@ export default function HeroRender() {
           <Lightformer form="rect" intensity={4} position={[1.2, 2, 5.5]} rotation-y={Math.PI} scale={[0.18, 7, 1]} />
           <Lightformer form="rect" intensity={2.5} position={[0, 5, 1]} rotation-x={Math.PI / 2} scale={[6, 2, 1]} />
           <Lightformer form="rect" intensity={1.2} color="#d6eef7" position={[-4, 1.5, 0]} rotation-y={Math.PI / 2} scale={[3, 5, 1]} />
-          <Lightformer form="rect" intensity={0.8} color="#f5a623" position={[3, 0.3, 3]} rotation-y={-Math.PI / 3} scale={[2, 0.3, 1]} />
+          <Lightformer form="rect" intensity={0.8} color="#b88b52" position={[3, 0.3, 3]} rotation-y={-Math.PI / 3} scale={[2, 0.3, 1]} />
         </Environment>
         <ambientLight intensity={0.25} />
         <directionalLight position={[-3, 5, 4]} intensity={1.2} />

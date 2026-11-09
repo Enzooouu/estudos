@@ -17,7 +17,7 @@ export function Contact() {
         label="Contato"
         title="Peça sua visita técnica"
         aside={
-          <a className="btn btn-amber" href={waLink('Olá, JEL Box! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
+          <a className="btn btn-bronze" href={waLink('Olá, JEL Box! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Chamar no WhatsApp
           </a>
         }

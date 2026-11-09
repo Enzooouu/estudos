@@ -100,7 +100,7 @@ export function Products() {
                   </span>
                   <Icon
                     name="ret"
-                    className={`justify-self-end transition-transform duration-300 ${on ? 'text-amber translate-x-0' : '-translate-x-1 opacity-60'}`}
+                    className={`justify-self-end transition-transform duration-300 ${on ? 'text-bronze translate-x-0' : '-translate-x-1 opacity-60'}`}
                   />
                 </button>
               );

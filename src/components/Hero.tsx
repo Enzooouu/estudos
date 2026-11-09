@@ -69,7 +69,7 @@ export function Hero() {
           Box de banheiro, espelhos, janelas, portas e guarda-corpos. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.
         </motion.p>
         <motion.div data-reveal {...rise(3)} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-          <a className="btn btn-amber" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+          <a className="btn btn-bronze" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Pedir orçamento
           </a>
           <a href="#monte" className="btn btn-text text-ice hover:!text-frost">
@@ -80,7 +80,7 @@ export function Hero() {
         <motion.ul data-reveal {...rise(4)} className="border-ice/25 mt-12 grid max-w-[760px] gap-4 border-t pt-6 sm:grid-cols-3 lg:mt-14">
           {facts.map((f) => (
             <li key={f.text} className="text-ice flex items-center gap-3 text-[15px]">
-              <Icon name={f.icon} className="text-amber !h-5 !w-5" />
+              <Icon name={f.icon} className="text-bronze !h-5 !w-5" />
               {f.text}
             </li>
           ))}

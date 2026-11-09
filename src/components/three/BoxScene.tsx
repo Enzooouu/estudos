@@ -66,8 +66,8 @@ export default function BoxScene({ c, open, yaw, reduced, interactive, modelUrl,
         <Lightformer form="rect" intensity={5} position={[-1.4, 1.8, 4.5]} rotation-y={Math.PI} scale={[0.35, 6, 1]} />
         <Lightformer form="rect" intensity={3.5} position={[0.9, 1.8, 4.8]} rotation-y={Math.PI} scale={[0.14, 6, 1]} />
         <Lightformer form="rect" intensity={2.5} position={[-3.2, 1.6, 1.5]} rotation-y={Math.PI / 2.4} scale={[0.4, 5, 1]} />
-        {/* luz âmbar baixa e discreta, a cor de ação da marca refletida no perfil */}
-        <Lightformer form="rect" intensity={0.7} color="#f5a623" position={[1.5, 0.3, 3.5]} scale={[2.5, 0.2, 1]} />
+        {/* luz bronze baixa e discreta, a cor de ação da marca refletida no perfil */}
+        <Lightformer form="rect" intensity={0.7} color="#b88b52" position={[1.5, 0.3, 3.5]} scale={[2.5, 0.2, 1]} />
         {/* fundo azul-gelo envolvendo a cena */}
         <Lightformer form="ring" intensity={0.5} color="#d6eef7" position={[0, 2, -6]} scale={8} />
       </Environment>

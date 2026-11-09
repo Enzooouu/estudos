@@ -28,12 +28,12 @@ export function Footer() {
 
       <div className="px-page relative z-10 flex items-center justify-center pt-[clamp(96px,16vh,170px)] pb-[calc(14.7vw+40px)] lg:pb-10">
         <motion.div style={{ y: still ? 0 : panelY }} className="glass-light text-frost w-full max-w-[380px] p-8">
-          <BrandMark className="text-amber h-7 w-7" />
+          <BrandMark className="text-bronze h-7 w-7" />
           <p className="label text-ice/80 mt-7">Menu</p>
           <ul className="mt-4 grid gap-0.5">
             {nav.map((n) => (
               <li key={n.id}>
-                <a href={`#${n.id}`} className="hover:text-amber block text-[24px] leading-tight font-medium tracking-[-0.01em] transition-colors">
+                <a href={`#${n.id}`} className="hover:text-bronze block text-[24px] leading-tight font-medium tracking-[-0.01em] transition-colors">
                   {n.label}
                 </a>
               </li>
@@ -45,7 +45,7 @@ export function Footer() {
             <span>{site.hours.join(' · ')}</span>
             <span>{site.address}</span>
           </div>
-          <a className="btn btn-amber mt-7 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+          <a className="btn btn-bronze mt-7 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Pedir orçamento
           </a>
         </motion.div>

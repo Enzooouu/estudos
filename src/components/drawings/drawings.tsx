@@ -166,7 +166,7 @@ export const stepDrawings: Record<string, D> = {
       <rect className="dw-glass" x="64" y="77" width="142" height="199"/>
       <rect className="dw-glass dw-glass-front" x="196" y="79" width="142" height="197"/>
       <rect className="dw-line" x="140" y="44" width="120" height="16"/>
-      <rect className="dw-amber" x="192" y="48" width="16" height="8"/>
+      <rect className="dw-bronze" x="192" y="48" width="16" height="8"/>
       </>
     ),
   },

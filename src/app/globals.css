@@ -7,8 +7,10 @@
   --color-ice: #d6eef7; /* Gelo: blocos de apoio */
   --color-ice-strong: #c4e3ef;
   --color-frost: #f8fcfd; /* Branco frio: fundo da página */
-  --color-amber: #f5a623; /* Âmbar: botões de ação */
-  --color-amber-hover: #ffb840;
+  --color-bronze: #b88b52; /* Bronze: botões de ação e destaques */
+  --color-bronze-hover: #c99d66;
+  --color-graphite: #343b40; /* barra superior */
+  --color-ink-dark: #1a1f23; /* texto sobre bronze */
   --color-muted: #3d5b72;
   --color-line: rgb(18 52 77 / 0.22);
 
@@ -59,11 +61,11 @@
     overflow-x: clip;
   }
   ::selection {
-    background: var(--color-amber);
-    color: var(--color-deep);
+    background: var(--color-bronze);
+    color: var(--color-ink-dark);
   }
   :focus-visible {
-    outline: 2px solid var(--color-amber);
+    outline: 2px solid var(--color-bronze);
     outline-offset: 3px;
   }
 }
@@ -117,12 +119,12 @@
   .btn:active {
     transform: translateY(1px) scale(0.98);
   }
-  .btn-amber {
-    background: var(--color-amber);
-    color: var(--color-deep);
+  .btn-bronze {
+    background: var(--color-bronze);
+    color: var(--color-ink-dark);
   }
-  .btn-amber:hover {
-    background: var(--color-amber-hover);
+  .btn-bronze:hover {
+    background: var(--color-bronze-hover);
   }
   .btn-deep {
     background: var(--color-deep);
@@ -316,8 +318,8 @@
     fill: var(--color-glass);
     font: 500 13px var(--font-text);
   }
-  .dw-amber {
-    fill: var(--color-amber);
+  .dw-bronze {
+    fill: var(--color-bronze);
   }
 
   /* Controle deslizante com puxador de perfil */
@@ -342,7 +344,7 @@
     width: 14px;
     height: 30px;
     margin-top: -14px;
-    background: var(--color-amber);
+    background: var(--color-bronze);
     border: 2px solid var(--color-deep);
     border-radius: 0;
     transition: transform 0.2s var(--ease-out-expo);
@@ -350,7 +352,7 @@
   .range::-moz-range-thumb {
     width: 12px;
     height: 28px;
-    background: var(--color-amber);
+    background: var(--color-bronze);
     border: 2px solid var(--color-deep);
     border-radius: 0;
   }
