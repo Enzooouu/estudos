@@ -56,7 +56,7 @@ export default function BoxScene({ c, open, yaw, reduced, interactive, modelUrl,
       </Rig>
 
       {/* sombra de contato estática: calculada uma vez por mudança, não a cada quadro */}
-      <ContactShadows position={[0, 0.001, -0.35]} scale={6} blur={2.4} opacity={0.42} far={2.6} frames={1} resolution={512} color="#12344d" />
+      <ContactShadows position={[0, 0.001, -0.35]} scale={6} blur={2.4} opacity={0.42} far={2.6} frames={1} resolution={512} color="#1F2022" />
 
       {/* estúdio de luz gerado no próprio navegador: sem baixar HDR */}
       <Environment resolution={256} frames={1}>
@@ -68,12 +68,12 @@ export default function BoxScene({ c, open, yaw, reduced, interactive, modelUrl,
         <Lightformer form="rect" intensity={2.5} position={[-3.2, 1.6, 1.5]} rotation-y={Math.PI / 2.4} scale={[0.4, 5, 1]} />
         {/* luz bronze baixa e discreta, a cor de ação da marca refletida no perfil */}
         <Lightformer form="rect" intensity={0.7} color="#b88b52" position={[1.5, 0.3, 3.5]} scale={[2.5, 0.2, 1]} />
-        {/* fundo azul-gelo envolvendo a cena */}
-        <Lightformer form="ring" intensity={0.5} color="#d6eef7" position={[0, 2, -6]} scale={8} />
+        {/* fundo bege claro envolvendo a cena */}
+        <Lightformer form="ring" intensity={0.5} color="#EDE8E1" position={[0, 2, -6]} scale={8} />
       </Environment>
-      <ambientLight intensity={0.9} color="#eef7fb" />
+      <ambientLight intensity={0.9} color="#F4F1EC" />
       <directionalLight position={[2.5, 4, 3]} intensity={1.4} />
-      <directionalLight position={[-3, 2, 2]} intensity={0.5} color="#d6eef7" />
+      <directionalLight position={[-3, 2, 2]} intensity={0.5} color="#EDE8E1" />
 
       {interactive && (
       <OrbitControls

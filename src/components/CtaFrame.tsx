@@ -31,7 +31,7 @@ export function CtaFrame() {
             <path d="M230 20L400 0M230 420L400 420" />
             <path d="M120 70L190 52M120 95L170 82" stroke="var(--color-glass)" />
           </g>
-          <path d="M80 60L230 20v400L80 380z" fill="rgb(59 110 165 / .1)" />
+          <path d="M80 60L230 20v400L80 380z" fill="rgb(107 103 96 / .1)" />
           <path d="M205 190v60" stroke="var(--color-bronze)" strokeWidth="3" />
         </svg>
       </Reveal>

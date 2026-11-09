@@ -1,5 +1,10 @@
 # Regras do projeto (site da JEL Box)
 
+## Cores
+A paleta é de cinzas, bege e branco, com o bronze só nos botões de ação e destaques. **Não usar
+azul.** Use sempre os tokens de `src/app/globals.css` (`deep`, `graphite`, `glass`, `muted`,
+`ice`, `frost`, `bronze`) em vez de cores soltas.
+
 ## Cantos arredondados
 Nada no site fica com canto vivo. Todo elemento com fundo, borda ou imagem leva pelo menos um
 arredondado mínimo, usando os tokens de `src/app/globals.css`:

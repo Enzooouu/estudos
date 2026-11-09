@@ -14,7 +14,7 @@ export function BoxElevation({ c, label }: { c: BoxConfig; label: string }) {
   const top = floor - H;
   const [gBack, gFront] = VIDRO[c.vidro].fill;
   const prof = PERFIL[c.perfil];
-  const profStroke = c.perfil === 'branco' ? { stroke: '#12344D', strokeWidth: 1 } : {};
+  const profStroke = c.perfil === 'branco' ? { stroke: '#1F2022', strokeWidth: 1 } : {};
   const wallTop = c.modelo === 'teto' ? top - 16 : Math.min(top - 40, 30);
   const dy = Math.max(top - 26, 14);
   const dx = x0 - 44;
@@ -78,7 +78,7 @@ export function BoxPlan({ c }: { c: BoxConfig }) {
   const x1 = x0 + W;
   const y0 = 18;
   const yf = y0 + D;
-  const prof = c.perfil === 'branco' ? '#12344D' : PERFIL[c.perfil];
+  const prof = c.perfil === 'branco' ? '#1F2022' : PERFIL[c.perfil];
   const fix = x0 + W * 0.42;
   const r = x1 - fix;
   const height = c.modelo === 'abrir' ? Math.max(150, yf + r + 10) : Math.max(110, yf + 20);

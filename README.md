@@ -1,7 +1,8 @@
 # JEL Box — site
 
 Site da JEL Box, vidraçaria e serralheria, seguindo o manual de identidade visual
-(cores, Unbounded + Onest, linhas arquitetônicas, transparências em azul, formas retas e
+(Unbounded + Onest, linhas arquitetônicas, paleta de cinzas, bege e branco com bronze nas ações,
+cantos arredondados e
 ícones outline).
 
 ## Stack
@@ -54,7 +55,7 @@ O passo a passo para trocar, a lista completa e os formatos estão em `docs/midi
 
 O `expo-glass-effect` não é usado: ele depende de `expo` e `react-native`, e fora do iOS seu
 `GlassView` é só uma `View` sem efeito. No lugar, o vidro é feito em CSS (`.glass-pane`):
-`backdrop-filter` com desfoque e tom azul translúcido, com recuo para azul sólido quando o
+`backdrop-filter` com desfoque e tom cinza translúcido, com recuo para cinza sólido quando o
 navegador não suporta desfoque ou quando o usuário pede menos transparência.
 
 ## Acessibilidade e movimento

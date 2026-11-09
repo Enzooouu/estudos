@@ -10,9 +10,9 @@ const tone = {
     section: 'bg-deep text-frost',
     vars: {
       '--dw-ink': 'var(--color-ice)',
-      '--dw-wall': '#1d4866',
-      '--dw-glass': 'rgb(214 238 247 / .14)',
-      '--dw-glass-front': 'rgb(214 238 247 / .24)',
+      '--dw-wall': '#2E2F31',
+      '--dw-glass': 'rgb(237 232 225 / .14)',
+      '--dw-glass-front': 'rgb(237 232 225 / .24)',
     },
   },
 } as const;

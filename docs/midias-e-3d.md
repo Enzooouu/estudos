@@ -32,7 +32,7 @@ Para as obras, preencha também `titulo`, `local` e `ano` na lista `projects` de
 
 | Id | Tipo | Proporção | Onde aparece | Conteúdo esperado |
 | --- | --- | --- | --- | --- |
-| `hero-principal` | Vídeo | 16:9 | Fundo do topo, sob a sobreposição azul | 10 a 15 s em loop: folha de vidro deslizando num box ou porta instalada, luz natural, câmera parada |
+| `hero-principal` | Vídeo | 16:9 | Fundo do topo, sob o escurecimento | 10 a 15 s em loop: folha de vidro deslizando num box ou porta instalada, luz natural, câmera parada |
 | `servico-box-banheiro` | Imagem do produto | 3:2 | Produtos | Box instalado, de frente, com perfil e puxador |
 | `servico-esquadrias` | Imagem do produto | 3:2 | Produtos | Janela ou porta de correr instalada, vista de dentro |
 | `servico-guarda-corpos` | Imagem do produto | 3:2 | Produtos | Guarda-corpo em sacada ou escada, perfil de base visível |

@@ -10,7 +10,7 @@ const kindIcon: Record<MediaEntry['kind'], IconName> = {
 
 type Props = {
   id: MediaId;
-  /** 'light' sobre fundos claros, 'dark' sobre o azul profundo */
+  /** 'light' sobre fundos claros, 'dark' sobre o grafite */
   tone?: 'light' | 'dark';
   /** ocupa o contêiner inteiro (fundo de seção) em vez de usar a proporção */
   fill?: boolean;
@@ -94,8 +94,8 @@ function Placeholder({
   className: string;
 }) {
   const dark = tone === 'dark';
-  const surface = dark ? 'bg-[#163d59] text-ice' : 'bg-ice text-deep';
-  const line = dark ? 'rgb(214 238 247 / .16)' : 'rgb(18 52 77 / .14)';
+  const surface = dark ? 'bg-[#2A2B2D] text-ice' : 'bg-ice text-deep';
+  const line = dark ? 'rgb(237 232 225 / .16)' : 'rgb(31 32 34 / .14)';
 
   const tag = (
     <figcaption className={`grid max-w-[34ch] gap-2 ${dark ? 'text-ice' : 'text-deep'}`}>
@@ -128,7 +128,7 @@ function Placeholder({
       className={`frame-open relative m-0 flex h-full w-full flex-col justify-end overflow-hidden rounded-[var(--r)] p-[clamp(26px,3.6vw,48px)] ${surface} ${className}`}
       style={{
         aspectRatio: m.ratio,
-        ['--frame-color' as string]: dark ? 'rgb(214 238 247 / .35)' : 'rgb(59 110 165 / .55)',
+        ['--frame-color' as string]: dark ? 'rgb(237 232 225 / .35)' : 'rgb(107 103 96 / .55)',
       }}
     >
       <Reflections line={line} />

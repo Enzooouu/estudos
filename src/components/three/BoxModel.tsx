@@ -35,9 +35,9 @@ function glassParams(v: Vidro): THREE.MeshPhysicalMaterialParameters {
     case 'bronze':
       return { ...base, color: '#c3a17a', attenuationColor: '#8a6a45', attenuationDistance: 0.9 };
     case 'jateado':
-      return { ...base, color: '#f4f8f9', roughness: 0.55, transmission: 0.92, attenuationColor: '#ffffff' };
+      return { ...base, color: '#F5F4F1', roughness: 0.55, transmission: 0.92, attenuationColor: '#ffffff' };
     default:
-      return { ...base, color: '#f2f9fa', attenuationColor: '#cfe9e2' };
+      return { ...base, color: '#F4F2EE', attenuationColor: '#cfe9e2' };
   }
 }
 
@@ -73,7 +73,7 @@ export function BoxModel({ c, open, instant }: Props) {
 
   const glass = useMemo(() => new THREE.MeshPhysicalMaterial(glassParams(c.vidro)), [c.vidro]);
   const profile = useMemo(() => new THREE.MeshStandardMaterial(profileParams(c.perfil)), [c.perfil]);
-  const wall = useMemo(() => new THREE.MeshStandardMaterial({ color: '#f3f9fb', roughness: 0.95, envMapIntensity: 0.6 }), []);
+  const wall = useMemo(() => new THREE.MeshStandardMaterial({ color: '#F5F3EF', roughness: 0.95, envMapIntensity: 0.6 }), []);
   useEffect(() => () => glass.dispose(), [glass]);
   useEffect(() => () => profile.dispose(), [profile]);
   useEffect(() => () => wall.dispose(), [wall]);

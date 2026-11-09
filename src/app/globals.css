@@ -1,18 +1,18 @@
 @import 'tailwindcss';
 
-/* ---------- Tokens da marca (manual JEL Box) ---------- */
+/* ---------- Tokens da marca: cinzas, bege e branco (sem azul) ---------- */
 @theme {
-  --color-deep: #12344d; /* Azul profundo: topo e rodapé */
-  --color-glass: #3b6ea5; /* Azul vidro: ícones e detalhes */
-  --color-ice: #d6eef7; /* Gelo: blocos de apoio */
-  --color-ice-strong: #c4e3ef;
-  --color-frost: #f8fcfd; /* Branco frio: fundo da página */
+  --color-deep: #1F2022; /* Grafite: texto, faixas escuras e rodapé */
+  --color-glass: #6B6760; /* Cinza quente: ícones e detalhes */
+  --color-ice: #EDE8E1; /* Bege claro: blocos de apoio */
+  --color-ice-strong: #E2DBD1;
+  --color-frost: #FAF8F5; /* Branco quente: fundo da página */
   --color-bronze: #b88b52; /* Bronze: botões de ação e destaques */
   --color-bronze-hover: #c99d66;
   --color-graphite: #262729; /* barra superior: cinza escuro neutro */
   --color-ink-dark: #1a1f23; /* texto sobre bronze */
-  --color-muted: #3d5b72;
-  --color-line: rgb(18 52 77 / 0.22);
+  --color-muted: #5E5B56;
+  --color-line: rgb(31 32 34 / 0.22);
 
   --font-title: var(--font-unbounded), 'Arial Black', sans-serif;
   --font-text: var(--font-onest), system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -199,15 +199,15 @@
     border-top: 0;
   }
 
-  /* Vidro: translúcido azul com desfoque; sem suporte, vira azul sólido legível */
+  /* Vidro: translúcido cinza com desfoque; sem suporte, vira cinza sólido legível */
   .glass-pane {
-    background: rgb(59 110 165 / 0.34);
+    background: rgb(107 103 96 / 0.34);
     -webkit-backdrop-filter: blur(7px) saturate(1.15);
     backdrop-filter: blur(7px) saturate(1.15);
   }
   /* Vidro escuro: painel do rodapé */
   .glass-deep {
-    background: rgb(18 52 77 / 0.8);
+    background: rgb(31 32 34 / 0.8);
     -webkit-backdrop-filter: blur(18px) saturate(1.2);
     backdrop-filter: blur(18px) saturate(1.2);
   }
@@ -240,25 +240,25 @@
     mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
   }
 
-  /* Vidro azul claro sobre fundo escuro: painel do rodapé */
+  /* Vidro claro sobre fundo escuro: painel do rodapé */
   .glass-light {
-    background: rgb(59 110 165 / 0.3);
+    background: rgb(107 103 96 / 0.3);
     -webkit-backdrop-filter: blur(18px) saturate(1.2);
     backdrop-filter: blur(18px) saturate(1.2);
-    box-shadow: inset 0 0 0 1px rgb(214 238 247 / 0.18);
+    box-shadow: inset 0 0 0 1px rgb(237 232 225 / 0.18);
   }
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .glass-tint {
       background: rgb(20 22 23 / 0.9);
     }
     .glass-pane {
-      background: rgb(46 92 140 / 0.82);
+      background: rgb(90 88 84 / 0.82);
     }
     .glass-deep {
-      background: rgb(18 52 77 / 0.97);
+      background: rgb(31 32 34 / 0.97);
     }
     .glass-light {
-      background: rgb(36 78 114 / 0.95);
+      background: rgb(60 59 57 / 0.95);
     }
   }
   @media (prefers-reduced-transparency: reduce) {
@@ -270,16 +270,16 @@
       backdrop-filter: none;
     }
     .glass-pane {
-      background: rgb(46 92 140 / 0.9);
+      background: rgb(90 88 84 / 0.9);
     }
     .glass-tint {
       background: rgb(20 22 23 / 0.96);
     }
     .glass-deep {
-      background: rgb(18 52 77 / 0.97);
+      background: rgb(31 32 34 / 0.97);
     }
     .glass-light {
-      background: rgb(36 78 114 / 0.95);
+      background: rgb(60 59 57 / 0.95);
     }
   }
 
@@ -325,16 +325,16 @@
     stroke-dasharray: 6 6;
   }
   .dw-glass {
-    fill: var(--dw-glass, rgb(59 110 165 / 0.16));
+    fill: var(--dw-glass, rgb(107 103 96 / 0.16));
     stroke: var(--dw-ink, var(--color-deep));
     stroke-width: 1.5;
     vector-effect: non-scaling-stroke;
   }
   .dw-glass-front {
-    fill: var(--dw-glass-front, rgb(59 110 165 / 0.26));
+    fill: var(--dw-glass-front, rgb(107 103 96 / 0.26));
   }
   .dw-mirror {
-    fill: rgb(214 238 247 / 0.9);
+    fill: rgb(237 232 225 / 0.9);
   }
   .dw-profile {
     fill: var(--dw-ink, var(--color-deep));
