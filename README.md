@@ -72,8 +72,8 @@ telefone, e-mail, Instagram, endereço da loja e horários. Confira também os t
 
 ## Blog
 
-A página `/blog/` lista os artigos do mais novo para o mais antigo; o mais recente aparece em
-destaque no topo. Cada artigo é um arquivo Markdown em `src/content/blog/`, e o nome do arquivo
+A página `/blog/` mostra o artigo mais recente em destaque no topo e os anteriores numa grade de
+3 colunas, 12 por página; com mais de 12, aparecem as páginas 1, 2, 3… (`/blog/pagina/2/`, …). Cada artigo é um arquivo Markdown em `src/content/blog/`, e o nome do arquivo
 vira o endereço (`como-medir-o-vao-do-box.md` → `/blog/como-medir-o-vao-do-box/`).
 
 Para publicar um artigo, crie o arquivo com este cabeçalho e rode `npm run build`:

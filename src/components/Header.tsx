@@ -97,11 +97,14 @@ export function Header() {
           JEL Box
         </a>
 
-        <div className="-mr-2 flex items-center gap-3 sm:gap-5">
+        <div className="-mr-2 flex items-center gap-2 sm:gap-4">
           <Link
             href="/blog/"
             aria-current={onBlog ? 'page' : undefined}
-            className={`link-grow py-2 text-[13px] leading-none font-semibold tracking-[0.12em] uppercase transition-colors hover:text-bronze ${onBlog ? 'text-bronze' : ''}`}
+            // botão com contorno: é uma página à parte, diferente do menu (três traços) ao lado
+            className={`inline-flex h-9 items-center rounded-[var(--r-sm)] border px-3.5 text-[12.5px] leading-none font-semibold tracking-[0.12em] uppercase transition-colors ${
+              onBlog ? 'border-bronze text-bronze' : 'border-white/30 hover:border-white/60 hover:bg-white/10'
+            }`}
           >
             Blog
           </Link>
