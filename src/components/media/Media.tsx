@@ -56,7 +56,7 @@ export function Media({ id, tone = 'light', fill, priority, compact, tagClassNam
   if (m.src) {
     return (
       <div className={`${box} overflow-hidden ${className}`} style={style}>
-        <picture>
+        <picture className="block h-full w-full">
           {m.sources?.avif && <source srcSet={m.sources.avif} type="image/avif" sizes={sizes} />}
           {m.sources?.webp && <source srcSet={m.sources.webp} type="image/webp" sizes={sizes} />}
           <img

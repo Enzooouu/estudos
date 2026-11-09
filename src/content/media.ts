@@ -33,11 +33,16 @@ export type MediaEntry = {
 export const media = {
   /* ---------- Topo ---------- */
   'hero-principal': {
-    kind: 'video',
-    label: 'Vídeo institucional',
+    // hoje: imagem ilustrativa gerada do modelo 3D (tools/render-hero).
+    // Troque por foto ou vídeo real de uma obra; para vídeo, use kind: 'video' e src .mp4.
+    kind: 'foto',
+    label: 'Fotografia principal',
     description:
-      'Vídeo de 10 a 15 s em loop: uma folha de vidro deslizando num box ou numa porta de correr instalada pela JEL Box, luz natural, câmera parada.',
-    ratio: '16 / 9',
+      'Foto vertical ou vídeo de 10 a 15 s de uma porta de correr ou box instalado pela JEL Box, luz natural, câmera parada.',
+    ratio: '35 / 41',
+    src: '/media/hero-principal.jpg',
+    sources: { avif: '/media/hero-principal.avif', webp: '/media/hero-principal.webp' },
+    alt: 'Porta de correr em alumínio preto e vidro, iluminada contra um fundo azul (imagem ilustrativa)',
   },
 
   /* ---------- Produtos (uma imagem por linha de produto) ---------- */
