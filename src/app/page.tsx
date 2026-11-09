@@ -7,9 +7,11 @@ import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Institutional } from '@/components/Institutional';
+import { Location } from '@/components/Location';
 import { Process } from '@/components/Process';
 import { Products } from '@/components/Products';
 import { Projects } from '@/components/Projects';
+import { Reviews } from '@/components/Reviews';
 import { faq, products, site } from '@/content/site';
 
 /** Dados estruturados para o Google: empresa local + perguntas frequentes. */
@@ -52,6 +54,8 @@ export default function Home() {
         <About />
         <Institutional />
         <Faq />
+        <Reviews />
+        <Location />
         <CtaFrame />
         <Contact />
       </main>

@@ -16,7 +16,19 @@ export const site = {
   instagram: { handle: '@jelbox', url: 'https://instagram.com/' }, // EXEMPLO
   address: 'Endereço da loja', // EXEMPLO
   hours: ['Seg a sex, 8h às 18h', 'Sábado, 8h às 12h'], // EXEMPLO
+  /** página da JEL Box no Google (avaliações e mapa) */
+  googleUrl: '', // EXEMPLO: link do perfil da empresa no Google
+  /** endereço do mapa incorporado (Google Maps > Compartilhar > Incorporar um mapa > src do iframe) */
+  mapEmbed: '', // EXEMPLO
 } as const;
+
+/**
+ * Avaliações reais do Google. Copie o texto como está, com o nome que o cliente usa no Google.
+ * Enquanto a lista estiver vazia, a seção mostra um espaço reservado (nunca invente avaliações).
+ */
+export const reviews: { name: string; text: string; stars: 1 | 2 | 3 | 4 | 5; when?: string }[] = [];
+/** nota média e total de avaliações no Google, quando houver */
+export const reviewsSummary: { rating: number; count: number } | null = null;
 
 export const waLink = (msg: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;
@@ -31,13 +43,21 @@ export const sections = [
   { id: 'sobre', label: 'Sobre' },
   { id: 'oficina', label: 'A JEL Box por dentro' },
   { id: 'duvidas', label: 'Dúvidas' },
+  { id: 'avaliacoes', label: 'Avaliações' },
+  { id: 'localizacao', label: 'Localização' },
   { id: 'contato', label: 'Contato' },
 ] as const;
 
 export const nav = sections.slice(1);
 
-/** Itens do menu do topo: só os caminhos principais. */
-export const menu = nav.filter((s) => ['produtos', 'obras', 'monte', 'sobre', 'contato'].includes(s.id));
+/** Itens do menu do topo, nesta ordem. */
+export const menu: { id: (typeof sections)[number]['id']; label: string }[] = [
+  { id: 'sobre', label: 'Sobre nós' },
+  { id: 'produtos', label: 'Produtos' },
+  { id: 'duvidas', label: 'Dúvidas' },
+  { id: 'avaliacoes', label: 'Avaliações' },
+  { id: 'localizacao', label: 'Localização' },
+];
 
 export type ProductId = 'box' | 'janelas' | 'guarda' | 'espelhos' | 'coberturas' | 'serralheria';
 

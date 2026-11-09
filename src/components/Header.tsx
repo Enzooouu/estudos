@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { menu, sections, waLink } from '@/content/site';
+import { menu, sections, site, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
 import { GlassLens } from './GlassLens';
 import { Icon } from './Icon';
@@ -124,10 +124,10 @@ export function Header() {
               key="painel"
               ref={panel}
               id="menu-principal"
-              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
-              initial={{ clipPath: 'inset(0 0 100% 0)' }}
-              animate={{ clipPath: 'inset(0 0 0% 0)' }}
-              exit={{ clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.45, ease: easeInOut } }}
+              className="glass-tint isolate absolute top-[calc(100%+8px)] right-[var(--m)] rounded-[10px] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              initial={{ clipPath: 'inset(0 0 100% 0 round 10px)' }}
+              animate={{ clipPath: 'inset(0 0 0% 0 round 10px)' }}
+              exit={{ clipPath: 'inset(0 0 100% 0 round 10px)', transition: { duration: 0.45, ease: easeInOut } }}
               transition={{ duration: 0.7, ease: easeInOut }}
             >
               <GlassLens />
@@ -161,11 +161,25 @@ export function Header() {
               </nav>
 
               <motion.div
-                className="px-5 pt-3 pb-5"
+                className="grid gap-4 px-5 pt-4 pb-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, ease, delay: 0.15 + menu.length * 0.04 }}
               >
+                <dl className="grid grid-cols-2 gap-x-4 gap-y-2.5 border-t border-white/10 pt-4 text-[13px] leading-snug">
+                  <div>
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Telefone</dt>
+                    <dd><a href={site.phoneHref} className="link-grow text-frost/90 hover:text-frost">{site.phoneDisplay}</a></dd>
+                  </div>
+                  <div>
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Instagram</dt>
+                    <dd><a href={site.instagram.url} target="_blank" rel="noopener" className="link-grow text-frost/90 hover:text-frost">{site.instagram.handle}</a></dd>
+                  </div>
+                  <div className="col-span-2">
+                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
+                    <dd><a href={`mailto:${site.email}`} className="link-grow text-frost/90 hover:text-frost">{site.email}</a></dd>
+                  </div>
+                </dl>
                 <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
                   <Icon name="ret" /> Pedir orçamento
                 </a>
