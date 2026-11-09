@@ -18,22 +18,22 @@ const BEVEL_PULL = 22;
  *
  * - Chromium (Chrome, Edge, Samsung Internet, Android): `backdrop-filter: url(#filtro)` com um
  *   mapa de deslocamento, que amplia qualquer coisa atrás e entorta mais forte nas bordas.
- * - Safari e Firefox não aplicam esse filtro. Neles, enquanto o painel está sobre a foto do
- *   topo, uma cópia ampliada da foto, alinhada com a original, faz o papel da lente
- *   (`PhotoLens`). Fora da foto, fica o vidro fumê da classe `.glass-tint`.
+ * - Safari e Firefox não aplicam esse filtro. Neles, uma cópia ampliada das seções que estão
+ *   atrás do painel, alinhada com as originais, faz o papel da lente (`PageLens`), com foto,
+ *   textos e botões. A borda não entorta mais forte, só a ampliação.
  * - Com "reduzir transparência" no sistema, nenhuma lente.
  */
 export function GlassLens() {
-  const [mode, setMode] = useState<'filtro' | 'foto' | null>(null);
+  const [mode, setMode] = useState<'filtro' | 'pagina' | null>(null);
 
   useEffect(() => {
     if (matchMedia('(prefers-reduced-transparency: reduce)').matches) return;
     const ua = (navigator as Navigator & { userAgentData?: { brands: { brand: string }[] } }).userAgentData;
-    setMode(ua?.brands.some((b) => /Chromium/.test(b.brand)) ? 'filtro' : 'foto');
+    setMode(ua?.brands.some((b) => /Chromium/.test(b.brand)) ? 'filtro' : 'pagina');
   }, []);
 
   if (mode === 'filtro') return <FilterLens />;
-  if (mode === 'foto') return <PhotoLens />;
+  if (mode === 'pagina') return <PageLens />;
   return null;
 }
 
@@ -92,51 +92,93 @@ function FilterLens() {
 }
 
 /**
- * Lente por cópia da foto do topo (Safari e Firefox): a mesma foto, no mesmo lugar e tamanho
- * da original, ampliada a partir do centro do painel e com o mesmo tom da película.
- * Acompanha a rolagem quadro a quadro enquanto o menu está aberto.
+ * Lente por cópia da página (Safari e Firefox): copia as seções que estão atrás do painel
+ * (foto, títulos, textos e botões), coloca cada cópia no mesmo lugar e tamanho da original e
+ * amplia o conjunto a partir do centro do painel, com o mesmo tom da película.
+ * Acompanha a rolagem e as animações quadro a quadro enquanto o menu está aberto.
  */
-function PhotoLens() {
+function PageLens() {
   const layer = useRef<HTMLDivElement>(null);
-  const copy = useRef<HTMLImageElement>(null);
+  const stage = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const box = layer.current;
-    const img = copy.current;
+    const root = stage.current;
     const panel = box?.parentElement;
-    const src = document.querySelector<HTMLImageElement>('#topo img');
-    if (!box || !img || !panel || !src) return;
-    img.src = src.currentSrc || src.src;
+    if (!box || !root || !panel) return;
+
+    // fundo da página, para as partes transparentes das seções
+    root.style.backgroundColor = getComputedStyle(document.body).backgroundColor;
+
+    const sources = [
+      document.getElementById('topo'),
+      ...Array.from(document.querySelectorAll<HTMLElement>('main > *')),
+      document.querySelector<HTMLElement>('body > footer, footer'),
+    ].filter((el): el is HTMLElement => !!el);
+
+    type Copy = { el: HTMLElement; pairs: [HTMLElement, HTMLElement][] };
+    const copies = new Map<HTMLElement, Copy>();
+
+    const makeCopy = (src: HTMLElement): Copy => {
+      const el = src.cloneNode(true) as HTMLElement;
+      // sem ids repetidos, sem foco e invisível para leitores de tela
+      el.removeAttribute('id');
+      el.querySelectorAll('[id]').forEach((n) => n.removeAttribute('id'));
+      el.setAttribute('inert', '');
+      el.setAttribute('aria-hidden', 'true');
+      Object.assign(el.style, { position: 'absolute', top: '0', left: '0', margin: '0' });
+      // pares original → cópia dos elementos animados (estilo inline), para acompanhar as animações
+      const a = [src, ...Array.from(src.querySelectorAll<HTMLElement>('*'))];
+      const b = [el, ...Array.from(el.querySelectorAll<HTMLElement>('*'))];
+      const pairs: [HTMLElement, HTMLElement][] = [];
+      a.forEach((n, i) => {
+        if (i > 0 && b[i] && n.hasAttribute('style')) pairs.push([n, b[i]]);
+      });
+      root.appendChild(el);
+      return { el, pairs };
+    };
 
     let raf = 0;
     const tick = () => {
       const p = panel.getBoundingClientRect();
-      const s = src.getBoundingClientRect();
       // o painel pode estar no meio da animação de entrada (escala): converte para medidas locais
       const kx = p.width / panel.offsetWidth || 1;
       const ky = p.height / panel.offsetHeight || 1;
-      const over = s.bottom > p.top && s.top < p.bottom && s.right > p.left && s.left < p.right;
-      box.style.visibility = over ? 'visible' : 'hidden';
-      if (over) {
-        img.style.width = `${s.width / kx}px`;
-        img.style.height = `${s.height / ky}px`;
-        img.style.transform = `translate(${(s.left - p.left) / kx}px, ${(s.top - p.top) / ky}px)`;
-        img.style.objectPosition = getComputedStyle(src).objectPosition;
+      let any = false;
+      for (const src of sources) {
+        const r = src.getBoundingClientRect();
+        const over = r.bottom > p.top && r.top < p.bottom && r.right > p.left && r.left < p.right;
+        let copy = copies.get(src);
+        if (over && !copy) copies.set(src, (copy = makeCopy(src)));
+        if (!copy) continue;
+        copy.el.style.display = over ? '' : 'none';
+        if (!over) continue;
+        any = true;
+        copy.el.style.width = `${src.offsetWidth}px`;
+        copy.el.style.height = `${src.offsetHeight}px`;
+        copy.el.style.transform = `translate(${(r.left - p.left) / kx}px, ${(r.top - p.top) / ky}px)`;
+        for (const [o, c] of copy.pairs) {
+          const css = o.style.cssText;
+          if (c.style.cssText !== css) c.style.cssText = css;
+        }
       }
+      box.style.visibility = any ? 'visible' : 'hidden';
       raf = requestAnimationFrame(tick);
     };
     tick();
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      root.replaceChildren();
+    };
   }, []);
 
   return (
     <div ref={layer} aria-hidden="true" className="pointer-events-none invisible absolute inset-0 -z-10 overflow-hidden">
-      <div className="absolute inset-0" style={{ transform: `scale(${1 + ZOOM})`, filter: TINT }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img ref={copy} alt="" className="absolute top-0 left-0 max-w-none object-cover" />
-        {/* o mesmo escurecimento que a foto tem no topo */}
-        <div className="absolute inset-0 bg-black/45" />
-      </div>
+      <div
+        ref={stage}
+        className="font-text text-deep absolute inset-0 text-[length:var(--text-body)] leading-[1.55]"
+        style={{ transform: `scale(${1 + ZOOM})`, filter: TINT }}
+      />
       <div className="glass-tint-face absolute inset-0" />
     </div>
   );
