@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { nav, sections, site, waLink } from '@/content/site';
+import { nav, sections, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
 import { GlassLens } from './GlassLens';
 import { Icon } from './Icon';
@@ -16,8 +16,8 @@ const easeInOut = [0.77, 0, 0.175, 1] as const; // ease-in-out-quart
 /**
  * Barra fixa no topo: JEL Box volta ao início e os três traços abrem o menu.
  * Transparente sobre a foto do topo; grafite a partir da seção seguinte.
- * O botão de três traços abre um painel de vidro com as seções numeradas (a atual em bronze),
- * os contatos e o orçamento, e escurece a página atrás.
+ * O botão de três traços abre um painel de vidro com as seções (a atual em bronze) e o
+ * botão de orçamento, e escurece a página atrás.
  */
 export function Header() {
   const [solid, setSolid] = useState(false);
@@ -124,7 +124,7 @@ export function Header() {
               key="painel"
               ref={panel}
               id="menu-principal"
-              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              className="glass-tint isolate absolute top-full right-[var(--m)] max-h-[calc(100svh-64px-var(--m))] w-[min(260px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
               initial={{ clipPath: 'inset(0 0 100% 0)' }}
               animate={{ clipPath: 'inset(0 0 0% 0)' }}
               exit={{ clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.45, ease: easeInOut } }}
@@ -132,35 +132,25 @@ export function Header() {
             >
               <GlassLens />
 
-              <div className="flex items-center justify-between px-5 pt-5 pb-3.5">
-                <p className="label text-frost/75 !text-[11px]">Navegação</p>
-                <p className="text-frost/45 text-[10.5px] font-semibold tracking-[0.14em] uppercase tabular-nums">{String(nav.length).padStart(2, '0')} seções</p>
-              </div>
-
-              <nav aria-label="Menu">
-                <ul className="border-t border-white/10">
+              <nav aria-label="Menu" className="px-2 pt-3">
+                <ul>
                   {nav.map((n, i) => {
                     const here = n.id === current;
                     return (
-                      <li key={n.id} className="overflow-hidden border-b border-white/10">
+                      <li key={n.id} className="overflow-hidden">
                         <motion.a
                           href={`#${n.id}`}
                           onClick={() => setOpen(false)}
                           aria-current={here ? 'location' : undefined}
-                          className={`group/item flex items-baseline gap-3 px-5 py-2 transition-colors duration-300 hover:bg-white/[0.04] ${
+                          className={`group/item flex items-center justify-between px-3 py-2 text-[16px] leading-tight font-medium transition-colors duration-300 hover:text-bronze ${
                             here ? 'text-bronze' : 'text-frost'
                           }`}
                           initial={{ y: '100%', opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
-                          transition={{ duration: 0.8, ease, delay: 0.18 + i * 0.045 }}
+                          transition={{ duration: 0.7, ease, delay: 0.15 + i * 0.04 }}
                         >
-                          <span className={`w-5 shrink-0 text-[10.5px] font-semibold tracking-[0.08em] tabular-nums ${here ? 'text-bronze' : 'text-frost/40'}`}>
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
-                          <span className="flex-1 text-[17px] leading-[1.25] font-medium tracking-[-0.015em] transition-transform duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-1">
-                            {n.label}
-                          </span>
-                          <span className="text-bronze -translate-x-2 self-center opacity-0 transition-all duration-500 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover/item:translate-x-0 group-hover/item:opacity-100 group-focus-visible/item:translate-x-0 group-focus-visible/item:opacity-100">
+                          {n.label}
+                          <span className="-translate-x-1.5 opacity-0 transition-all duration-300 group-hover/item:translate-x-0 group-hover/item:opacity-100 group-focus-visible/item:translate-x-0 group-focus-visible/item:opacity-100">
                             <Icon name="ret" />
                           </span>
                         </motion.a>
@@ -171,29 +161,11 @@ export function Header() {
               </nav>
 
               <motion.div
-                className="grid gap-4 px-5 pt-4 pb-5"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease, delay: 0.18 + nav.length * 0.045 }}
+                className="px-5 pt-3 pb-5"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, ease, delay: 0.15 + nav.length * 0.04 }}
               >
-                <dl className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-[13px] leading-snug">
-                  <div>
-                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Telefone</dt>
-                    <dd><a href={site.phoneHref} className="link-grow text-frost/90 hover:text-frost">{site.phoneDisplay}</a></dd>
-                  </div>
-                  <div>
-                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Instagram</dt>
-                    <dd><a href={site.instagram.url} target="_blank" rel="noopener" className="link-grow text-frost/90 hover:text-frost">{site.instagram.handle}</a></dd>
-                  </div>
-                  <div className="col-span-2">
-                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
-                    <dd><a href={`mailto:${site.email}`} className="link-grow text-frost/90 hover:text-frost">{site.email}</a></dd>
-                  </div>
-                  <div className="col-span-2">
-                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Atendimento</dt>
-                    <dd className="text-frost/90">{site.hours.join(' · ')}</dd>
-                  </div>
-                </dl>
                 <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
                   <Icon name="ret" /> Pedir orçamento
                 </a>
