@@ -24,7 +24,7 @@ export const site = {
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '18:00' },
   ],
   /** página da JEL Box no Google (avaliações e mapa) */
-  googleUrl: '', // EXEMPLO: link do perfil da empresa no Google
+  googleUrl: 'https://share.google/l7zcm4bUvqojtX2BT',
   /** endereço do mapa incorporado (Google Maps > Compartilhar > Incorporar um mapa > src do iframe) */
   mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent('R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080')}&output=embed`,
 } as const;
