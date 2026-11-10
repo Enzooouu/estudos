@@ -120,6 +120,35 @@ export const reviews: {
     when: 'há 10 meses',
     text: 'Serviço executado com excelência pela Jel Box, demonstrando alto nível de profissionalismo, responsabilidade e rigor no cumprimento dos prazos, com acabamento impecável.\n\nSuper indico...',
   },
+  {
+    name: 'Júlio Farias',
+    count: 7,
+    stars: 5,
+    when: 'há 11 meses',
+    text: 'Desde o primeiro atendimento as instruções foram claras, os prazos de entrega rigorosamente cumpridos e os valores justos. Sem contar a qualidade indiscutível do material e o capricho na montagem! A janela ficou linda!',
+  },
+  {
+    name: 'Thiago Guerra',
+    count: 5,
+    stars: 5,
+    when: 'há 11 meses',
+    text: 'Atendimento de primeira. O Marcelo é muito profissional e explica tudo! O pessoal da montagem é gente boa e tirou todas as minhas dúvidas. Também é oferecido facilidade no pagamento.',
+  },
+  {
+    name: 'Rebeca Silva',
+    count: 5,
+    stars: 5,
+    when: 'há 1 ano',
+    text: 'Fiquei muito satisfeita com o serviço prestado pela Jel Box! O Marcelo foi extremamente atencioso e profissional durante toda a instalação do espelho. Fez um trabalho impecável, com muito capricho e pontualidade. Atendimento excelente do início ao fim. Recomendo de olhos fechados!',
+  },
+  {
+    name: 'Douglas Melo',
+    guide: true,
+    count: 13,
+    stars: 5,
+    when: 'há 2 anos',
+    text: 'Serviço agil e impecável. A Jel Box já me auxiliou em 3 studios em diferentes momentos e espero hoje retribuir com uma avaliação a altura.\nMarcelo é cuidadoso, o serviço é alpha pois ele participa com sugestões com base em vasta e valiosa experiência.\nProjetos foram executados de forma consistente antes dos prazos, com excelente qualidade.',
+  },
 ];
 /** nota média e total de avaliações no Google, quando houver */
 export const reviewsSummary: { rating: number; count: number } | null = { rating: 5, count: 603 };
