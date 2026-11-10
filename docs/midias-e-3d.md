@@ -35,15 +35,13 @@ Para as obras, preencha também `titulo`, `local` e `ano` na lista `projects` de
 | `hero-principal` | Vídeo | 16:9 | Fundo do topo, sob o escurecimento | 10 a 15 s em loop: folha de vidro deslizando num box ou porta instalada, luz natural, câmera parada |
 | `servico-box-banheiro` | Imagem do produto | 3:2 | Produtos | Box instalado, de frente, com perfil e puxador |
 | `servico-esquadrias` | Imagem do produto | 3:2 | Produtos | Janela ou porta de correr instalada, vista de dentro |
-| `servico-guarda-corpos` | Imagem do produto | 3:2 | Produtos | Guarda-corpo em sacada ou escada, perfil de base visível |
 | `servico-espelhos` | Imagem do produto | 3:2 | Produtos | Espelho lapidado ou bisotado sobre bancada |
-| `servico-coberturas` | Imagem do produto | 3:2 | Produtos | Cobertura de vidro vista de baixo, com estrutura |
-| `servico-serralheria` | Imagem do produto | 3:2 | Produtos | Portão ou estrutura metálica pintada |
+| `servico-divisorias` | Imagem do produto | 3:2 | Produtos | Divisória de vidro jateada ou com faixas tipo persiana |
 | `projeto-box-banheiro-01` | Foto do projeto | 4:5 | Obras | Box executado, ambiente completo, vertical |
 | `projeto-esquadria-01` | Foto do projeto | 3:2 | Obras | Fachada ou sala com portas de correr |
-| `projeto-guarda-corpo-01` | Foto do projeto | 4:5 | Obras | Guarda-corpo em sacada, escada ou mezanino |
-| `projeto-cobertura-01` | Foto do projeto | 1:1 | Obras | Cobertura de vidro vista de baixo |
-| `projeto-serralheria-01` | Foto do projeto | 3:2 | Obras | Portão ou estrutura vista da rua |
+| `projeto-espelho-01` | Foto do projeto | 4:5 | Obras | Espelho com LED ou de camarim instalado |
+| `projeto-divisoria-01` | Foto do projeto | 1:1 | Obras | Divisória de vidro em cozinha, lavanderia ou escritório |
+| `projeto-janela-vidro-01` | Foto do projeto | 3:2 | Obras | Janela de vidro vista de dentro |
 | `video-institucional` | Vídeo | 16:9 | A JEL Box por dentro | 20 a 40 s: corte, lapidação, montagem e instalação |
 | `empresa-equipe` | Foto da equipe | 4:5 | A JEL Box por dentro | Equipe uniformizada em obra ou na oficina |
 | `empresa-oficina` | Foto da empresa | 3:2 | A JEL Box por dentro | Fachada da loja ou interior da oficina |

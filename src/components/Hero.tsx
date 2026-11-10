@@ -66,7 +66,7 @@ export function Hero() {
           className="font-title mt-6 max-w-[12ch] text-[clamp(38px,5vw,80px)] leading-[1.02] font-medium tracking-[-0.04em]"
         />
         <motion.p data-reveal {...rise(2)} className="text-ice mt-7 max-w-[46ch] text-[clamp(17px,1.25vw,19px)]">
-          Box de banheiro, espelhos, janelas, portas e guarda-corpos. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.
+          Box de banheiro, espelhos, janelas, portas e divisórias de vidro. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.
         </motion.p>
         <motion.div data-reveal {...rise(3)} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
           <a className="btn btn-bronze" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">

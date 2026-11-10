@@ -24,7 +24,7 @@ export function Projects() {
         id="obras-h"
         label="Obras"
         title="Projetos executados"
-        aside={<p>Box, esquadrias, guarda-corpos, coberturas e serralheria instalados pela nossa equipe.</p>}
+        aside={<p>Box, espelhos, janelas e divisórias instalados pela nossa equipe.</p>}
       />
       <ul className="mt-14 grid gap-y-14 lg:mt-20 lg:grid-cols-12 lg:gap-x-6 lg:gap-y-0">
         {projects.map((p, i) => (

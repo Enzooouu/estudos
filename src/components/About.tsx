@@ -25,7 +25,7 @@ export function About() {
       />
       <Reveal order={2}>
         <p className="text-muted mx-auto mt-8 max-w-[52ch]">
-          Trabalhamos com vidro, alumínio e aço. Cada peça é desenhada para o vão de verdade, com folga calculada e ferragem escolhida pelo peso do vidro, e o guarda-corpo protege sem tirar a vista.
+          Trabalhamos com vidro e alumínio. Cada peça é desenhada para o vão de verdade, com folga calculada e ferragem escolhida pelo peso do vidro, e o espelho chega cortado na medida da parede.
         </p>
         <a href="#processo" className="btn btn-deep mt-8">
           <Icon name="ret" /> Como trabalhamos

@@ -85,7 +85,7 @@ titulo: Título do artigo
 descricao: Uma ou duas frases, usadas na lista e no Google
 data: 2026-11-09
 capa: /media/blog/nome-da-foto.jpg   (opcional)
-produto: box   (opcional: box, janelas, guarda, espelhos, coberturas ou serralheria)
+produto: box   (opcional: box, espelhos, janelas ou divisorias)
 rascunho: sim   (opcional: o artigo não aparece no site)
 ---
 

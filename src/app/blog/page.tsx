@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { site } from '@/content/site';
 
 const title = 'Blog · JEL Box';
-const description = 'Dicas, normas e cuidados para escolher, instalar e manter box de banheiro, janelas, espelhos, guarda-corpos e coberturas de vidro.';
+const description = 'Dicas, normas e cuidados para escolher box de banheiro, espelhos, janelas e divisórias de vidro.';
 
 export const metadata: Metadata = {
   title,

@@ -12,7 +12,7 @@ import type { ProductId } from '@/content/site';
  *   descricao: Uma ou duas frases para a lista e para o Google
  *   data: 2026-11-09 (ou 2026-11-09T10:00 para ordenar artigos do mesmo dia)
  *   capa: /media/blog/arquivo.jpg   (opcional)
- *   produto: box | janelas | guarda | espelhos | coberturas | serralheria   (opcional)
+ *   produto: box | espelhos | janelas | divisorias   (opcional)
  *   rascunho: sim   (opcional: não aparece no site)
  */
 export type Post = {

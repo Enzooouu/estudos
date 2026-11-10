@@ -60,28 +60,16 @@ export const media = {
     description: 'Janela ou porta de correr em alumínio instalada, vista de dentro do ambiente.',
     ratio: '3 / 2',
   },
-  'servico-guarda-corpos': {
-    kind: 'produto',
-    label: 'Imagem do produto',
-    description: 'Guarda-corpo de vidro em sacada ou escada, com o perfil de base visível.',
-    ratio: '3 / 2',
-  },
   'servico-espelhos': {
     kind: 'produto',
     label: 'Imagem do produto',
-    description: 'Espelho lapidado ou bisotado instalado sobre bancada.',
+    description: 'Espelho instalado: reto, lapidado, camarim ou com LED, de preferência sobre bancada.',
     ratio: '3 / 2',
   },
-  'servico-coberturas': {
+  'servico-divisorias': {
     kind: 'produto',
     label: 'Imagem do produto',
-    description: 'Cobertura de vidro laminado vista de baixo, com a estrutura metálica.',
-    ratio: '3 / 2',
-  },
-  'servico-serralheria': {
-    kind: 'produto',
-    label: 'Imagem do produto',
-    description: 'Portão ou estrutura metálica pronta, com a pintura finalizada.',
+    description: 'Divisória de vidro instalada, de preferência jateada ou com faixas tipo persiana.',
     ratio: '3 / 2',
   },
 
@@ -95,25 +83,25 @@ export const media = {
   'projeto-esquadria-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Esquadrias de alumínio executadas: fachada ou sala com portas de correr.',
+    description: 'Janela de alumínio executada: lavanderia, quarto ou sala.',
     ratio: '3 / 2',
   },
-  'projeto-guarda-corpo-01': {
+  'projeto-espelho-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Guarda-corpo executado em sacada, escada ou mezanino.',
+    description: 'Espelho com LED ou de camarim executado: foto vertical do ambiente.',
     ratio: '4 / 5',
   },
-  'projeto-cobertura-01': {
+  'projeto-divisoria-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Cobertura de vidro executada, vista de baixo para cima.',
+    description: 'Divisória de vidro executada, separando cozinha, lavanderia ou escritório.',
     ratio: '1 / 1',
   },
-  'projeto-serralheria-01': {
+  'projeto-janela-vidro-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Portão ou estrutura metálica executada, vista da rua.',
+    description: 'Janela de vidro executada, vista de dentro do ambiente.',
     ratio: '3 / 2',
   },
 

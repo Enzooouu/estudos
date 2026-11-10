@@ -46,7 +46,7 @@ export function Products() {
         id="produtos-h"
         label="Linhas de produto"
         title="O que fazemos"
-        aside={<p>Vidro temperado, laminado, alumínio e aço, sempre sob medida para o vão.</p>}
+        aside={<p>Vidro temperado, espelhos e alumínio, sempre sob medida para o vão.</p>}
       />
 
       <div id="produtos-lista" className="mt-14 grid items-start gap-[clamp(32px,5vw,96px)] lg:mt-20 lg:grid-cols-2">

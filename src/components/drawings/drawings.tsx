@@ -43,24 +43,6 @@ export const productDrawings: Record<ProductId, D> = {
       </>
     ),
   },
-  guarda: {
-    viewBox: '0 0 400 400',
-    label: 'Desenho técnico de guarda-corpo de vidro laminado com perfil de base e corrimão',
-    body: (
-      <>
-      <rect className="dw-wall" x="20" y="290" width="360" height="40"/>
-      <path className="dw-line" d="M20 290h360"/>
-      <rect className="dw-profile" x="40" y="270" width="320" height="20"/>
-      <rect className="dw-glass" x="46" y="120" width="98" height="150"/>
-      <rect className="dw-glass" x="151" y="120" width="98" height="150"/>
-      <rect className="dw-glass" x="256" y="120" width="98" height="150"/>
-      <rect className="dw-profile" x="36" y="108" width="328" height="12"/>
-      <path className="dw-dim" d="M384 108v182M380 112l8-8M380 294l8-8"/>
-      <text className="dw-text" x="0" y="0" transform="translate(396 200) rotate(-90)" textAnchor="middle">110 cm</text>
-      <path className="dw-line dw-thin" d="M70 140l30-14M175 140l30-14M280 140l30-14"/>
-      </>
-    ),
-  },
   espelhos: {
     viewBox: '0 0 400 400',
     label: 'Desenho de um espelho retangular sobre uma bancada com cuba',
@@ -78,36 +60,21 @@ export const productDrawings: Record<ProductId, D> = {
       </>
     ),
   },
-  coberturas: {
+  divisorias: {
     viewBox: '0 0 400 400',
-    label: 'Corte de cobertura de vidro laminado inclinada sobre vigas metálicas',
+    label: 'Desenho técnico de divisória de vidro com faixas jateadas tipo persiana entre duas paredes',
     body: (
       <>
-      <rect className="dw-wall" x="20" y="60" width="36" height="290"/>
-      <path className="dw-line" d="M20 350h360"/>
-      <path className="dw-glass" d="M56 110L370 160v8L56 118z"/>
-      <path className="dw-profile" d="M56 120L360 168v10L56 130z"/>
-      <rect className="dw-profile" x="330" y="172" width="12" height="178"/>
-      <path className="dw-line dw-thin" d="M120 132v-10M190 144v-10M260 155v-10"/>
-      <path className="dw-dim" d="M90 92l230 37"/>
-      <text className="dw-text" x="200" y="96" textAnchor="middle" transform="rotate(9 200 96)">inclinação mín. 10%</text>
-      </>
-    ),
-  },
-  serralheria: {
-    viewBox: '0 0 400 400',
-    label: 'Desenho técnico de portão de correr em aço com frisos verticais',
-    body: (
-      <>
-      <rect className="dw-wall" x="20" y="60" width="34" height="270"/>
-      <rect className="dw-wall" x="346" y="60" width="34" height="270"/>
-      <path className="dw-line" d="M20 330h360"/>
-      <rect className="dw-profile-o" x="60" y="90" width="280" height="232"/>
-      <path className="dw-line" d="M82 98v216M104 98v216M126 98v216M148 98v216M170 98v216M192 98v216M214 98v216M236 98v216M258 98v216M280 98v216M302 98v216M324 98v216"/>
-      <circle className="dw-line" cx="100" cy="328" r="6"/>
-      <circle className="dw-line" cx="300" cy="328" r="6"/>
-      <path className="dw-dim" d="M60 356h280M56 360l8-8M336 360l8-8"/>
-      <text className="dw-text" x="200" y="378" textAnchor="middle">350 cm</text>
+      <rect className="dw-wall" x="20" y="40" width="34" height="300"/>
+      <rect className="dw-wall" x="346" y="40" width="34" height="300"/>
+      <path className="dw-line" d="M20 340h360"/>
+      <rect className="dw-profile" x="54" y="70" width="292" height="8"/>
+      <rect className="dw-glass" x="60" y="78" width="146" height="258"/>
+      <rect className="dw-glass dw-glass-front" x="194" y="80" width="146" height="256"/>
+      <path className="dw-line dw-thin" d="M60 110h280M60 140h280M60 170h280M60 200h280M60 230h280M60 260h280M60 290h280"/>
+      <path className="dw-line dw-thick" d="M208 190v40"/>
+      <path className="dw-dim" d="M54 364h292M50 368l8-8M342 368l8-8"/>
+      <text className="dw-text" x="200" y="386" textAnchor="middle">160 cm</text>
       </>
     ),
   },

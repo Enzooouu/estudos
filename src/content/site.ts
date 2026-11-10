@@ -7,7 +7,7 @@ import type { MediaId } from './media';
 export const site = {
   name: 'JEL Box',
   description:
-    'Box de banheiro, janelas, portas, guarda-corpos, espelhos e serralheria em vidro temperado e alumínio, medidos no local e instalados pela nossa equipe.',
+    'Box de banheiro, espelhos, janelas, portas e divisórias de vidro e alumínio, medidos no local e instalados pela nossa equipe.',
   url: 'https://www.jelbox.com.br', // EXEMPLO
   whatsapp: '5511940136785', // DDI + DDD + número, só dígitos
   phoneDisplay: '(11) 94013-6785',
@@ -211,16 +211,14 @@ export const menu: { id: (typeof sections)[number]['id']; label: string }[] = [
   { id: 'localizacao', label: 'Localização' },
 ];
 
-export type ProductId = 'box' | 'janelas' | 'guarda' | 'espelhos' | 'coberturas' | 'serralheria';
+export type ProductId = 'box' | 'espelhos' | 'janelas' | 'divisorias';
 
 /** Imagem de cada linha de produto no cadastro de mídias. */
 export const productMedia: Record<ProductId, MediaId> = {
   box: 'servico-box-banheiro',
-  janelas: 'servico-esquadrias',
-  guarda: 'servico-guarda-corpos',
   espelhos: 'servico-espelhos',
-  coberturas: 'servico-coberturas',
-  serralheria: 'servico-serralheria',
+  janelas: 'servico-esquadrias',
+  divisorias: 'servico-divisorias',
 };
 
 /**
@@ -229,12 +227,13 @@ export const productMedia: Record<ProductId, MediaId> = {
  */
 export const projects: { media: MediaId; categoria: string; titulo?: string; local?: string; ano?: string }[] = [
   { media: 'projeto-box-banheiro-01', categoria: 'Box de banheiro' },
-  { media: 'projeto-esquadria-01', categoria: 'Esquadrias de alumínio' },
-  { media: 'projeto-guarda-corpo-01', categoria: 'Guarda-corpo' },
-  { media: 'projeto-cobertura-01', categoria: 'Cobertura de vidro' },
-  { media: 'projeto-serralheria-01', categoria: 'Serralheria' },
+  { media: 'projeto-esquadria-01', categoria: 'Janelas de alumínio' },
+  { media: 'projeto-espelho-01', categoria: 'Espelho com LED' },
+  { media: 'projeto-divisoria-01', categoria: 'Divisória de vidro' },
+  { media: 'projeto-janela-vidro-01', categoria: 'Janelas de vidro' },
 ];
 
+/** Linhas de produto, como no catálogo da JEL Box. */
 export const products: {
   id: ProductId;
   name: string;
@@ -245,45 +244,31 @@ export const products: {
 }[] = [
   {
     id: 'box',
-    tags: ['Temperado 8 mm', 'Correr · abrir · canto'],
+    tags: ['Temperado 8 mm', 'Ferragem quadrada · redonda'],
     name: 'Box de banheiro',
-    text: 'Vidro temperado de 8 mm em kit de correr, de abrir ou de canto, com perfis de alumínio na cor que combinar com os metais do banheiro. Também fazemos o box até o teto, que segura o vapor dentro.',
-    specs: ['Incolor, fumê, bronze ou jateado', 'Perfil preto, branco, natural ou dourado'],
-  },
-  {
-    id: 'janelas',
-    tags: ['Alumínio', 'Correr · maxim-ar'],
-    name: 'Janelas e portas',
-    text: 'Esquadrias de alumínio de correr, maxim-ar, camarão e pivotantes, com vidro comum, temperado ou laminado. Cada folha é feita para o vão medido, sem ajuste com massa.',
-    specs: ['Linhas residenciais e linha suprema', 'Vedação com escovas e borrachas EPDM'],
-  },
-  {
-    id: 'guarda',
-    tags: ['Laminado', 'Sacadas · escadas'],
-    name: 'Guarda-corpos',
-    text: 'Para sacadas, escadas e mezaninos: vidro laminado temperado fixado em perfil de base ou em botões, com ou sem corrimão. Proteção que não tira a vista.',
-    specs: ['Altura mínima de 1,10 m em sacadas', 'Corrimão em alumínio ou aço inox'],
+    text: 'Box em vidro temperado de 8 mm, de correr, de canto ou de abrir, com ferragem quadrada, ferragem redonda ou kit quadrado com anel. O perfil vem na cor que combinar com os metais do banheiro, e também fazemos o box até o teto.',
+    specs: ['Incolor, fumê, bronze ou jateado', 'Ferragem quadrada, redonda ou kit com anel'],
   },
   {
     id: 'espelhos',
-    tags: ['Lapidado', 'Bisotado'],
+    tags: ['Reto · lapidado', 'Camarim e LED'],
     name: 'Espelhos',
-    text: 'Espelhos lapidados ou bisotados para banheiro, sala e academia, com recortes para tomadas e fixação por cola neutra ou presilhas.',
-    specs: ['Espessuras de 3 e 4 mm', 'Com ou sem moldura de alumínio'],
+    text: 'Espelhos retos ou lapidados para banheiro, sala e quarto, e espelhos de camarim e com LED. Cortados na medida da parede, com recortes para tomadas e fixação segura.',
+    specs: ['Reto, lapidado, camarim ou com LED', 'Cortado na medida do ambiente'],
   },
   {
-    id: 'coberturas',
-    tags: ['Laminado', 'Estrutura metálica'],
-    name: 'Coberturas',
-    text: 'Coberturas de vidro laminado para varandas, entradas e áreas de serviço, sobre estrutura metálica pintada, com a inclinação certa para a água correr.',
-    specs: ['Vidro laminado, que não se solta se trincar', 'Calhas e rufos inclusos no projeto'],
+    id: 'janelas',
+    tags: ['Alumínio', 'Vidro'],
+    name: 'Janelas e portas',
+    text: 'Janelas de alumínio e janelas de vidro para lavanderia, quarto, sala e sacada, e portas de alumínio. Cada peça é feita para o vão medido, com fecho e fechadura de qualidade.',
+    specs: ['Janelas de alumínio e de vidro', 'Portas de alumínio sob medida'],
   },
   {
-    id: 'serralheria',
-    tags: ['Aço', 'Portões · grades'],
-    name: 'Serralheria',
-    text: 'Portões, grades, escadas e estruturas em aço e alumínio, soldadas na oficina e pintadas antes de chegar à obra. Preparamos para motor quando o portão pede.',
-    specs: ['Portões de correr, de giro e basculantes', 'Pintura eletrostática'],
+    id: 'divisorias',
+    tags: ['Jateada', 'Persiana'],
+    name: 'Divisórias de vidro',
+    text: 'Divisórias de vidro para separar ambientes sem perder a luz: lisas, jateadas ou com faixas jateadas tipo persiana, para cozinha, lavanderia, escritório e área de serviço.',
+    specs: ['Lisa, jateada ou persiana', 'Fixa ou de correr'],
   },
 ];
 
@@ -317,7 +302,7 @@ export const faq = [
   },
   {
     q: 'Temperado ou laminado: qual a diferença?',
-    a: 'O temperado é mais resistente a impacto e esfarela ao quebrar. O laminado tem uma película entre duas lâminas que segura os cacos no lugar, por isso vai em guarda-corpos e coberturas.',
+    a: 'O temperado é mais resistente a impacto e esfarela ao quebrar. O laminado tem uma película entre duas lâminas que segura os cacos no lugar, por isso é usado onde o vidro não pode abrir um buraco se trincar.',
   },
   {
     q: 'Posso mandar a medida eu mesmo?',

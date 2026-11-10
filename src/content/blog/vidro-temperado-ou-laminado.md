@@ -1,8 +1,8 @@
 ---
 titulo: Vidro temperado ou laminado: qual usar em cada lugar da casa
-descricao: Os dois são vidros de segurança, mas quebram de jeitos diferentes. Veja onde cada um entra: box, janelas, guarda-corpos e coberturas.
+descricao: Os dois são vidros de segurança, mas quebram de jeitos diferentes. Veja onde cada um costuma entrar: box, janelas, divisórias e mais.
 data: 2026-11-09T12:00
-produto: guarda
+produto: janelas
 ---
 
 Quem pede orçamento de vidro escuta logo as duas palavras: **temperado** e **laminado**. Os dois são vidros de segurança, mas se comportam de um jeito bem diferente quando quebram, e é isso que decide onde cada um pode ser usado.
@@ -19,21 +19,17 @@ Um detalhe importante: **depois de temperado, o vidro não aceita mais corte nem
 
 O laminado é formado por duas ou mais lâminas de vidro coladas com uma película plástica no meio. Se o vidro trinca, **os cacos ficam presos na película** e a peça continua no lugar, sem abrir um buraco.
 
-É o vidro indicado onde uma queda seria perigosa:
+É o vidro indicado onde o vidro precisa continuar fechando o vão mesmo trincado, ou onde uma queda seria perigosa, como guarda-corpos, coberturas, vitrines e janelas grandes em andares altos.
 
-- **Guarda-corpos** de sacadas, escadas e mezaninos
-- **Coberturas** e tudo o que fica acima da cabeça
-- Vitrines e fachadas em que o vidro precisa continuar fechando o vão mesmo trincado
-
-Também existe o **laminado temperado**: lâminas temperadas coladas com a película. Ele junta a resistência de um com a segurança do outro e é muito usado em guarda-corpos.
+Também existe o **laminado temperado**: lâminas temperadas coladas com a película. Ele junta a resistência de um com a segurança do outro.
 
 ## Resumo rápido
 
 | Onde | Vidro mais indicado |
 | --- | --- |
 | Box de banheiro | Temperado 8 mm |
-| Portas e janelas | Temperado ou laminado, conforme o tamanho e a posição |
-| Guarda-corpo | Laminado (de preferência laminado temperado) |
-| Cobertura | Laminado |
+| Janelas e portas | Comum, temperado ou laminado, conforme o tamanho e a posição |
+| Divisórias | Temperado, liso ou jateado |
+| Guarda-corpo e cobertura | Laminado |
 
 Cada obra tem suas medidas, cargas e normas. Na visita técnica, indicamos o vidro certo para o seu vão e explicamos o porquê.

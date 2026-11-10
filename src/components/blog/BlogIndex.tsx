@@ -30,7 +30,7 @@ export function BlogIndex({ page }: { page: number }) {
         id="blog-h"
         label={page > 1 ? `Blog · página ${page}` : 'Blog'}
         title="Vidro, alumínio e obra, sem complicação"
-        aside={<p>Dicas, normas e cuidados para escolher e manter box, janelas, espelhos e guarda-corpos.</p>}
+        aside={<p>Dicas, normas e cuidados para escolher box, espelhos, janelas e divisórias de vidro.</p>}
       />
 
       {!featured && <p className="text-muted mt-14">Nenhum artigo publicado ainda.</p>}
