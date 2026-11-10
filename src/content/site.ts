@@ -36,9 +36,35 @@ export const site = {
  * A primeira metade da lista vai para a faixa de cima e a segunda para a de baixo (18 → 9 + 9).
  * Enquanto a lista estiver vazia, a seção mostra um espaço reservado (nunca invente avaliações).
  */
-export const reviews: { name: string; text: string; stars: 1 | 2 | 3 | 4 | 5; when?: string; photo?: string }[] = [];
+export const reviews: { name: string; text: string; stars: 1 | 2 | 3 | 4 | 5; when?: string; photo?: string }[] = [
+  {
+    name: 'Priscila Silva',
+    stars: 5,
+    when: 'há 3 meses',
+    text: 'Serviço perfeito, já é o segundo apto que contrato o Jel Box para colocação de box nos banheiros, e novamente o serviço foi impecável, desde o atendimento até a finalização da instalação. São rápidos na entrega, eficientes, instalação sem sujeira e produtos muito bons. Recomendo de olhos fechados.',
+  },
+  {
+    name: 'PH Rodrigues',
+    stars: 5,
+    when: 'há 2 meses',
+    text: 'Sr. Marcelo é muito atencioso, realizei 2 pedidos em 2 datas distintas e sempre entregou antes do prazo. Entregou serviços com ótima qualidade e preço justo.',
+  },
+  {
+    name: 'Tulio Formentin',
+    stars: 5,
+    when: 'há 4 meses',
+    text: 'Jel Box empresa seria e competente, o Marcelo entendeu minha necessidade e foi fantástico por isso recomendo pra quem busca honestidade e eficiência!',
+  },
+  {
+    name: 'Clínica Joyce Quinas Podologia Saúde e Bem Estar.',
+    stars: 5,
+    when: 'há 4 meses',
+    photo: '/media/avaliacoes/joyce-quinas.webp',
+    text: 'Atendimento impecável, serviço de qualidade recomendo muito.\nDo início da compra até o pós venda perfeito precisando de box e janelas pede fechar com eles.',
+  },
+];
 /** nota média e total de avaliações no Google, quando houver */
-export const reviewsSummary: { rating: number; count: number } | null = null;
+export const reviewsSummary: { rating: number; count: number } | null = { rating: 5, count: 603 };
 
 export const waLink = (msg: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(msg)}`;

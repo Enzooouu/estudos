@@ -125,7 +125,7 @@ function Card({ review }: { review: Review }) {
         <span className="text-deep min-w-0 truncate font-semibold">{review.name}</span>
       </figcaption>
       <Stars n={review.stars} />
-      <blockquote className="line-clamp-5 flex-1 text-[16px] leading-[1.55]">“{review.text}”</blockquote>
+      <blockquote className="line-clamp-[9] flex-1 text-[16px] leading-[1.55] whitespace-pre-line">“{review.text}”</blockquote>
       {/* quando foi feita: embaixo, à direita, como antes */}
       <p className="text-muted text-right text-[13.5px]">{review.when ? `${review.when} · Google` : 'Google'}</p>
     </figure>
