@@ -8,8 +8,8 @@ type Review = (typeof reviews)[number];
 /** Estrela cheia de pontas arredondadas, com um leve degradê dourado. */
 const STAR = 'M12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08L12 17.27z';
 
-const Stars = ({ n, size = 17 }: { n: number; size?: number }) => (
-  <span className="inline-flex items-center gap-[2px]" role="img" aria-label={`${n} de 5 estrelas`}>
+const Stars = ({ n, size = 22 }: { n: number; size?: number }) => (
+  <span className="inline-flex items-center gap-[3px]" role="img" aria-label={`${n} de 5 estrelas`}>
     {Array.from({ length: 5 }, (_, i) => (
       <svg key={i} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" className={i < n ? '' : 'opacity-25'}>
         <path d={STAR} fill="url(#estrela)" />
@@ -65,7 +65,7 @@ export function Reviews() {
               <div className="grid gap-2">
                 <p className="flex flex-wrap items-center gap-3">
                   <span className="font-title text-h3 font-medium">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</span>
-                  <Stars n={Math.round(reviewsSummary.rating)} size={19} />
+                  <Stars n={Math.round(reviewsSummary.rating)} size={24} />
                 </p>
                 <p className="text-muted text-small">{reviewsSummary.count} avaliações no Google</p>
                 {site.googleUrl && (
