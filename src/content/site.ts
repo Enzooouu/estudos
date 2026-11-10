@@ -59,7 +59,6 @@ export const reviews: { name: string; text: string; stars: 1 | 2 | 3 | 4 | 5; wh
     name: 'Clínica Joyce Quinas Podologia Saúde e Bem Estar.',
     stars: 5,
     when: 'há 4 meses',
-    photo: '/media/avaliacoes/joyce-quinas.webp',
     text: 'Atendimento impecável, serviço de qualidade recomendo muito.\nDo início da compra até o pós venda perfeito precisando de box e janelas pede fechar com eles.',
   },
 ];
