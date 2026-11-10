@@ -97,6 +97,29 @@ export const reviews: {
     when: 'há 9 meses',
     text: 'Empresa séria, que demonstra zelo pela qualidade dos serviços prestados. Realizei a instalação de uma folha de vidro na minha sacada no início de fevereiro e o profissional que veio ao apartamento foi extremamente atencioso e cuidadoso durante todo o processo de instalação. Destaco também o excelente atendimento do funcionário Marcelo, que foi muito prestativo.',
   },
+  {
+    name: 'erika Vieira',
+    count: 8,
+    stars: 5,
+    when: 'há 8 meses',
+    text: 'Contratei a compra e colocação de uma janela para lavanderia. Excelente trabalho pontuais. Melhor preço super recomendo',
+  },
+  {
+    name: 'Norbert kouwenberg',
+    guide: true,
+    count: 40,
+    stars: 5,
+    when: 'há 1 mês',
+    text: 'Hoje, a Jel-box instalou as janelas de vidro (boxes) em 3 banheiros da nossa casa. Que profissionalismo e qualidade por um preço muito razoável! Entregaram e instalaram rapidamente. Estamos muito satisfeitos e recomendamos muito a empresa.',
+  },
+  {
+    name: 'Gisele Osanai',
+    guide: true,
+    count: 19,
+    stars: 5,
+    when: 'há 10 meses',
+    text: 'Serviço executado com excelência pela Jel Box, demonstrando alto nível de profissionalismo, responsabilidade e rigor no cumprimento dos prazos, com acabamento impecável.\n\nSuper indico...',
+  },
 ];
 /** nota média e total de avaliações no Google, quando houver */
 export const reviewsSummary: { rating: number; count: number } | null = { rating: 5, count: 603 };
