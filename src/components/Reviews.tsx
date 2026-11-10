@@ -122,7 +122,15 @@ function Card({ review }: { review: Review }) {
             {initials(review.name)}
           </span>
         )}
-        <span className="text-deep min-w-0 truncate font-semibold">{review.name}</span>
+        <span className="grid min-w-0 gap-0.5 leading-tight">
+          <span className="text-deep truncate font-semibold">{review.name}</span>
+          {review.count != null && (
+            <span className="text-muted text-[13px]">
+              {review.guide ? 'Local Guide · ' : ''}
+              {review.count} {review.count === 1 ? 'avaliação' : 'avaliações'}
+            </span>
+          )}
+        </span>
       </figcaption>
       <Stars n={review.stars} />
       <blockquote className="line-clamp-[9] flex-1 text-[16px] leading-[1.55] whitespace-pre-line">“{review.text}”</blockquote>
@@ -138,7 +146,10 @@ function Blank() {
     <div className={`${cardBox} min-h-[220px]`}>
       <div className="flex items-center gap-3">
         <span className="bg-line h-11 w-11 shrink-0 rounded-full" />
-        <span className="bg-line h-2.5 w-28 rounded-full" />
+        <span className="grid gap-2">
+          <span className="bg-line h-2.5 w-28 rounded-full" />
+          <span className="bg-line h-2 w-16 rounded-full" />
+        </span>
       </div>
       <Stars n={5} />
       <div className="grid flex-1 content-start gap-2.5 pt-1">
