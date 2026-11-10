@@ -149,6 +149,34 @@ export const reviews: {
     when: 'há 2 anos',
     text: 'Serviço agil e impecável. A Jel Box já me auxiliou em 3 studios em diferentes momentos e espero hoje retribuir com uma avaliação a altura.\nMarcelo é cuidadoso, o serviço é alpha pois ele participa com sugestões com base em vasta e valiosa experiência.\nProjetos foram executados de forma consistente antes dos prazos, com excelente qualidade.',
   },
+  {
+    name: 'Vera Lucia',
+    count: 11,
+    stars: 5,
+    when: 'há 5 meses',
+    text: 'Agradeço ao senhor Marcelo da JEL BOX, pelo excelente atendimento desde a solicitação de orçamento até a instalação das janelas.\nCertamente, vou fechar tb a instalação dos boxes nos banheiros.\nGratidão!\nRecomendo!',
+  },
+  {
+    name: 'Débora Madureira',
+    count: 4,
+    stars: 5,
+    when: 'há 5 meses',
+    text: 'Excelente atendimento, transparência, seguindo os padrões e normas. Cumpriu o prazo combinado. Preço justo e trabalhos muito bem executados. Com certeza será uma empresa que compraremos novamente e indicamos.',
+  },
+  {
+    name: 'Helena Okamoto',
+    count: 8,
+    stars: 5,
+    when: 'há 3 meses',
+    text: 'Um ótimo atendimento, entregou no prazo e a instalação, impecável! Recomendo tranquilamente!\nParabéns a família Jel Box!',
+  },
+  {
+    name: 'Cláudia Gomes',
+    count: 13,
+    stars: 5,
+    when: 'há 2 anos',
+    text: 'Atendimento de primeira, minha janela da lavanderia ficou linda e super bem colocada, com muita qualidade. Recomendo muito o trabalho deles, atendimento humano com profissionais qualificados. Instalação rápida e limpa.',
+  },
 ];
 /** nota média e total de avaliações no Google, quando houver */
 export const reviewsSummary: { rating: number; count: number } | null = { rating: 5, count: 603 };
