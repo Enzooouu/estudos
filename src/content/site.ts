@@ -9,11 +9,12 @@ export const site = {
   description:
     'Box de banheiro, janelas, portas, guarda-corpos, espelhos e serralheria em vidro temperado e alumínio, medidos no local e instalados pela nossa equipe.',
   url: 'https://www.jelbox.com.br', // EXEMPLO
-  whatsapp: '5500000000000', // EXEMPLO: DDI + DDD + número, só dígitos
-  phoneDisplay: '(00) 00000-0000', // EXEMPLO
-  phoneHref: 'tel:+5500000000000', // EXEMPLO
+  whatsapp: '5511940136785', // DDI + DDD + número, só dígitos
+  phoneDisplay: '(11) 94013-6785',
+  phoneHref: 'tel:+5511940136785',
   email: 'contato@jelbox.com.br', // EXEMPLO
   instagram: { handle: '@_jelbox', url: 'https://www.instagram.com/_jelbox/' },
+  facebook: { handle: 'vidracariajelbox', url: 'https://www.facebook.com/vidracariajelbox/' },
   address: 'R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080',
   /** endereço em partes, para os dados estruturados do Google */
   addressParts: { street: 'R. Angatuba, 18', district: 'Rochdale', city: 'Osasco', state: 'SP', zip: '06223-080' },

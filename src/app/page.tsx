@@ -24,6 +24,7 @@ const jsonLd = [
     url: site.url,
     telephone: site.phoneHref.replace('tel:', ''),
     email: site.email,
+    sameAs: [site.instagram.url, site.facebook.url],
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.addressParts.street,

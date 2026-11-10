@@ -57,6 +57,7 @@ export function Footer() {
         <p>© {new Date().getFullYear()} {site.name} · Vidraçaria e serralheria</p>
         <p className="flex gap-5">
           <a href={site.instagram.url} rel="noopener" className="hover:text-frost">Instagram</a>
+          <a href={site.facebook.url} rel="noopener" className="hover:text-frost">Facebook</a>
           <a href="#topo" className="hover:text-frost">Voltar ao topo</a>
         </p>
       </div>

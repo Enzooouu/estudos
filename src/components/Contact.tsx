@@ -44,6 +44,12 @@ export function Contact() {
             {site.instagram.handle}
           </a>
         </p>
+        <p className="flex items-center gap-2.5">
+          <Icon name="facebook" className="text-glass" />
+          <a href={site.facebook.url} rel="noopener" className="border-line border-b hover:border-current">
+            Facebook
+          </a>
+        </p>
       </div>
     </section>
   );
