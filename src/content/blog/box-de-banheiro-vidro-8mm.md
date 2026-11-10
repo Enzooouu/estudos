@@ -26,6 +26,6 @@ Um box seguro e que dura depende também de:
 
 - Limpe com pano macio e detergente neutro; evite palha de aço e produtos abrasivos
 - Mantenha o trilho limpo para as roldanas correrem bem
-- Se a porta começar a pesar ou a raspar, chame para regular antes que a roldana force o vidro
+- Se a porta começar a pesar ou a raspar, não force: roldana travada faz força no vidro
 
-Se o seu box já está com roldana gasta, borracha ressecada ou vidro trincado, também fazemos a manutenção.
+Vai trocar o box ou fazer um novo? Medimos o vão, fabricamos sob medida em vidro temperado de 8 mm e instalamos com a nossa equipe.

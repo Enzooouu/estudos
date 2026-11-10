@@ -13,7 +13,7 @@ export const site = {
   phoneDisplay: '(00) 00000-0000', // EXEMPLO
   phoneHref: 'tel:+5500000000000', // EXEMPLO
   email: 'contato@jelbox.com.br', // EXEMPLO
-  instagram: { handle: '@jelbox', url: 'https://instagram.com/' }, // EXEMPLO
+  instagram: { handle: '@_jelbox', url: 'https://www.instagram.com/_jelbox/' },
   address: 'R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080',
   /** endereço em partes, para os dados estruturados do Google */
   addressParts: { street: 'R. Angatuba, 18', district: 'Rochdale', city: 'Osasco', state: 'SP', zip: '06223-080' },
@@ -331,7 +331,7 @@ export const faq = [
     a: 'Ele segura o vapor dentro da área do banho, então o espelho e o resto do banheiro embaçam bem menos. Pede um exaustor ou uma janela na área do chuveiro.',
   },
   {
-    q: 'Vocês fazem manutenção?',
-    a: 'Sim: troca de roldanas, borrachas e puxadores, regulagem de portas e janelas que pararam de correr, e troca de vidro trincado.',
+    q: 'Vocês fazem manutenção ou trabalham com box de acrílico?',
+    a: 'Não. Trabalhamos só com peças novas, medidas, fabricadas e instaladas pela nossa equipe. Não fazemos manutenção nem restauração em geral, e não trabalhamos com box de acrílico.',
   },
 ] as const;
