@@ -28,16 +28,16 @@ export const MODELO_CURTO: Record<Modelo, string> = {
 
 /** cor do vidro: [folha de trás, folha da frente] */
 export const VIDRO: Record<Vidro, { swatch: string; fill: [string, string] }> = {
-  incolor: { swatch: '#EEEAE4', fill: ['rgba(59,110,165,.16)', 'rgba(59,110,165,.28)'] },
-  'fumê': { swatch: '#5A646C', fill: ['rgba(58,68,76,.55)', 'rgba(58,68,76,.66)'] },
+  incolor: { swatch: '#EEEAE4', fill: ['rgba(120,128,124,.18)', 'rgba(120,128,124,.30)'] },
+  'fumê': { swatch: '#5E5E5C', fill: ['rgba(60,60,58,.55)', 'rgba(60,60,58,.66)'] },
   bronze: { swatch: '#9A7A58', fill: ['rgba(140,104,68,.45)', 'rgba(140,104,68,.56)'] },
-  jateado: { swatch: '#F5F3EF', fill: ['rgba(248,252,253,.94)', 'rgba(240,247,250,.98)'] },
+  jateado: { swatch: '#F5F3EF', fill: ['rgba(250,248,245,.94)', 'rgba(244,241,236,.98)'] },
 };
 
 export const PERFIL: Record<Perfil, string> = {
   preto: '#1B1F24',
   branco: '#FFFFFF',
-  natural: '#AEB5BB',
+  natural: '#B4B4B0',
   dourado: '#C9A45C',
 };
 

@@ -31,7 +31,7 @@ function glassParams(v: Vidro): THREE.MeshPhysicalMaterialParameters {
   };
   switch (v) {
     case 'fumê':
-      return { ...base, color: '#a3acb3', attenuationColor: '#5f6a72', attenuationDistance: 1.6 };
+      return { ...base, color: '#a8a8a4', attenuationColor: '#62625e', attenuationDistance: 1.6 };
     case 'bronze':
       return { ...base, color: '#c3a17a', attenuationColor: '#8a6a45', attenuationDistance: 0.9 };
     case 'jateado':
