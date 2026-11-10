@@ -5,12 +5,29 @@ import { SectionHead } from './SectionHead';
 
 type Review = (typeof reviews)[number];
 
-const Stars = ({ n, size = '!h-4 !w-4' }: { n: number; size?: string }) => (
-  <span className="text-bronze inline-flex gap-0.5" aria-label={`${n} de 5 estrelas`}>
+/** Estrela cheia de pontas arredondadas, com um leve degradê dourado. */
+const STAR = 'M12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08L12 17.27z';
+
+const Stars = ({ n, size = 17 }: { n: number; size?: number }) => (
+  <span className="inline-flex items-center gap-[2px]" role="img" aria-label={`${n} de 5 estrelas`}>
     {Array.from({ length: 5 }, (_, i) => (
-      <Icon key={i} name="star" className={`${size} ${i < n ? '!fill-current' : 'opacity-35'}`} />
+      <svg key={i} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" className={i < n ? '' : 'opacity-25'}>
+        <path d={STAR} fill="url(#estrela)" />
+      </svg>
     ))}
   </span>
+);
+
+/** Degradê das estrelas, definido uma vez na página. */
+const StarGradient = () => (
+  <svg width="0" height="0" className="absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="estrela" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#D6AE72" />
+        <stop offset="1" stopColor="#B88B52" />
+      </linearGradient>
+    </defs>
+  </svg>
 );
 
 /** Repete a lista até ter cartões suficientes para cobrir a tela inteira em cada volta. */
@@ -37,8 +54,10 @@ export function Reviews() {
   return (
     <section id="avaliacoes" aria-labelledby="avaliacoes-h" className="pb-[var(--gap)]">
       <div className="px-page pb-10 lg:pb-14">
+        <StarGradient />
         <SectionHead
           id="avaliacoes-h"
+          titleLeft
           label="Avaliações"
           title="O que dizem os nossos clientes"
           aside={
@@ -46,7 +65,7 @@ export function Reviews() {
               <div className="grid gap-2">
                 <p className="flex flex-wrap items-center gap-3">
                   <span className="font-title text-h3 font-medium">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</span>
-                  <Stars n={Math.round(reviewsSummary.rating)} />
+                  <Stars n={Math.round(reviewsSummary.rating)} size={19} />
                 </p>
                 <p className="text-muted text-small">{reviewsSummary.count} avaliações no Google</p>
                 {site.googleUrl && (
@@ -109,7 +128,7 @@ const initials = (name: string) =>
     .map((w) => w[0]?.toUpperCase())
     .join('');
 
-/** Cartão: foto e nome em cima, estrelas embaixo deles, o texto e, no fim, quando foi feita. */
+/** Cartão: foto e nome em cima, o texto e, embaixo, as estrelas à esquerda e quando foi feita à direita. */
 function Card({ review }: { review: Review }) {
   return (
     <figure className={cardBox}>
@@ -132,10 +151,12 @@ function Card({ review }: { review: Review }) {
           )}
         </span>
       </figcaption>
-      <Stars n={review.stars} />
       <blockquote className="line-clamp-[9] flex-1 text-[16px] leading-[1.55] whitespace-pre-line">“{review.text}”</blockquote>
-      {/* quando foi feita: embaixo, à direita, como antes */}
-      <p className="text-muted text-right text-[13.5px]">{review.when ? `${review.when} · Google` : 'Google'}</p>
+      {/* embaixo: estrelas à esquerda, quando foi feita à direita */}
+      <div className="flex items-center justify-between gap-3">
+        <Stars n={review.stars} />
+        <p className="text-muted text-[13.5px]">{review.when ? `${review.when} · Google` : 'Google'}</p>
+      </div>
     </figure>
   );
 }
@@ -151,13 +172,15 @@ function Blank() {
           <span className="bg-line h-2 w-16 rounded-full" />
         </span>
       </div>
-      <Stars n={5} />
       <div className="grid flex-1 content-start gap-2.5 pt-1">
         <span className="bg-line h-2.5 w-full rounded-full" />
         <span className="bg-line h-2.5 w-[92%] rounded-full" />
         <span className="bg-line h-2.5 w-[70%] rounded-full" />
       </div>
-      <span className="bg-line h-2 w-24 self-end rounded-full" />
+      <div className="flex items-center justify-between">
+        <Stars n={5} />
+        <span className="bg-line h-2 w-24 rounded-full" />
+      </div>
     </div>
   );
 }
