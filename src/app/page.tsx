@@ -9,6 +9,7 @@ import { Hero } from '@/components/Hero';
 import { Institutional } from '@/components/Institutional';
 import { Location } from '@/components/Location';
 import { Process } from '@/components/Process';
+import { Problem } from '@/components/Problem';
 import { Products } from '@/components/Products';
 import { Projects } from '@/components/Projects';
 import { Reviews } from '@/components/Reviews';
@@ -62,16 +63,18 @@ export default function Home() {
       <Header />
       <Hero />
       <main id="conteudo">
+        {/* topo → prova social → problema → solução → como funciona → dúvidas → chamada final */}
+        <Reviews />
+        <Problem />
         <Products />
         <Projects />
-        <Process />
-        <BoxBuilder />
         <About />
         <Institutional />
+        <Process />
+        <BoxBuilder />
         <Faq />
-        <Reviews />
-        <Location />
         <CtaFrame />
+        <Location />
         <Contact />
       </main>
       <Footer />

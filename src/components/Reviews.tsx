@@ -52,7 +52,7 @@ export function Reviews() {
   const bottom = has ? (reviews.length >= 6 ? reviews.slice(half) : [...reviews].reverse()) : [];
 
   return (
-    <section id="avaliacoes" aria-labelledby="avaliacoes-h" className="pb-[var(--gap)]">
+    <section id="avaliacoes" aria-labelledby="avaliacoes-h" className="py-section">
       <div className="px-page pb-10 lg:pb-14">
         <StarGradient />
         <SectionHead

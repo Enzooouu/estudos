@@ -37,9 +37,11 @@ export function Contact() {
             target="_blank"
             rel="noopener"
             aria-label={`WhatsApp ${site.phoneDisplay}`}
-            className="font-title hover:text-glass block text-[12vw] leading-none font-medium tracking-[-0.055em] whitespace-nowrap transition-colors duration-300 lg:text-[9vw]"
+            className="font-title hover:text-glass block text-[13vw] leading-none font-medium tracking-[-0.055em] transition-colors duration-300 sm:text-[9vw] lg:text-[9vw]"
           >
-            {site.phoneDisplay}
+            {/* no celular, o DDD numa linha e o número na outra */}
+            <span className="block sm:inline">{site.phoneDisplay.split(' ')[0]} </span>
+            <span className="block whitespace-nowrap sm:inline">{site.phoneDisplay.split(' ').slice(1).join(' ')}</span>
           </a>
         )}
       </Reveal>

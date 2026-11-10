@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
-import { waLink } from '@/content/site';
+import { reviewsSummary, waLink } from '@/content/site';
 import { Icon, type IconName } from './Icon';
 import { Media } from './media/Media';
 import { RevealWords } from './RevealWords';
@@ -55,6 +55,19 @@ export function Hero() {
       </motion.div>
 
       <div className="px-page flex flex-1 flex-col justify-end pt-36 pb-24 lg:justify-center lg:pt-28 lg:pb-[104px]">
+        {reviewsSummary && (
+          <motion.a
+            data-reveal
+            {...rise(0)}
+            href="#avaliacoes"
+            className="mb-6 inline-flex items-center gap-2.5 self-start rounded-full border border-white/25 bg-black/25 px-3.5 py-2 text-[14px] backdrop-blur-sm transition-colors hover:bg-black/40"
+          >
+            <span className="text-bronze tracking-[0.1em]" aria-hidden="true">★★★★★</span>
+            <span>
+              <strong className="font-semibold">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</strong> · {reviewsSummary.count} avaliações no Google
+            </span>
+          </motion.a>
+        )}
         <motion.p data-reveal {...rise(0)} className="label text-ice">
           Vidraçaria e serralheria
         </motion.p>

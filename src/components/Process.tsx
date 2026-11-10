@@ -21,7 +21,7 @@ const order: (keyof typeof tone)[] = ['frost', 'ice', 'frost', 'deep'];
 /** Um verbo de cada vez: Medir, Projetar, Produzir, Instalar. */
 export function Process() {
   return (
-    <section id="processo" aria-labelledby="processo-h">
+    <section id="processo" aria-labelledby="processo-h" className="pt-[var(--gap)]">
       <div className="px-page pb-12 lg:pb-16">
         <SectionHead
           id="processo-h"

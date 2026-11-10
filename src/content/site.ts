@@ -189,14 +189,15 @@ export const waLink = (msg: string) =>
 /** Seções da página, usadas nos menus. */
 export const sections = [
   { id: 'topo', label: 'Início' },
+  { id: 'avaliacoes', label: 'Avaliações' },
+  { id: 'problema', label: 'Por que a JEL Box' },
   { id: 'produtos', label: 'Produtos' },
   { id: 'obras', label: 'Obras' },
-  { id: 'processo', label: 'Como trabalhamos' },
-  { id: 'monte', label: 'Monte seu box' },
   { id: 'sobre', label: 'Sobre' },
   { id: 'oficina', label: 'A JEL Box por dentro' },
+  { id: 'processo', label: 'Como trabalhamos' },
+  { id: 'monte', label: 'Monte seu box' },
   { id: 'duvidas', label: 'Dúvidas' },
-  { id: 'avaliacoes', label: 'Avaliações' },
   { id: 'localizacao', label: 'Localização' },
   { id: 'contato', label: 'Contato' },
 ] as const;
