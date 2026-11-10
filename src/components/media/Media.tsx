@@ -1,6 +1,14 @@
 import { getMedia, type MediaEntry, type MediaId } from '@/content/media';
 import { Icon, type IconName } from '../Icon';
 
+/** título do espaço reservado, enquanto a mídia não chega */
+const soon: Record<MediaEntry['kind'], string> = {
+  foto: 'Foto em breve',
+  produto: 'Foto em breve',
+  video: 'Vídeo em breve',
+  modelo3d: 'Modelo 3D em breve',
+};
+
 const kindIcon: Record<MediaEntry['kind'], IconName> = {
   foto: 'camera',
   video: 'video',
@@ -101,13 +109,10 @@ function Placeholder({
     <figcaption className={`grid max-w-[34ch] gap-2 ${dark ? 'text-ice' : 'text-deep'}`}>
       <span className="inline-flex items-center gap-2 text-[13px] leading-none font-semibold tracking-[0.1em] uppercase">
         <Icon name={kindIcon[m.kind]} className="text-bronze !h-[18px] !w-[18px]" />
-        {m.label}
+        {soon[m.kind]}
       </span>
-      {!compact && (
-        <span className={`text-[14px] leading-snug ${fill ? 'hidden lg:block' : ''} ${dark ? 'text-ice/80' : 'text-muted'}`}>{m.description}</span>
-      )}
-      <span className={`text-[13px] tabular-nums ${dark ? 'text-ice/65' : 'text-muted'}`}>
-        {id} · {m.ratio.replace(/\s/g, '')}
+      <span className={`text-[14px] leading-snug ${compact ? 'line-clamp-2' : ''} ${dark ? 'text-ice/80' : 'text-muted'}`}>
+        {m.description}
       </span>
     </figcaption>
   );

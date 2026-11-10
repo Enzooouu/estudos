@@ -51,25 +51,25 @@ export const media = {
   'servico-box-banheiro': {
     kind: 'produto',
     label: 'Imagem do produto',
-    description: 'Box de banheiro instalado, de frente, mostrando o perfil e o puxador.',
+    description: 'Foto de um box de banheiro instalado, de frente, mostrando o vidro, o perfil e o puxador.',
     ratio: '3 / 2',
   },
   'servico-esquadrias': {
     kind: 'produto',
     label: 'Imagem do produto',
-    description: 'Janela ou porta de correr em alumínio instalada, vista de dentro do ambiente.',
+    description: 'Foto de uma janela ou porta de alumínio instalada, vista de dentro do ambiente.',
     ratio: '3 / 2',
   },
   'servico-espelhos': {
     kind: 'produto',
     label: 'Imagem do produto',
-    description: 'Espelho instalado: reto, lapidado, camarim ou com LED, de preferência sobre bancada.',
+    description: 'Foto de um espelho instalado (reto, lapidado, camarim ou com LED), de preferência sobre a bancada.',
     ratio: '3 / 2',
   },
   'servico-divisorias': {
     kind: 'produto',
     label: 'Imagem do produto',
-    description: 'Divisória de vidro instalada, de preferência jateada ou com faixas tipo persiana.',
+    description: 'Foto de uma divisória de vidro instalada, de preferência jateada ou com faixas tipo persiana.',
     ratio: '3 / 2',
   },
 
@@ -77,31 +77,31 @@ export const media = {
   'projeto-box-banheiro-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Box de banheiro executado: foto vertical do ambiente completo.',
+    description: 'Foto vertical de um banheiro com box instalado pela JEL Box, mostrando o ambiente inteiro.',
     ratio: '4 / 5',
   },
   'projeto-esquadria-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Janela de alumínio executada: lavanderia, quarto ou sala.',
+    description: 'Foto de uma janela de alumínio instalada pela JEL Box, na lavanderia, no quarto ou na sala.',
     ratio: '3 / 2',
   },
   'projeto-espelho-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Espelho com LED ou de camarim executado: foto vertical do ambiente.',
+    description: 'Foto vertical de um espelho com LED ou de camarim instalado pela JEL Box.',
     ratio: '4 / 5',
   },
   'projeto-divisoria-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Divisória de vidro executada, separando cozinha, lavanderia ou escritório.',
+    description: 'Foto de uma divisória de vidro instalada pela JEL Box, separando cozinha, lavanderia ou escritório.',
     ratio: '1 / 1',
   },
   'projeto-janela-vidro-01': {
     kind: 'foto',
     label: 'Fotografia do projeto',
-    description: 'Janela de vidro executada, vista de dentro do ambiente.',
+    description: 'Foto de uma janela de vidro instalada pela JEL Box, vista de dentro do ambiente.',
     ratio: '3 / 2',
   },
 
@@ -116,13 +116,13 @@ export const media = {
   'empresa-equipe': {
     kind: 'foto',
     label: 'Fotografia da equipe',
-    description: 'Equipe da JEL Box em obra ou na oficina, com uniforme.',
+    description: 'Foto da equipe da JEL Box numa obra ou na oficina.',
     ratio: '4 / 5',
   },
   'empresa-oficina': {
     kind: 'foto',
     label: 'Fotografia da empresa',
-    description: 'Fachada da loja ou interior da oficina com vidros e perfis.',
+    description: 'Foto da fachada da loja ou do interior da oficina, com vidros e perfis.',
     ratio: '3 / 2',
   },
 

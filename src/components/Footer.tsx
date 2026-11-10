@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
-import { nav, site, waLink } from '@/content/site';
+import { menu, site, waLink } from '@/content/site';
 import { BrandMark } from './BrandMark';
 import { Icon } from './Icon';
 
@@ -33,7 +33,7 @@ export function Footer() {
           <BrandMark className="text-bronze h-7 w-7" />
           <p className="label text-ice/80 mt-7">Menu</p>
           <ul className="mt-4 grid gap-0.5">
-            {nav.map((n) => (
+            {menu.map((n) => (
               <li key={n.id}>
                 <a href={home ? `#${n.id}` : `/#${n.id}`} className="hover:text-bronze block text-[24px] leading-tight font-medium tracking-[-0.01em] transition-colors">
                   {n.label}
@@ -41,12 +41,26 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <div className="text-ice/90 mt-7 grid gap-1 text-sm">
-            <a href={site.phoneHref} className="hover:text-frost">{site.phoneDisplay}</a>
-            <a href={`mailto:${site.email}`} className="hover:text-frost">{site.email}</a>
-            <span>{site.hours.join(' · ')}</span>
-            <span>{site.address}</span>
-          </div>
+          <ul className="text-ice/90 mt-7 grid gap-2 text-[15px]">
+            <li className="flex items-center gap-2.5">
+              <Icon name="phone" className="text-bronze !h-[18px] !w-[18px]" />
+              <a href={site.phoneHref} className="hover:text-frost">{site.phoneDisplay}</a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Icon name="insta" className="text-bronze !h-[18px] !w-[18px]" />
+              <a href={site.instagram.url} rel="noopener" className="hover:text-frost">{site.instagram.handle}</a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Icon name="facebook" className="text-bronze !h-[18px] !w-[18px]" />
+              <a href={site.facebook.url} rel="noopener" className="hover:text-frost">Facebook</a>
+            </li>
+            {site.email && (
+              <li className="flex items-center gap-2.5">
+                <Icon name="mail" className="text-bronze !h-[18px] !w-[18px]" />
+                <a href={`mailto:${site.email}`} className="hover:text-frost">{site.email}</a>
+              </li>
+            )}
+          </ul>
           <a className="btn btn-bronze mt-7 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Pedir orçamento
           </a>

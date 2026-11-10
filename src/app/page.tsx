@@ -23,7 +23,7 @@ const jsonLd = [
     description: site.description,
     url: site.url,
     telephone: site.phoneHref.replace('tel:', ''),
-    email: site.email,
+    ...(site.email ? { email: site.email } : {}),
     sameAs: [site.instagram.url, site.facebook.url],
     address: {
       '@type': 'PostalAddress',

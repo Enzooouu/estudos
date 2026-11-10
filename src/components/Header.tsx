@@ -195,10 +195,17 @@ export function Header() {
                     <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Instagram</dt>
                     <dd><a href={site.instagram.url} target="_blank" rel="noopener" className="link-grow text-frost/90 hover:text-frost">{site.instagram.handle}</a></dd>
                   </div>
-                  <div className="col-span-2">
-                    <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
-                    <dd><a href={`mailto:${site.email}`} className="link-grow text-frost/90 hover:text-frost">{site.email}</a></dd>
-                  </div>
+                  {site.email ? (
+                    <div className="col-span-2">
+                      <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">E-mail</dt>
+                      <dd><a href={`mailto:${site.email}`} className="link-grow text-frost/90 hover:text-frost">{site.email}</a></dd>
+                    </div>
+                  ) : (
+                    <div className="col-span-2">
+                      <dt className="text-frost/45 mb-0.5 text-[10px] font-semibold tracking-[0.14em] uppercase">Facebook</dt>
+                      <dd><a href={site.facebook.url} target="_blank" rel="noopener" className="link-grow text-frost/90 hover:text-frost">{site.facebook.handle}</a></dd>
+                    </div>
+                  )}
                 </dl>
                 <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
                   <Icon name="ret" /> Pedir orçamento

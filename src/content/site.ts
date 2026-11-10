@@ -12,7 +12,8 @@ export const site = {
   whatsapp: '5511940136785', // DDI + DDD + número, só dígitos
   phoneDisplay: '(11) 94013-6785',
   phoneHref: 'tel:+5511940136785',
-  email: 'contato@jelbox.com.br', // EXEMPLO
+  /** e-mail da JEL Box: vazio esconde o e-mail em todo o site até ele ser cadastrado */
+  email: '' as string,
   instagram: { handle: '@_jelbox', url: 'https://www.instagram.com/_jelbox/' },
   facebook: { handle: 'vidracariajelbox', url: 'https://www.facebook.com/vidracariajelbox/' },
   address: 'R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080',

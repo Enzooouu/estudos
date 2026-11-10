@@ -200,9 +200,11 @@ export function BoxBuilder() {
               <a className="btn btn-bronze" href={waLink(message(c))} target="_blank" rel="noopener">
                 <Icon name="ret" /> Enviar pelo WhatsApp
               </a>
-              <button type="submit" className="btn btn-ice">
-                <Icon name="ret" /> Enviar por e-mail
-              </button>
+              {site.email && (
+                <button type="submit" className="btn btn-ice">
+                  <Icon name="ret" /> Enviar por e-mail
+                </button>
+              )}
             </div>
             <p className="text-small text-muted">Medidas aproximadas: o valor final sai depois da medição no local.</p>
           </div>

@@ -3,9 +3,9 @@ import { Icon } from './Icon';
 import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
-/** O e-mail como tipo de exibição. */
+/** O e-mail (ou, sem e-mail cadastrado, o telefone) como tipo de exibição. */
 export function Contact() {
-  const [user, domain] = site.email.split('@');
+  const [user, domain] = site.email ? site.email.split('@') : ['', ''];
   return (
     <section
       id="contato"
@@ -23,13 +23,25 @@ export function Contact() {
         }
       />
       <Reveal order={2} className="self-end">
-        <a
-          href={`mailto:${site.email}`}
-          className="font-title hover:text-glass block text-[9.4vw] leading-none font-medium tracking-[-0.055em] transition-colors duration-300 lg:text-[7.4vw] lg:whitespace-nowrap"
-        >
-          <span className="block lg:inline">{user}@</span>
-          <span className="block lg:inline">{domain}</span>
-        </a>
+        {site.email ? (
+          <a
+            href={`mailto:${site.email}`}
+            className="font-title hover:text-glass block text-[9.4vw] leading-none font-medium tracking-[-0.055em] transition-colors duration-300 lg:text-[7.4vw] lg:whitespace-nowrap"
+          >
+            <span className="block lg:inline">{user}@</span>
+            <span className="block lg:inline">{domain}</span>
+          </a>
+        ) : (
+          <a
+            href={waLink('Olá, JEL Box! Gostaria de um orçamento.')}
+            target="_blank"
+            rel="noopener"
+            aria-label={`WhatsApp ${site.phoneDisplay}`}
+            className="font-title hover:text-glass block text-[12vw] leading-none font-medium tracking-[-0.055em] whitespace-nowrap transition-colors duration-300 lg:text-[9vw]"
+          >
+            {site.phoneDisplay}
+          </a>
+        )}
       </Reveal>
       <div className="flex flex-col justify-between gap-3 text-base sm:flex-row">
         <p className="flex items-center gap-2.5">
