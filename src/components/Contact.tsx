@@ -10,7 +10,7 @@ export function Contact() {
     <section
       id="contato"
       aria-labelledby="contato-h"
-      className="bg-ice px-page grid grid-rows-[auto_1fr_auto] gap-12 lg:min-h-[72svh] pt-[clamp(40px,5vw,72px)] pb-10"
+      className="bg-ice px-page grid grid-rows-[auto_1fr_auto] gap-12 lg:min-h-[56svh] pt-[clamp(40px,5vw,72px)] pb-10"
     >
       <SectionHead
         id="contato-h"

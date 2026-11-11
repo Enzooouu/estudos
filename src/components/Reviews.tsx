@@ -155,7 +155,10 @@ function Card({ review }: { review: Review }) {
       {/* embaixo: estrelas à esquerda, quando foi feita à direita */}
       <div className="flex items-center justify-between gap-3">
         <Stars n={review.stars} />
-        <p className="text-muted text-[13.5px]">{review.when ? `${review.when} · Google` : 'Google'}</p>
+        <p className="text-muted text-[13.5px] whitespace-nowrap">
+          {review.when ?? ''}
+          <span className="max-sm:hidden">{review.when ? ' · Google' : 'Google'}</span>
+        </p>
       </div>
     </figure>
   );

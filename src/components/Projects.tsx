@@ -11,7 +11,7 @@ import { SectionHead } from './SectionHead';
 const layout = [
   { col: 'lg:col-span-5 lg:col-start-1', mt: '', parallax: 3, sizes: '(min-width:1024px) 40vw, 100vw' },
   { col: 'lg:col-span-6 lg:col-start-7', mt: 'lg:mt-[18vh]', parallax: 2.5, sizes: '(min-width:1024px) 50vw, 100vw' },
-  { col: 'lg:col-span-4 lg:col-start-2', mt: 'lg:-mt-[6vh]', parallax: 3.5, sizes: '(min-width:1024px) 33vw, 100vw' },
+  { col: 'lg:col-span-4 lg:col-start-2', mt: 'lg:mt-[10vh]', parallax: 3.5, sizes: '(min-width:1024px) 33vw, 100vw' },
   { col: 'lg:col-span-4 lg:col-start-8', mt: 'lg:mt-[10vh]', parallax: 4, sizes: '(min-width:1024px) 33vw, 100vw' },
   { col: 'lg:col-span-7 lg:col-start-3', mt: 'lg:mt-[4vh]', parallax: 3, sizes: '(min-width:1024px) 58vw, 100vw' },
 ];

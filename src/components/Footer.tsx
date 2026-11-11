@@ -23,12 +23,12 @@ export function Footer() {
       <motion.p
         aria-hidden="true"
         style={{ scale: still ? 1 : scale }}
-        className="font-title px-page text-ice/90 pointer-events-none absolute inset-x-0 bottom-[72px] origin-bottom text-center text-[18.4vw] leading-[0.8] font-bold tracking-[-0.06em] whitespace-nowrap md:bottom-[56px] md:text-[19.6vw]"
+        className="font-title px-page text-ice/90 pointer-events-none absolute inset-x-0 bottom-[96px] origin-bottom sm:bottom-[72px] text-center text-[18.4vw] leading-[0.8] font-bold tracking-[-0.06em] whitespace-nowrap md:bottom-[56px] md:text-[19.6vw]"
       >
         JEL BOX
       </motion.p>
 
-      <div className="px-page relative z-10 flex items-center justify-center pt-[clamp(96px,16vh,170px)] pb-[calc(14.7vw+40px)] lg:pb-10">
+      <div className="px-page relative z-10 flex items-center justify-center pt-[clamp(96px,16vh,170px)] pb-[calc(14.7vw+64px)] sm:pb-[calc(14.7vw+40px)] lg:pb-10">
         <motion.div style={{ y: still ? 0 : panelY }} className="glass-light text-frost w-full max-w-[380px] rounded-[calc(var(--r-sm)+32px)] p-8">
           <BrandMark className="text-bronze h-7 w-7" />
           <p className="label text-ice/80 mt-7">Menu</p>
