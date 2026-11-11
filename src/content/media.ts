@@ -43,7 +43,11 @@ export const media = {
       'Foto horizontal de um ambiente com espelho, box ou esquadria, com área livre à esquerda para o texto. Ideal: 2400 px ou mais.',
     ratio: '16 / 9',
     src: '/media/hero-principal.jpg',
-    sources: { avif: '/media/hero-principal.avif', webp: '/media/hero-principal.webp' },
+    // duas larguras: o celular baixa a de 1280 px, telas grandes a de 2560 px
+    sources: {
+      avif: '/media/hero-principal-1280.avif 1280w, /media/hero-principal.avif 2560w',
+      webp: '/media/hero-principal-1280.webp 1280w, /media/hero-principal.webp 2560w',
+    },
     alt: '',
   },
 

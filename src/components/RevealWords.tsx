@@ -29,7 +29,8 @@ export function RevealWords({
     : { initial: 'hidden', whileInView: 'shown', viewport: { once: true, margin: '0px 0px -10% 0px' } };
 
   return (
-    <Tag id={id} className={className} aria-label={text} {...trigger}>
+    <Tag id={id} className={className} {...trigger}>
+      <span className="sr-only">{text}</span>
       {words.map((w, i) => (
         <span key={i} aria-hidden="true">
           <span className="-mb-[0.14em] inline-block overflow-hidden pb-[0.14em] align-top">

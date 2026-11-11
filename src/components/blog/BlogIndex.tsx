@@ -59,7 +59,8 @@ export function BlogIndex({ page }: { page: number }) {
 
 function Featured({ post }: { post: Post }) {
   return (
-    <Reveal className="mt-12 lg:mt-16">
+    // sem animação de entrada: é o primeiro conteúdo da página e precisa aparecer na hora
+    <div className="mt-12 lg:mt-16">
       {/* capa de 8 px a P da borda → raio externo de 8 px + P */}
       <Link
         href={`/blog/${post.slug}/`}
@@ -86,7 +87,7 @@ function Featured({ post }: { post: Post }) {
           </span>
         </div>
       </Link>
-    </Reveal>
+    </div>
   );
 }
 
