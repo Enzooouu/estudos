@@ -23,8 +23,8 @@ const StarGradient = () => (
   <svg width="0" height="0" className="absolute" aria-hidden="true">
     <defs>
       <linearGradient id="estrela" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#D6AE72" />
-        <stop offset="1" stopColor="#B88B52" />
+        <stop offset="0" style={{ stopColor: 'var(--color-star-light)' }} />
+        <stop offset="1" style={{ stopColor: 'var(--color-star)' }} />
       </linearGradient>
     </defs>
   </svg>

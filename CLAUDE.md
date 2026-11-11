@@ -9,6 +9,10 @@ Os rótulos acima dos títulos ficam em texto normal (16 px, sem maiúsculas nem
 extra), não em caixa-alta espaçada.
 
 ## Cores
+Há um **tema de teste azul claro** para mostrar ao cliente: `?tema=azul` no endereço ou a tecla
+**T** alterna entre bronze e azul. Ele troca só os destaques (`--color-bronze`), deixa as estrelas
+douradas (`--color-star`) e o traço dos problemas claro (`--color-strike`). O padrão continua bronze.
+
 A paleta é de cinzas, bege e branco, com o bronze só nos botões de ação e destaques. **Não usar
 azul.** Use sempre os tokens de `src/app/globals.css` (`deep`, `graphite`, `glass`, `muted`,
 `ice`, `frost`, `bronze`) em vez de cores soltas.

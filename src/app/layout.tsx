@@ -49,6 +49,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${unbounded.variable} ${onest.variable}`}>
+      <head>
+        {/* tema de teste (?tema=azul ou tecla T): aplicado antes da primeira pintura, sem piscar */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var d=document.documentElement,q=new URLSearchParams(location.search).get('tema'),s=sessionStorage;if(q){s.setItem('tema',q)}var t=s.getItem('tema');if(t&&t!=='bronze'){d.dataset.tema=t}addEventListener('keydown',function(e){if((e.key==='t'||e.key==='T')&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&!/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)){var n=d.dataset.tema==='azul'?'bronze':'azul';if(n==='azul'){d.dataset.tema='azul'}else{delete d.dataset.tema}s.setItem('tema',n)}})}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body>
         {/* Sem JavaScript, nada fica escondido esperando animação */}
         <noscript>

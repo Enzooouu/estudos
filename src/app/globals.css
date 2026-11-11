@@ -9,6 +9,9 @@
   --color-frost: #FAF8F5; /* Branco quente: fundo da página */
   --color-bronze: #b88b52; /* Bronze: botões de ação e destaques */
   --color-bronze-hover: #c99d66;
+  --color-star: #c99a5b; /* estrelas das avaliações */
+  --color-star-light: #d6ae72;
+  --color-strike: #b88b52; /* traço sobre os problemas */
   --color-graphite: #262729; /* barra superior: cinza escuro neutro */
   --color-ink-dark: #1a1f23; /* texto sobre bronze */
   --color-muted: #5E5B56;
@@ -72,6 +75,17 @@
     outline: 2px solid var(--color-bronze);
     outline-offset: 3px;
   }
+}
+
+/* ---------- Tema de teste: azul claro no lugar do bronze ----------
+   Ativado com ?tema=azul no endereço ou com a tecla T (para mostrar as duas versões ao cliente).
+   Só os destaques mudam; as estrelas ficam douradas e o traço dos problemas fica claro. */
+:root[data-tema='azul'] {
+  --color-bronze: #8fc3e6;
+  --color-bronze-hover: #a9d2ee;
+  --color-star: #e8b33a;
+  --color-star-light: #f5cd5f;
+  --color-strike: rgb(250 248 245 / 0.75);
 }
 
 @utility px-page {

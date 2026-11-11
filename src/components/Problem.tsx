@@ -39,7 +39,7 @@ export function Problem() {
       <ol className="mt-14 grid gap-x-6 gap-y-12 lg:mt-20 lg:grid-cols-3">
         {items.map((it, i) => (
           <Reveal as="li" order={i} key={it.pain} className="border-ice/20 grid content-start gap-4 border-t pt-6">
-            <p className="font-title text-h3 text-ice/55 leading-[1.15] font-medium tracking-[-0.02em] line-through decoration-bronze/70 decoration-2">
+            <p className="font-title text-h3 text-ice/55 leading-[1.15] font-medium tracking-[-0.02em] line-through decoration-strike decoration-2">
               <span className="sr-only">Problema: </span>
               {it.pain}
             </p>
