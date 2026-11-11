@@ -21,7 +21,8 @@ function WhatsGlyph({ className = '' }: { className?: string }) {
 /**
  * Botão flutuante de WhatsApp, em bronze (a cor de ação do site), no canto inferior direito.
  * Aparece depois do topo e some no rodapé, que já têm botão de orçamento. Ao surgir, dá um
- * pulso discreto uma vez para ser notado. No computador mostra o texto; no celular, só o ícone.
+ * pulso discreto para ser notado. Fica um círculo com o ícone; no computador, com o mouse em
+ * cima, abre o texto Pedir orçamento pelo WhatsApp.
  */
 export function WhatsAppFab() {
   const [show, setShow] = useState(false);
@@ -60,7 +61,7 @@ export function WhatsAppFab() {
           target="_blank"
           rel="noopener"
           aria-label="Pedir orçamento pelo WhatsApp"
-          className="group bg-bronze text-ink-dark hover:bg-bronze-hover fixed right-[var(--m)] bottom-[calc(var(--m)+env(safe-area-inset-bottom))] z-40 flex h-14 items-center gap-3 rounded-full pr-6 pl-4 shadow-[0_12px_32px_-10px_rgb(31_32_34/0.55)] transition-colors focus-visible:outline-offset-4 max-sm:w-14 max-sm:justify-center max-sm:p-0"
+          className="group bg-bronze text-ink-dark hover:bg-bronze-hover fixed right-[var(--m)] bottom-[calc(var(--m)+env(safe-area-inset-bottom))] z-40 flex h-14 items-center rounded-full px-[14px] shadow-[0_12px_32px_-10px_rgb(31_32_34/0.55)] transition-colors focus-visible:outline-offset-4"
           initial={{ opacity: 0, y: 20, scale: 0.85 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.85 }}
@@ -79,7 +80,8 @@ export function WhatsAppFab() {
             />
           )}
           <WhatsGlyph className="h-7 w-7 shrink-0 transition-transform duration-300 group-hover:rotate-[-8deg]" />
-          <span className="grid leading-tight max-sm:hidden">
+          {/* o texto só abre com o mouse em cima (ou com o foco do teclado); no celular fica só o ícone */}
+          <span className="grid max-w-0 overflow-hidden leading-tight whitespace-nowrap opacity-0 transition-[max-width,opacity,margin] duration-400 ease-[cubic-bezier(0.165,0.84,0.44,1)] group-hover:ml-3 group-hover:mr-2.5 group-hover:max-w-[220px] group-hover:opacity-100 group-focus-visible:ml-3 group-focus-visible:mr-2.5 group-focus-visible:max-w-[220px] group-focus-visible:opacity-100 max-sm:hidden">
             <span className="text-[13px] font-semibold tracking-[0.08em] uppercase">Pedir orçamento</span>
             <span className="text-ink-dark/70 text-[12px] font-medium">pelo WhatsApp</span>
           </span>
