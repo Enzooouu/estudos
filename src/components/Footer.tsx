@@ -61,7 +61,7 @@ export function Footer() {
               </li>
             )}
           </ul>
-          <a className="btn btn-bronze mt-7 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+          <a className="btn btn-bronze mt-7 w-full justify-center" href={waLink('Olá, JEL BOX! Gostaria de um orçamento.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Pedir orçamento
           </a>
         </motion.div>

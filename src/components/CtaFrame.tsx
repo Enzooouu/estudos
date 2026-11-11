@@ -17,7 +17,7 @@ export function CtaFrame() {
             <a href="#monte" className="btn btn-deep">
               <Icon name="ret" /> Monte seu box
             </a>
-            <a className="btn btn-text" href={waLink('Olá, JEL Box! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
+            <a className="btn btn-text" href={waLink('Olá, JEL BOX! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
               <Icon name="ret" /> Agendar medição
             </a>
           </div>

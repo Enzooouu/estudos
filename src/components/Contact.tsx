@@ -17,7 +17,7 @@ export function Contact() {
         label="Contato"
         title="Peça sua visita técnica"
         aside={
-          <a className="btn btn-bronze" href={waLink('Olá, JEL Box! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
+          <a className="btn btn-bronze" href={waLink('Olá, JEL BOX! Gostaria de agendar uma medição.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Chamar no WhatsApp
           </a>
         }
@@ -33,7 +33,7 @@ export function Contact() {
           </a>
         ) : (
           <a
-            href={waLink('Olá, JEL Box! Gostaria de um orçamento.')}
+            href={waLink('Olá, JEL BOX! Gostaria de um orçamento.')}
             target="_blank"
             rel="noopener"
             aria-label={`WhatsApp ${site.phoneDisplay}`}

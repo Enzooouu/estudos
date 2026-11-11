@@ -63,7 +63,7 @@ export const describe = (c: BoxConfig) =>
 
 export const message = (c: BoxConfig) =>
   [
-    'Olá, JEL Box! Montei um box no site:',
+    'Olá, JEL BOX! Montei um box no site:',
     `• Modelo: ${MODELOS[c.modelo]}`,
     `• Medidas do vão: ${
       c.modelo === 'canto'

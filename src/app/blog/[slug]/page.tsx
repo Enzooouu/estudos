@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
   const url = `/blog/${post.slug}/`;
   return {
-    title: `${post.title} · JEL Box`,
+    title: `${post.title} · JEL BOX`,
     description: post.description,
     alternates: { canonical: url },
     openGraph: {
@@ -83,7 +83,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               <p className="text-muted mt-2">Medimos no local, fabricamos sob medida e instalamos com a nossa equipe.</p>
             </div>
             <div className="flex flex-wrap gap-2">
-              <a className="btn btn-bronze" href={waLink(`Olá, JEL Box! Li o artigo "${post.title}" e gostaria de um orçamento.`)} target="_blank" rel="noopener">
+              <a className="btn btn-bronze" href={waLink(`Olá, JEL BOX! Li o artigo "${post.title}" e gostaria de um orçamento.`)} target="_blank" rel="noopener">
                 <Icon name="ret" /> Pedir orçamento
               </a>
               {product && (

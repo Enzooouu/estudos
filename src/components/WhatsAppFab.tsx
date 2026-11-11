@@ -41,7 +41,7 @@ export function WhatsAppFab() {
       {show && (
         <motion.a
           key="fab"
-          href={waLink('Olá, JEL Box! Gostaria de um orçamento.')}
+          href={waLink('Olá, JEL BOX! Gostaria de um orçamento.')}
           target="_blank"
           rel="noopener"
           aria-label="Pedir orçamento pelo WhatsApp"

@@ -135,7 +135,7 @@ export function Products() {
             <div className="mt-8 flex flex-wrap gap-2">
               <a
                 className="btn btn-deep"
-                href={waLink(`Olá, JEL Box! Gostaria de um orçamento de ${current.name.toLowerCase()}.`)}
+                href={waLink(`Olá, JEL BOX! Gostaria de um orçamento de ${current.name.toLowerCase()}.`)}
                 target="_blank"
                 rel="noopener"
               >

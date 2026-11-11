@@ -16,7 +16,7 @@ const ease = [0.165, 0.84, 0.44, 1] as const; // ease-out-quart
 const easeInOut = [0.77, 0, 0.175, 1] as const; // ease-in-out-quart
 
 /**
- * Barra fixa no topo: JEL Box volta ao início e os três traços abrem o menu.
+ * Barra fixa no topo: JEL BOX volta ao início e os três traços abrem o menu.
  * Transparente sobre a foto do topo; grafite a partir da seção seguinte.
  * O botão de três traços abre um painel de vidro com as seções (a atual em bronze) e o
  * botão de orçamento, e escurece a página atrás.
@@ -92,9 +92,9 @@ export function Header() {
       }`}
     >
       <div className="px-page flex h-16 items-center justify-between gap-6 lg:h-[72px]">
-        <a href={home ? '#topo' : '/'} aria-label="JEL Box, voltar ao início" className="font-title inline-flex shrink-0 items-center gap-2.5 text-[19px] leading-none font-medium tracking-[-0.02em]">
+        <a href={home ? '#topo' : '/'} aria-label="JEL BOX, voltar ao início" className="font-title inline-flex shrink-0 items-center gap-2.5 text-[19px] leading-none font-medium tracking-[-0.02em]">
           <BrandMark className="text-bronze h-6 w-6" />
-          JEL Box
+          JEL BOX
         </a>
 
         <div className="-mr-2 flex items-center gap-2 sm:gap-4">
@@ -207,7 +207,7 @@ export function Header() {
                     </div>
                   )}
                 </dl>
-                <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+                <a className="btn btn-bronze !min-h-10 w-full justify-center" href={waLink('Olá, JEL BOX! Gostaria de um orçamento.')} target="_blank" rel="noopener">
                   <Icon name="ret" /> Pedir orçamento
                 </a>
               </motion.div>

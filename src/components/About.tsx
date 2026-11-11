@@ -15,7 +15,7 @@ export function About() {
     <section id="sobre" aria-labelledby="sobre-h" className="px-page py-section bg-ice text-center">
       <Reveal>
         <h2 id="sobre-h" className="label">
-          Sobre a JEL Box
+          Sobre a JEL BOX
         </h2>
       </Reveal>
       <RevealWords

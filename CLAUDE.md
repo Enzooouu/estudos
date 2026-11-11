@@ -1,5 +1,13 @@
 # Regras do projeto (site da JEL Box)
 
+## Nome da marca
+Sempre **JEL BOX**, em maiúsculas, em todo texto do site (rótulos, títulos, botões, mensagens de
+WhatsApp, títulos das páginas). Exceção: avaliações de clientes, que ficam como foram escritas.
+
+## Rótulos
+Os rótulos acima dos títulos ficam em texto normal (16 px, sem maiúsculas nem espaçamento
+extra), não em caixa-alta espaçada.
+
 ## Cores
 A paleta é de cinzas, bege e branco, com o bronze só nos botões de ação e destaques. **Não usar
 azul.** Use sempre os tokens de `src/app/globals.css` (`deep`, `graphite`, `glass`, `muted`,

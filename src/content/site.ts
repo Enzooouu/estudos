@@ -1,18 +1,18 @@
 import type { MediaId } from './media';
 
 /**
- * Dados da JEL Box em um só lugar.
+ * Dados da JEL BOX em um só lugar.
  * Os valores marcados com "EXEMPLO" precisam ser trocados antes de publicar.
  */
 export const site = {
-  name: 'JEL Box',
+  name: 'JEL BOX',
   description:
     'Box de banheiro, espelhos, janelas, portas e divisórias de vidro e alumínio, medidos no local e instalados pela nossa equipe.',
   url: 'https://www.jelbox.com.br', // EXEMPLO
   whatsapp: '5511940136785', // DDI + DDD + número, só dígitos
   phoneDisplay: '(11) 94013-6785',
   phoneHref: 'tel:+5511940136785',
-  /** e-mail da JEL Box: vazio esconde o e-mail em todo o site até ele ser cadastrado */
+  /** e-mail da JEL BOX: vazio esconde o e-mail em todo o site até ele ser cadastrado */
   email: '' as string,
   instagram: { handle: '@_jelbox', url: 'https://www.instagram.com/_jelbox/' },
   facebook: { handle: 'vidracariajelbox', url: 'https://www.facebook.com/vidracariajelbox/' },
@@ -25,7 +25,7 @@ export const site = {
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '11:00' },
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '18:00' },
   ],
-  /** página da JEL Box no Google (avaliações e mapa) */
+  /** página da JEL BOX no Google (avaliações e mapa) */
   googleUrl: 'https://share.google/l7zcm4bUvqojtX2BT',
   /** endereço do mapa incorporado (Google Maps > Compartilhar > Incorporar um mapa > src do iframe) */
   mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent('R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080')}&output=embed`,
@@ -190,11 +190,11 @@ export const waLink = (msg: string) =>
 export const sections = [
   { id: 'topo', label: 'Início' },
   { id: 'avaliacoes', label: 'Avaliações' },
-  { id: 'problema', label: 'Por que a JEL Box' },
+  { id: 'problema', label: 'Por que a JEL BOX' },
   { id: 'produtos', label: 'Produtos' },
   { id: 'obras', label: 'Obras' },
   { id: 'sobre', label: 'Sobre' },
-  { id: 'oficina', label: 'A JEL Box por dentro' },
+  { id: 'oficina', label: 'A JEL BOX por dentro' },
   { id: 'processo', label: 'Como trabalhamos' },
   { id: 'monte', label: 'Monte seu box' },
   { id: 'duvidas', label: 'Dúvidas' },
@@ -235,7 +235,7 @@ export const projects: { media: MediaId; categoria: string; titulo?: string; loc
   { media: 'projeto-janela-vidro-01', categoria: 'Janelas de vidro' },
 ];
 
-/** Linhas de produto, como no catálogo da JEL Box. */
+/** Linhas de produto, como no catálogo da JEL BOX. */
 export const products: {
   id: ProductId;
   name: string;

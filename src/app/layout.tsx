@@ -21,7 +21,7 @@ const onest = Onest({
   display: 'swap',
 });
 
-const title = 'JEL Box · Vidraçaria e serralheria sob medida';
+const title = 'JEL BOX · Vidraçaria e serralheria sob medida';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),

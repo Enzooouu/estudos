@@ -17,8 +17,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ n: string }> }): Promise<Metadata> {
   const n = Number((await params).n);
   return {
-    title: `Blog · página ${n} · JEL Box`,
-    description: 'Artigos anteriores do blog da JEL Box sobre vidro, alumínio e obra.',
+    title: `Blog · página ${n} · JEL BOX`,
+    description: 'Artigos anteriores do blog da JEL BOX sobre vidro, alumínio e obra.',
     alternates: { canonical: pageHref(n) },
     robots: n > pageCount() ? { index: false } : undefined,
   };

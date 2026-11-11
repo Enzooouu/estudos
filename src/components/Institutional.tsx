@@ -16,7 +16,7 @@ export function Institutional() {
       <SectionHead
         dark
         id="oficina-h"
-        label="A JEL Box por dentro"
+        label="A JEL BOX por dentro"
         title="Da oficina à obra"
         aside={<p className="text-ice">O vidro cortado, lapidado e montado pela mesma equipe que instala.</p>}
       />

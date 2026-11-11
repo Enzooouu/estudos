@@ -2,7 +2,7 @@ import { Reveal } from './Reveal';
 import { SectionHead } from './SectionHead';
 
 /**
- * Problema → solução: as dores mais comuns de quem contrata vidraçaria e como a JEL Box
+ * Problema → solução: as dores mais comuns de quem contrata vidraçaria e como a JEL BOX
  * resolve cada uma. As citações são trechos reais das avaliações do Google.
  */
 const items = [
@@ -32,7 +32,7 @@ export function Problem() {
       <SectionHead
         id="problema-h"
         dark
-        label="Por que a JEL Box"
+        label="Por que a JEL BOX"
         title="Box e janela sem dor de cabeça"
         aside={<p className="text-ice/80">Os problemas que mais ouvimos de quem já contratou outra vidraçaria, e como resolvemos cada um.</p>}
       />

@@ -66,7 +66,7 @@ export function Hero() {
           Vidraçaria em Osasco: box de banheiro, espelhos, janelas, portas e divisórias de vidro. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.
         </motion.p>
         <motion.div data-reveal {...rise(3)} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-          <a className="btn btn-bronze" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
+          <a className="btn btn-bronze" href={waLink('Olá, JEL BOX! Gostaria de um orçamento.')} target="_blank" rel="noopener">
             <Icon name="ret" /> Pedir orçamento
           </a>
           <a href="#monte" className="btn btn-text text-ice hover:!text-frost">
