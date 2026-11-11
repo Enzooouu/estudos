@@ -55,22 +55,6 @@ export function Hero() {
       </motion.div>
 
       <div className="px-page flex flex-1 flex-col justify-end pt-36 pb-24 lg:justify-center lg:pt-28 lg:pb-[104px]">
-        {reviewsSummary && (
-          <motion.a
-            data-reveal
-            {...rise(0)}
-            href="#avaliacoes"
-            className="mb-6 inline-flex items-center gap-2.5 self-start rounded-full border border-white/25 bg-black/25 px-3.5 py-2 text-[14px] backdrop-blur-sm transition-colors hover:bg-black/40"
-          >
-            <span className="text-bronze tracking-[0.1em]" aria-hidden="true">★★★★★</span>
-            <span>
-              <strong className="font-semibold">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</strong> · {reviewsSummary.count} avaliações no Google
-            </span>
-          </motion.a>
-        )}
-        <motion.p data-reveal {...rise(0)} className="label text-ice">
-          Vidraçaria e serralheria
-        </motion.p>
         <RevealWords
           as="h1"
           onMount
@@ -79,7 +63,7 @@ export function Hero() {
           className="font-title mt-6 max-w-[12ch] text-[clamp(38px,5vw,80px)] leading-[1.02] font-medium tracking-[-0.04em]"
         />
         <motion.p data-reveal {...rise(2)} initial={{ opacity: 1, y: 16 }} className="text-ice mt-7 max-w-[46ch] text-[clamp(17px,1.25vw,19px)]">
-          Box de banheiro, espelhos, janelas, portas e divisórias de vidro. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.
+          Vidraçaria em Osasco: box de banheiro, espelhos, janelas, portas e divisórias de vidro. Medimos o vão, fabricamos a peça e instalamos com a mesma equipe.
         </motion.p>
         <motion.div data-reveal {...rise(3)} className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
           <a className="btn btn-bronze" href={waLink('Olá, JEL Box! Gostaria de um orçamento.')} target="_blank" rel="noopener">
@@ -89,6 +73,26 @@ export function Hero() {
             <Icon name="ret" /> Desenhar meu box
           </a>
         </motion.div>
+
+        {reviewsSummary && (
+          <motion.a
+            data-reveal
+            {...rise(3)}
+            href="#avaliacoes"
+            className="text-ice hover:text-frost mt-8 inline-flex items-center gap-3 self-start text-[15px] transition-colors"
+          >
+            <span className="text-bronze inline-flex gap-[2px]" aria-hidden="true">
+              {Array.from({ length: 5 }, (_, i) => (
+                <svg key={i} width="18" height="18" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72 3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18-1.1 4.72c-.2.86.73 1.54 1.49 1.08L12 17.27z" />
+                </svg>
+              ))}
+            </span>
+            <span>
+              <strong className="text-frost font-semibold">{reviewsSummary.rating.toFixed(1).replace('.', ',')}</strong> no Google · {reviewsSummary.count} avaliações
+            </span>
+          </motion.a>
+        )}
 
         <motion.ul data-reveal {...rise(4)} className="border-ice/25 mt-12 grid max-w-[760px] gap-4 border-t pt-6 sm:grid-cols-3 lg:mt-14">
           {facts.map((f) => (

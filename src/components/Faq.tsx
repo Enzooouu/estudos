@@ -7,7 +7,7 @@ export function Faq() {
   return (
     <section id="duvidas" aria-labelledby="duvidas-h" className="px-page py-section">
       <div className="pb-10 lg:pb-14">
-        <SectionHead id="duvidas-h" label="Dúvidas" title="O que mais nos perguntam" />
+        <SectionHead id="duvidas-h" label="Dúvidas" title="Perguntas frequentes" />
       </div>
       <dl>
         {faq.map((item) => (

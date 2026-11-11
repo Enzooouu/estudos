@@ -170,7 +170,7 @@ export function Header() {
                           transition={{ duration: 0.7, ease, delay: 0.15 + i * 0.04 }}
                         >
                           {n.label}
-                          <span className="-translate-x-1.5 opacity-0 transition-all duration-300 group-hover/item:translate-x-0 group-hover/item:opacity-100 group-focus-visible/item:translate-x-0 group-focus-visible/item:opacity-100">
+                          <span className="-translate-x-1.5 opacity-0 transition-[transform,opacity] duration-300 group-hover/item:translate-x-0 group-hover/item:opacity-100 group-focus-visible/item:translate-x-0 group-focus-visible/item:opacity-100">
                             <Icon name="ret" />
                           </span>
                         </motion.a>

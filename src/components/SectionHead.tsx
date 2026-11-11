@@ -26,10 +26,10 @@ export function SectionHead({
     <div>
       <LineGrow dark={dark} />
       <div className="grid gap-x-6 gap-y-6 pt-5 lg:grid-cols-12">
-        <Reveal className={titleLeft ? 'lg:col-span-2' : 'lg:col-span-4'}>
+        <Reveal className={titleLeft ? 'lg:col-span-2' : 'lg:col-span-3'}>
           <p className={`label ${dark ? 'text-ice' : ''}`}>{label}</p>
         </Reveal>
-        <div className={titleLeft ? 'lg:col-span-7' : 'lg:col-span-5'}>
+        <div className={titleLeft ? 'lg:col-span-7' : 'lg:col-span-6'}>
           <RevealWords id={id} text={title} className="font-title text-h2 leading-[1.1] font-medium tracking-[-0.03em]" />
         </div>
         {aside && (

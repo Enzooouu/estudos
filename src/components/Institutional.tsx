@@ -1,3 +1,4 @@
+import { getMedia } from '@/content/media';
 import { site } from '@/content/site';
 import { Icon } from './Icon';
 import { Media } from './media/Media';
@@ -7,6 +8,9 @@ import { SectionHead } from './SectionHead';
 
 /** Faixa escura com o vídeo institucional e as fotos da equipe e da empresa. */
 export function Institutional() {
+  // sem nenhuma mídia da oficina, a faixa seria uma tela escura vazia: fica escondida até chegar
+  const ready = (['video-institucional', 'empresa-equipe', 'empresa-oficina'] as const).some((id) => getMedia(id).src);
+  if (!ready) return null;
   return (
     <section id="oficina" aria-labelledby="oficina-h" className="bg-deep text-frost px-page py-section">
       <SectionHead

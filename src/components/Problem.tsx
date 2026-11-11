@@ -33,14 +33,14 @@ export function Problem() {
         id="problema-h"
         dark
         label="Por que a JEL Box"
-        title="Trocar o box ou a janela não precisa virar dor de cabeça"
+        title="Box e janela sem dor de cabeça"
         aside={<p className="text-ice/80">Os problemas que mais ouvimos de quem já contratou outra vidraçaria, e como resolvemos cada um.</p>}
       />
       <ol className="mt-14 grid gap-x-6 gap-y-12 lg:mt-20 lg:grid-cols-3">
         {items.map((it, i) => (
           <Reveal as="li" order={i} key={it.pain} className="border-ice/20 grid content-start gap-4 border-t pt-6">
-            <p className="text-ice/60 text-[12px] font-semibold tracking-[0.14em] uppercase">O problema</p>
             <p className="font-title text-h3 text-ice/55 leading-[1.15] font-medium tracking-[-0.02em] line-through decoration-bronze/70 decoration-2">
+              <span className="sr-only">Problema: </span>
               {it.pain}
             </p>
             <p className="text-frost text-[clamp(17px,1.25vw,19px)] leading-[1.5]">{it.fix}</p>

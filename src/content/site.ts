@@ -319,7 +319,7 @@ export const faq = [
     a: 'Ele segura o vapor dentro da área do banho, então o espelho e o resto do banheiro embaçam bem menos. Pede um exaustor ou uma janela na área do chuveiro.',
   },
   {
-    q: 'Vocês fazem manutenção ou trabalham com box de acrílico?',
+    q: 'Fazem manutenção ou box de acrílico?',
     a: 'Não. Trabalhamos só com peças novas, medidas, fabricadas e instaladas pela nossa equipe. Não fazemos manutenção nem restauração em geral, e não trabalhamos com box de acrílico.',
   },
 ] as const;

@@ -132,7 +132,7 @@ export function BoxBuilder() {
         <SectionHead
           id="monte-h"
           label="Monte seu box"
-          title="Desenhe o seu, em escala"
+          title="Desenhe o seu box"
           aside={
             <p>Escolha o modelo e as medidas do vão. A especificação vai pronta para o nosso WhatsApp.</p>
           }
