@@ -70,9 +70,9 @@ export function BoxViewer({ c, summary, yaw }: { c: BoxConfig; summary: string; 
   const leafLabel = c.modelo === 'abrir' ? (open ? 'Fechar porta' : 'Abrir porta') : open ? 'Fechar folha' : 'Abrir folha';
 
   return (
-    <div ref={ref} className="frame-open bg-ice rounded-[var(--frame-r)] p-[var(--pad)] [--frame-color:var(--color-deep)] [--frame-r:calc(7px+var(--pad))] [--pad:clamp(18px,2.6vw,40px)]">
+    <div ref={ref} className="frame-open bg-ice rounded-[var(--frame-r)] p-[var(--pad)] [--frame-color:var(--color-deep)] [--frame-r:calc(22px+var(--pad))] [--pad:clamp(18px,2.6vw,40px)]">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div role="group" aria-label="Visualização" className="bg-frost inline-flex rounded-[7px] p-1">
+        <div role="group" aria-label="Visualização" className="bg-frost inline-flex rounded-full p-1">
           {(
             [
               ['3d', '3D'],
@@ -85,7 +85,7 @@ export function BoxViewer({ c, summary, yaw }: { c: BoxConfig; summary: string; 
               aria-pressed={view === v}
               disabled={v === '3d' && supported === false}
               onClick={() => setView(v)}
-              className={`min-h-9 cursor-pointer rounded-[3px] px-3.5 text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${view === v ? 'bg-deep text-frost' : 'text-deep hover:bg-ice'}`}
+              className={`min-h-9 cursor-pointer rounded-full px-4 text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${view === v ? 'bg-deep text-frost' : 'text-deep hover:bg-ice'}`}
             >
               {label}
             </button>

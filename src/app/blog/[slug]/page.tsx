@@ -76,8 +76,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
           <div className="prose-jel mx-auto mt-12 max-w-[68ch] lg:mt-16" dangerouslySetInnerHTML={{ __html: post.html }} />
 
-          {/* chamada final: botão de 4 px a 28 px da borda → raio de 32 px */}
-          <aside className="bg-ice mx-auto mt-16 grid max-w-[920px] gap-6 rounded-[calc(var(--r-sm)+28px)] p-7 sm:grid-cols-[1fr_auto] sm:items-center lg:mt-20">
+          {/* chamada final: botão em pílula (23 px) a 28 px da borda → raio de 51 px */}
+          <aside className="bg-ice mx-auto mt-16 grid max-w-[920px] gap-6 rounded-[51px] p-7 sm:grid-cols-[1fr_auto] sm:items-center lg:mt-20">
             <div>
               <p className="font-title text-h3 leading-[1.15] font-medium tracking-[-0.02em]">Precisa de um orçamento?</p>
               <p className="text-muted mt-2">Medimos no local, fabricamos sob medida e instalamos com a nossa equipe.</p>

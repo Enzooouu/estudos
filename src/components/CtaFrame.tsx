@@ -6,7 +6,7 @@ import { Reveal } from './Reveal';
 export function CtaFrame() {
   return (
     <section aria-labelledby="cta-h" className="px-page pb-[var(--gap)]">
-      <Reveal className="border-line relative grid overflow-hidden rounded-[calc(var(--r-sm)+var(--pad))] border [--pad:clamp(28px,4vw,56px)] lg:min-h-[420px] lg:grid-cols-[1.15fr_1fr]">
+      <Reveal className="border-line relative grid overflow-hidden rounded-[calc(23px+var(--pad))] border [--pad:clamp(28px,4vw,56px)] lg:min-h-[420px] lg:grid-cols-[1.15fr_1fr]">
         <div className="flex flex-col justify-between gap-10 p-[var(--pad)]">
           <p className="label">Medição no local</p>
           <div className="grid gap-8">

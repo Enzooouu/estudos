@@ -29,7 +29,8 @@
 
 :root {
   /* Cantos: nada no site fica com canto vivo. */
-  --r-sm: 4px; /* botões, etiquetas, controles */
+  --r-sm: 4px; /* etiquetas, controles, amostras de cor */
+  --r-pill: 999px; /* botões: pontas totalmente redondas (pílula) */
   --r: 8px; /* fotos, quadros, cartões, painéis */
   --m: clamp(20px, 2.2vw, 32px); /* margem externa única */
   --gap: clamp(104px, 12vw, 176px); /* espaço entre seções */
@@ -105,7 +106,7 @@
     line-height: 1;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    border-radius: var(--r-sm);
+    border-radius: var(--r-pill);
     cursor: pointer;
     transition:
       transform 0.2s var(--ease-out-expo),

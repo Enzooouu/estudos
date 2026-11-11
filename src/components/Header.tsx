@@ -102,7 +102,7 @@ export function Header() {
             href="/blog/"
             aria-current={onBlog ? 'page' : undefined}
             // botão com contorno: é uma página à parte, diferente do menu (três traços) ao lado
-            className={`inline-flex h-9 items-center rounded-[var(--r-sm)] border px-3.5 text-[12.5px] leading-none font-semibold tracking-[0.12em] uppercase transition-colors ${
+            className={`inline-flex h-9 items-center rounded-[var(--r-pill)] border px-4 text-[12.5px] leading-none font-semibold tracking-[0.12em] uppercase transition-colors ${
               onBlog ? 'border-white/80 bg-white/10' : 'border-white/35 hover:border-white/70 hover:bg-white/10'
             }`}
           >
@@ -141,13 +141,13 @@ export function Header() {
 
             <motion.div
               key="painel"
-              // cantos concêntricos: raio externo = raio do botão (4 px) + respiro (20 px)
+              // cantos concêntricos: raio externo = raio do botão em pílula (20 px, metade de 40) + respiro (20 px)
               ref={panel}
               id="menu-principal"
-              className="glass-tint isolate absolute top-[calc(100%+8px)] right-[var(--m)] rounded-[calc(var(--r-sm)+20px)] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
-              initial={{ clipPath: 'inset(0 0 100% 0 round 24px)' }}
-              animate={{ clipPath: 'inset(0 0 0% 0 round 24px)' }}
-              exit={{ clipPath: 'inset(0 0 100% 0 round 24px)', transition: { duration: 0.45, ease: easeInOut } }}
+              className="glass-tint isolate absolute top-[calc(100%+8px)] right-[var(--m)] rounded-[40px] max-h-[calc(100svh-64px-var(--m))] w-[min(330px,calc(100vw-2*var(--m)))] overflow-y-auto overscroll-contain lg:max-h-[calc(100svh-72px-var(--m))]"
+              initial={{ clipPath: 'inset(0 0 100% 0 round 40px)' }}
+              animate={{ clipPath: 'inset(0 0 0% 0 round 40px)' }}
+              exit={{ clipPath: 'inset(0 0 100% 0 round 40px)', transition: { duration: 0.45, ease: easeInOut } }}
               transition={{ duration: 0.7, ease: easeInOut }}
             >
               <GlassLens />

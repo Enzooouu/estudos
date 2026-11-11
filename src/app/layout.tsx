@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <IconSprite />
         <a
           href="#conteudo"
-          className="absolute left-[var(--m)] -top-16 z-50 rounded-[var(--r-sm)] bg-bronze px-4 py-2.5 text-deep focus:top-3"
+          className="absolute left-[var(--m)] -top-16 z-50 rounded-[var(--r-pill)] bg-bronze px-4 py-2.5 text-deep focus:top-3"
         >
           Pular para o conteúdo
         </a>

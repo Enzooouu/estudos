@@ -17,7 +17,8 @@ azul.** Use sempre os tokens de `src/app/globals.css` (`deep`, `graphite`, `glas
 Nada no site fica com canto vivo. Todo elemento com fundo, borda ou imagem leva pelo menos um
 arredondado mínimo, usando os tokens de `src/app/globals.css`:
 
-- `--r-sm` (4 px): botões, etiquetas, controles, amostras de cor
+- `--r-pill` (pílula, pontas totalmente redondas): todos os botões
+- `--r-sm` (4 px): etiquetas, controles, amostras de cor
 - `--r` (8 px): fotos, vídeos, quadros, cartões, mapas, espaços reservados
 - painéis com elementos arredondados dentro: pela regra abaixo
 
@@ -28,10 +29,12 @@ seletor), o raio de fora é o raio de dentro somado à distância entre as borda
 partir dos tokens, por exemplo `rounded-[calc(var(--r-sm)+20px)]` num painel com `p-5` que tem
 botões de `--r-sm`. No site:
 
-- menu do topo: botão 4 px + respiro 20 px = 24 px
-- painel do rodapé: botão 4 px + respiro 32 px = 36 px
-- seletor 3D/Desenho: botões 3 px + respiro 4 px = 7 px; quadro do box: 7 px + respiro do quadro
-- chamada emoldurada: botões 4 px + respiro do quadro
+Num botão em pílula, o raio é metade da altura.
+
+- menu do topo: botão 40 px de altura (raio 20) + respiro 20 px = 40 px
+- painel do rodapé: botão 46 px (raio 23) + respiro 32 px = 55 px
+- seletor 3D/Desenho: botões em pílula dentro de um seletor em pílula; quadro do box: 22 px + respiro do quadro
+- chamada emoldurada e chamada do fim dos artigos: botão 46 px (raio 23) + respiro
 
 Se o elemento de dentro não encosta no canto (fica no meio do bloco), a regra não se aplica.
 
