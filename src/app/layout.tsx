@@ -3,6 +3,7 @@ import { Onest, Unbounded } from 'next/font/google';
 import { IconSprite } from '@/components/Icon';
 import { MotionProvider } from '@/components/MotionProvider';
 import { SmoothScroll } from '@/components/SmoothScroll';
+import { WhatsAppFab } from '@/components/WhatsAppFab';
 import { site } from '@/content/site';
 import 'lenis/dist/lenis.css';
 import './globals.css';
@@ -61,7 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Pular para o conteúdo
         </a>
         <SmoothScroll />
-        <MotionProvider>{children}</MotionProvider>
+        <MotionProvider>
+          {children}
+          <WhatsAppFab />
+        </MotionProvider>
       </body>
     </html>
   );
