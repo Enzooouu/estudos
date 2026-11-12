@@ -45,5 +45,9 @@ Se o elemento de dentro não encosta no canto (fica no meio do bloco), a regra n
 Exceções: elementos que ocupam a largura toda da tela (foto do topo, faixas de seção, rodapé) e
 linhas finas.
 
+## Ao terminar cada pedido
+Sempre fechar a resposta com **uma sugestão curta do que fazer em seguida** (uma linha, poucas
+palavras), começando com "Próximo passo:".
+
 ## Commits
 Os commits saem em nome do Enzo, com o Claude como coautor.
