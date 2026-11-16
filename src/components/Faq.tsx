@@ -9,7 +9,7 @@ import { SectionHead } from './SectionHead';
 /**
  * Dúvidas: à esquerda, as perguntas que abrem e fecham (a primeira já aberta); à direita, um quadro
  * que acompanha a rolagem para tirar outras dúvidas no WhatsApp.
- * O quadro tem botão de 46 px (raio 23) a 28 px da borda → raio de 51 px.
+ * O quadro tem botão de 46 px (raio 23) a 28 px da borda → raio de 51 px (no computador, 32 px → 55 px).
  */
 export function Faq() {
   const [open, setOpen] = useState(0);
@@ -41,10 +41,10 @@ export function Faq() {
           })}
         </ul>
         <Reveal className="lg:col-span-4">
-          <div className="bg-deep text-frost grid gap-5 rounded-[calc(23px+28px)] p-7 lg:sticky lg:top-28">
+          <div className="bg-deep text-frost grid gap-5 rounded-[calc(23px+28px)] p-7 lg:rounded-[calc(23px+32px)] lg:sticky lg:top-28 lg:min-h-[436px] lg:grid-rows-[auto_auto_1fr] lg:p-8">
             <p className="font-title text-h3 leading-[1.15] font-medium tracking-[-0.02em]">Ficou com outra dúvida?</p>
             <p className="text-ice/85">Mande uma foto do vão pelo WhatsApp. Respondemos com as medidas que precisamos e um orçamento inicial.</p>
-            <a className="btn btn-bronze justify-self-start" href={waLink('Olá, JEL BOX! Tenho uma dúvida.')} target="_blank" rel="noopener">
+            <a className="btn btn-bronze self-end justify-self-start" href={waLink('Olá, JEL BOX! Tenho uma dúvida.')} target="_blank" rel="noopener">
               <Icon name="ret" /> Perguntar no WhatsApp
             </a>
           </div>
