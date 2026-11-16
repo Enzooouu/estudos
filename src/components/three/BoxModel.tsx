@@ -110,15 +110,26 @@ export function BoxModel({ c, open, instant }: Props) {
     [],
   );
   const tileMat = (tex: THREE.Texture, w: number, h: number, tile: [number, number], rough = 0.32) =>
-    new THREE.MeshPhysicalMaterial({ map: tiled(tex, tile[0], tile[1], w, h), roughness: rough, clearcoat: 0.25, clearcoatRoughness: 0.4, envMapIntensity: 0.7 });
+    new THREE.MeshPhysicalMaterial({
+      map: tiled(tex, tile[0], tile[1], w, h),
+      roughness: rough,
+      clearcoat: 0.25,
+      clearcoatRoughness: 0.4,
+      envMapIntensity: 0.7,
+      // visível dos dois lados: vista por trás, a parede fica translúcida (ver FadeWall)
+      side: THREE.DoubleSide,
+    });
 
   const backMat = useMemo(() => tileMat(wallTex, backW, wallH, WALL_TILE), [wallTex, backW, wallH]); // eslint-disable-line react-hooks/exhaustive-deps
-  const sideMat = useMemo(() => tileMat(wallTex, depth + front, wallH, WALL_TILE), [wallTex, depth, wallH]); // eslint-disable-line react-hooks/exhaustive-deps
+  const leftMat = useMemo(() => tileMat(wallTex, depth + front, wallH, WALL_TILE), [wallTex, depth, wallH]); // eslint-disable-line react-hooks/exhaustive-deps
+  const rightMat = useMemo(() => tileMat(wallTex, depth + front, wallH, WALL_TILE), [wallTex, depth, wallH]); // eslint-disable-line react-hooks/exhaustive-deps
+  const stone = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#34322f', roughness: 0.22, clearcoat: 0.6, clearcoatRoughness: 0.2 }), []);
+  const nicheMat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#E3DDD4', roughness: 0.5 }), []);
   const floorMat = useMemo(() => tileMat(floorTex, backW + 0.6, depth + 1.2, FLOOR_TILE, 0.45), [floorTex, backW, depth]); // eslint-disable-line react-hooks/exhaustive-deps
   const ceilMat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#F6F4F0', roughness: 0.9 }), []);
 
-  useEffect(() => () => [glass, profile, fixture, steel, ceilMat].forEach((m) => m.dispose()), [glass, profile, fixture, steel, ceilMat]);
-  useEffect(() => () => [backMat, sideMat, floorMat].forEach((m) => (m.map?.dispose(), m.dispose())), [backMat, sideMat, floorMat]);
+  useEffect(() => () => [glass, profile, fixture, steel, ceilMat, stone, nicheMat].forEach((m) => m.dispose()), [glass, profile, fixture, steel, ceilMat, stone, nicheMat]);
+  useEffect(() => () => [backMat, leftMat, rightMat, floorMat].forEach((m) => (m.map?.dispose(), m.dispose())), [backMat, leftMat, rightMat, floorMat]);
   useEffect(() => () => (wallTex.dispose(), floorTex.dispose()), [wallTex, floorTex]);
 
   // folha móvel: desliza (correr, canto, teto) ou gira (abrir)
@@ -159,19 +170,13 @@ export function BoxModel({ c, open, instant }: Props) {
     <group>
       {/* ---------- banheiro ---------- */}
       {/* parede do fundo */}
-      <mesh material={backMat} position={[(backW - W) / 2, wallH / 2, -depth]} receiveShadow>
-        <planeGeometry args={[backW, wallH]} />
-      </mesh>
+      <FadeWall material={backMat} position={[(backW - W) / 2, wallH / 2, -depth]} size={[backW, wallH]} />
       {/* parede esquerda */}
-      <mesh material={sideMat} position={[-W / 2, wallH / 2, (front - depth) / 2]} rotation-y={Math.PI / 2} receiveShadow>
-        <planeGeometry args={[depth + front, wallH]} />
-      </mesh>
+      <FadeWall material={leftMat} position={[-W / 2, wallH / 2, (front - depth) / 2]} rotationY={Math.PI / 2} size={[depth + front, wallH]} />
       {/* parede direita (no box de canto o lado direito é de vidro) */}
       {!isCanto && (
         <>
-          <mesh material={sideMat} position={[W / 2, wallH / 2, (front - depth) / 2]} rotation-y={-Math.PI / 2} receiveShadow>
-            <planeGeometry args={[depth + front, wallH]} />
-          </mesh>
+          <FadeWall material={rightMat} position={[W / 2, wallH / 2, (front - depth) / 2]} rotationY={-Math.PI / 2} size={[depth + front, wallH]} />
         </>
       )}
       {/* piso: área do banho e o banheiro na frente */}
@@ -197,6 +202,13 @@ export function BoxModel({ c, open, instant }: Props) {
       {/* chuveiro quadrado de parede e registro */}
       <Shower x={showerX} z={-depth} y={Math.min(wallH - 0.12, 2.15)} material={fixture} ceiling={isTeto ? H : undefined} />
       <Valve x={showerX} z={-depth} y={1.1} material={fixture} />
+
+      {/* soleira de granito sob o box, entre o banho e o resto do banheiro */}
+      <RoundedBox args={[isCanto ? W + 0.03 : W, 0.006, 0.15]} radius={0.002} smoothness={2} material={stone} position={[isCanto ? 0.015 : 0, 0.003, 0]} receiveShadow />
+      {isCanto && <RoundedBox args={[0.15, 0.006, B]} radius={0.002} smoothness={2} material={stone} position={[W / 2, 0.003, -B / 2]} receiveShadow />}
+
+      {/* nicho embutido na parede do fundo, com dois frascos */}
+      <Niche x={showerX + Math.min(W * 0.42, 0.5)} y={1.15} z={-depth} material={nicheMat} />
 
       {/* ---------- box ---------- */}
       {isAbrir ? (
@@ -348,6 +360,85 @@ function Valve({ x, y, z, material }: { x: number; y: number; z: number; materia
         <cylinderGeometry args={[0.016, 0.018, 0.04, 32]} />
       </mesh>
       <RoundedBox args={[0.09, 0.014, 0.014]} radius={0.006} smoothness={3} material={material} position={[0.035, 0, 0.05]} castShadow />
+    </group>
+  );
+}
+
+/**
+ * Parede que, vista por trás (quando a câmera gira para o lado), fica translúcida em vez de sumir,
+ * para o box continuar à vista sem perder a noção do ambiente.
+ */
+function FadeWall({
+  material,
+  position,
+  size,
+  rotationY = 0,
+}: {
+  material: THREE.MeshPhysicalMaterial;
+  position: [number, number, number];
+  size: [number, number];
+  rotationY?: number;
+}) {
+  const normal = useMemo(() => new THREE.Vector3(Math.sin(rotationY), 0, Math.cos(rotationY)), [rotationY]);
+  const center = useMemo(() => new THREE.Vector3(...position), [position[0], position[1], position[2]]); // eslint-disable-line react-hooks/exhaustive-deps
+  const tmp = useMemo(() => new THREE.Vector3(), []);
+  useFrame(({ camera }) => {
+    // câmera do lado de trás da parede: fica translúcida
+    const behind = tmp.copy(camera.position).sub(center).dot(normal) < 0;
+    const opacity = behind ? 0.4 : 1;
+    if (material.opacity !== opacity) {
+      material.transparent = behind;
+      material.opacity = opacity;
+      material.depthWrite = !behind;
+      material.needsUpdate = true;
+    }
+  });
+  return (
+    <mesh material={material} position={position} rotation-y={rotationY} receiveShadow renderOrder={1}>
+      <planeGeometry args={size} />
+    </mesh>
+  );
+}
+
+/** Nicho embutido: fundo um tom mais escuro, moldura em volta e dois frascos na prateleira. */
+function Niche({ x, y, z, material }: { x: number; y: number; z: number; material: THREE.Material }) {
+  const w = 0.5;
+  const h = 0.32;
+  const d = 0.09;
+  const t = 0.012;
+  return (
+    <group position={[x, y, z]}>
+      {/* fundo do nicho */}
+      <mesh material={material} position={[0, 0, 0.002]} receiveShadow>
+        <planeGeometry args={[w, h]} />
+      </mesh>
+      {/* moldura: base, topo e laterais saindo da parede */}
+      {[
+        [0, -h / 2 + t / 2, w, t],
+        [0, h / 2 - t / 2, w, t],
+      ].map(([px, py, sw, sh], i) => (
+        <RoundedBox key={`h${i}`} args={[sw, sh, d]} radius={0.003} smoothness={2} material={material} position={[px, py, d / 2]} castShadow receiveShadow />
+      ))}
+      {[-w / 2 + t / 2, w / 2 - t / 2].map((px, i) => (
+        <RoundedBox key={`v${i}`} args={[t, h, d]} radius={0.003} smoothness={2} material={material} position={[px, 0, d / 2]} castShadow receiveShadow />
+      ))}
+      {/* frascos */}
+      <mesh position={[-0.09, -h / 2 + t + 0.075, d / 2]} castShadow>
+        <cylinderGeometry args={[0.028, 0.028, 0.15, 32]} />
+        <meshStandardMaterial color="#F2EFEA" roughness={0.35} />
+      </mesh>
+      <mesh position={[-0.09, -h / 2 + t + 0.165, d / 2]} castShadow>
+        <cylinderGeometry args={[0.01, 0.012, 0.03, 16]} />
+        <meshStandardMaterial color="#1F2022" roughness={0.4} />
+      </mesh>
+      <mesh position={[0.0, -h / 2 + t + 0.06, d / 2]} castShadow>
+        <cylinderGeometry args={[0.03, 0.03, 0.12, 32]} />
+        <meshStandardMaterial color="#8C7A68" roughness={0.3} />
+      </mesh>
+      <mesh position={[0.0, -h / 2 + t + 0.135, d / 2]} castShadow>
+        <cylinderGeometry args={[0.012, 0.012, 0.03, 16]} />
+        <meshStandardMaterial color="#1F2022" roughness={0.4} />
+      </mesh>
     </group>
   );
 }

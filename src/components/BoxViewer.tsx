@@ -48,7 +48,7 @@ export function BoxViewer({ c, summary, yaw }: { c: BoxConfig; summary: string; 
     if (ok) setView('3d');
   }, []);
 
-  // monta o 3D só perto da tela; abre a folha uma vez quando a cena aparece
+  // monta o 3D só perto da tela; abre a porta uma vez quando a cena aparece
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -67,7 +67,7 @@ export function BoxViewer({ c, summary, yaw }: { c: BoxConfig; summary: string; 
   }, [ready, reduced]);
 
   const show3D = view === '3d' && supported && near;
-  const leafLabel = c.modelo === 'abrir' ? (open ? 'Fechar porta' : 'Abrir porta') : open ? 'Fechar folha' : 'Abrir folha';
+  const leafLabel = open ? 'Fechar porta' : 'Abrir porta';
 
   return (
     <div ref={ref} className="frame-open bg-ice rounded-[var(--frame-r)] p-[var(--pad)] [--frame-color:var(--color-deep)] [--frame-r:calc(22px+var(--pad))] [--pad:clamp(18px,2.6vw,40px)]">
