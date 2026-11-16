@@ -24,6 +24,12 @@ npm run build      # gera o site estático em out/
 npm run typecheck  # checagem de tipos
 ```
 
+## Abrir o site sem servidor
+
+A pasta `abrir-o-site/` tem uma cópia do site que abre com dois cliques no `index.html`, sem
+instalar nada (de preferência no Chrome ou no Edge). Depois de mudar o site, gere de novo com
+`npm run offline`.
+
 ## Estrutura
 
 ```

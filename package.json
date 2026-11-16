@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "npx serve out",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "offline": "next build && node tools/offline.mjs"
   },
   "dependencies": {
     "@react-three/drei": "10.7.9",

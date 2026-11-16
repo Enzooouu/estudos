@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.jelbox.com.br/</loc>
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://www.jelbox.com.br/blog/</loc>
+<lastmod>2026-11-09T12:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.jelbox.com.br/blog/vidro-temperado-ou-laminado/</loc>
+<lastmod>2026-11-09T12:00</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.jelbox.com.br/blog/como-medir-o-vao-do-box/</loc>
+<lastmod>2026-11-09T11:00</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.jelbox.com.br/blog/box-de-banheiro-vidro-8mm/</loc>
+<lastmod>2026-11-09T10:00</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+</urlset>

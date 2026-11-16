@@ -1,0 +1,2 @@
+Para abrir o site, de dois cliques em index.html (de preferencia no Chrome ou no Edge).
+Esta pasta e gerada pelo comando "npm run offline". Nao edite os arquivos aqui dentro.
