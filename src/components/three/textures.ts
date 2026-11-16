@@ -113,3 +113,29 @@ export function tiled(tex: THREE.Texture, tileW: number, tileH: number, w: numbe
   t.needsUpdate = true;
   return t;
 }
+
+/**
+ * Mapas do rejunte para uma peça: o relevo (rejunte mais fundo que a peça) e a aspereza
+ * (peça polida, rejunte fosco). Dão ao porcelanato o brilho e o sulco do material real.
+ */
+export function groutMaps(w: number, h: number) {
+  const ppm = 350;
+  const cw = Math.round(w * ppm);
+  const ch = Math.round(h * ppm);
+  const make = (tile: string, grout: string) => {
+    const c = document.createElement('canvas');
+    c.width = cw;
+    c.height = ch;
+    const ctx = c.getContext('2d')!;
+    ctx.fillStyle = tile;
+    ctx.fillRect(0, 0, cw, ch);
+    ctx.strokeStyle = grout;
+    ctx.lineWidth = 3;
+    ctx.strokeRect(1.5, 1.5, cw - 3, ch - 3);
+    const t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.anisotropy = 8;
+    return t;
+  };
+  return { bump: make('#ffffff', '#000000'), rough: make('#4a4a4a', '#f0f0f0') };
+}

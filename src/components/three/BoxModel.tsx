@@ -5,7 +5,7 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { RoundedBox } from '@react-three/drei';
 import * as THREE from 'three';
 import type { BoxConfig, Perfil, Vidro } from '@/lib/box';
-import { tileTexture, tiled } from './textures';
+import { groutMaps, tileTexture, tiled } from './textures';
 
 /**
  * Box de banheiro gerado a partir das medidas escolhidas (em metros), dentro de um banheiro
@@ -109,10 +109,16 @@ export function BoxModel({ c, open, instant }: Props) {
       }),
     [],
   );
+  const wallGrout = useMemo(() => groutMaps(WALL_TILE[0], WALL_TILE[1]), []);
+  const floorGrout = useMemo(() => groutMaps(FLOOR_TILE[0], FLOOR_TILE[1]), []);
   const tileMat = (tex: THREE.Texture, w: number, h: number, tile: [number, number], rough = 0.32) =>
     new THREE.MeshPhysicalMaterial({
       map: tiled(tex, tile[0], tile[1], w, h),
-      roughness: rough,
+      // rejunte afundado e fosco, peça polida
+      bumpMap: tiled((tile === FLOOR_TILE ? floorGrout : wallGrout).bump, tile[0], tile[1], w, h),
+      bumpScale: 0.6,
+      roughnessMap: tiled((tile === FLOOR_TILE ? floorGrout : wallGrout).rough, tile[0], tile[1], w, h),
+      roughness: rough * 2.2,
       clearcoat: 0.25,
       clearcoatRoughness: 0.4,
       envMapIntensity: 0.7,
@@ -125,12 +131,16 @@ export function BoxModel({ c, open, instant }: Props) {
   const rightMat = useMemo(() => tileMat(wallTex, depth + front, wallH, WALL_TILE), [wallTex, depth, wallH]); // eslint-disable-line react-hooks/exhaustive-deps
   const stone = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#34322f', roughness: 0.22, clearcoat: 0.6, clearcoatRoughness: 0.2 }), []);
   const nicheMat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#E3DDD4', roughness: 0.5 }), []);
+  // aresta do vidro: o verde-azulado que todo vidro comum mostra de lado
+  const edgeMat = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#8fb5a6', roughness: 0.1, transparent: true, opacity: 0.75, clearcoat: 1 }), []);
+  // silicone neutro nas juntas com a parede
+  const silicone = useMemo(() => new THREE.MeshPhysicalMaterial({ color: '#f4f2ee', roughness: 0.35, transparent: true, opacity: 0.85 }), []);
   const floorMat = useMemo(() => tileMat(floorTex, backW + 0.6, depth + 1.2, FLOOR_TILE, 0.45), [floorTex, backW, depth]); // eslint-disable-line react-hooks/exhaustive-deps
   const ceilMat = useMemo(() => new THREE.MeshStandardMaterial({ color: '#F6F4F0', roughness: 0.9 }), []);
 
-  useEffect(() => () => [glass, profile, fixture, steel, ceilMat, stone, nicheMat].forEach((m) => m.dispose()), [glass, profile, fixture, steel, ceilMat, stone, nicheMat]);
+  useEffect(() => () => [glass, profile, fixture, steel, ceilMat, stone, nicheMat, edgeMat, silicone].forEach((m) => m.dispose()), [glass, profile, fixture, steel, ceilMat, stone, nicheMat, edgeMat, silicone]);
   useEffect(() => () => [backMat, leftMat, rightMat, floorMat].forEach((m) => (m.map?.dispose(), m.dispose())), [backMat, leftMat, rightMat, floorMat]);
-  useEffect(() => () => (wallTex.dispose(), floorTex.dispose()), [wallTex, floorTex]);
+  useEffect(() => () => [wallTex, floorTex, wallGrout.bump, wallGrout.rough, floorGrout.bump, floorGrout.rough].forEach((t) => t.dispose()), [wallTex, floorTex, wallGrout, floorGrout]);
 
   // folha móvel: desliza (correr, canto, teto) ou gira (abrir)
   const leaf = useRef<THREE.Group>(null);
@@ -207,6 +217,13 @@ export function BoxModel({ c, open, instant }: Props) {
       <RoundedBox args={[isCanto ? W + 0.03 : W, 0.006, 0.15]} radius={0.002} smoothness={2} material={stone} position={[isCanto ? 0.015 : 0, 0.003, 0]} receiveShadow />
       {isCanto && <RoundedBox args={[0.15, 0.006, B]} radius={0.002} smoothness={2} material={stone} position={[W / 2, 0.003, -B / 2]} receiveShadow />}
 
+      {/* cordões de silicone entre o box e as paredes */}
+      {[-W / 2 + 0.0205, ...(isCanto ? [] : [W / 2 - 0.0205])].map((x) => (
+        <mesh key={x} material={silicone} position={[x, H / 2, 0.018]}>
+          <cylinderGeometry args={[0.0035, 0.0035, H - 0.02, 8]} />
+        </mesh>
+      ))}
+
       {/* nicho embutido na parede do fundo, com dois frascos */}
       <Niche x={showerX + Math.min(W * 0.42, 0.5)} y={1.15} z={-depth} material={nicheMat} />
 
@@ -219,7 +236,7 @@ export function BoxModel({ c, open, instant }: Props) {
           {/* perfil de vedação com ímã na parede da direita */}
           <RoundedBox args={[0.018, H - 0.02, 0.022]} radius={0.004} smoothness={3} material={profile} position={[W / 2 - 0.009, H / 2, 0]} castShadow />
           {/* folha fixa */}
-          <RoundedBox args={[fixW - 0.012, H - 0.03, GLASS]} radius={R_GLASS} smoothness={3} material={glass} position={[-W / 2 + fixW / 2 + 0.006, H / 2 + 0.008, 0]} />
+          <GlassPane args={[fixW - 0.012, H - 0.03, GLASS]} glass={glass} edge={edgeMat} position={[-W / 2 + fixW / 2 + 0.006, H / 2 + 0.008, 0]} />
           {/* barra de sustentação: do topo da folha fixa até a parede do fundo */}
           <mesh material={profile} position={[-W / 2 + fixW - 0.12, H - 0.06, -depth / 2]} rotation-x={Math.PI / 2} castShadow>
             <cylinderGeometry args={[0.0095, 0.0095, depth, 24]} />
@@ -230,7 +247,7 @@ export function BoxModel({ c, open, instant }: Props) {
           </mesh>
           {/* porta, girando nas dobradiças junto à folha fixa */}
           <group ref={leaf} position={[-W / 2 + fixW + 0.002, 0, 0]}>
-            <RoundedBox args={[doorW - 0.016, H - 0.04, GLASS]} radius={R_GLASS} smoothness={3} material={glass} position={[doorW / 2, H / 2 + 0.012, 0]} />
+            <GlassPane args={[doorW - 0.016, H - 0.04, GLASS]} glass={glass} edge={edgeMat} position={[doorW / 2, H / 2 + 0.012, 0]} />
             <Handle material={profile} x={doorW - 0.1} y={H * 0.5} />
           </group>
           {/* dobradiças vidro-vidro: ficam fixas, abraçando as duas folhas */}
@@ -250,11 +267,11 @@ export function BoxModel({ c, open, instant }: Props) {
           <RoundedBox args={[0.022, 0.03, 0.03]} radius={0.005} smoothness={3} material={profile} position={[-W / 2 + 0.07, railY - 0.04, GAP / 2]} />
 
           {/* folha fixa (de trás) */}
-          <RoundedBox args={[leafW, panelH, GLASS]} radius={R_GLASS} smoothness={3} material={glass} position={[-W / 2 + 0.006 + leafW / 2, panelY, -GAP / 2]} />
+          <GlassPane args={[leafW, panelH, GLASS]} glass={glass} edge={edgeMat} position={[-W / 2 + 0.006 + leafW / 2, panelY, -GAP / 2]} />
 
           {/* folha de correr (da frente) com roldanas aparentes e puxador */}
           <group ref={leaf} position={[W / 4, 0, GAP / 2]}>
-            <RoundedBox args={[leafW, panelH, GLASS]} radius={R_GLASS} smoothness={3} material={glass} position={[W / 4 - 0.006 - leafW / 2, panelY, 0]} />
+            <GlassPane args={[leafW, panelH, GLASS]} glass={glass} edge={edgeMat} position={[W / 4 - 0.006 - leafW / 2, panelY, 0]} />
             {[-leafW / 2 + 0.13, leafW / 2 - 0.09].map((x) => (
               <Roller key={x} x={x} y={railY - 0.045} material={profile} />
             ))}
@@ -264,7 +281,7 @@ export function BoxModel({ c, open, instant }: Props) {
           {/* box de canto: lado fixo de vidro até a parede do fundo e a cantoneira */}
           {isCanto && (
             <>
-              <RoundedBox args={[GLASS, panelH, B - 0.04]} radius={R_GLASS} smoothness={3} material={glass} position={[W / 2, panelY, -B / 2 - 0.01]} />
+              <GlassPane args={[GLASS, panelH, B - 0.04]} glass={glass} edge={edgeMat} position={[W / 2, panelY, -B / 2 - 0.01]} />
               <RoundedBox args={[0.064, 0.048, B]} radius={0.008} smoothness={4} material={profile} position={[W / 2, railY, -B / 2]} castShadow />
               <RoundedBox args={[0.046, 0.014, B]} radius={0.004} smoothness={3} material={profile} position={[W / 2, 0.007, -B / 2]} castShadow />
               <RoundedBox args={[0.03, H, 0.03]} radius={0.006} smoothness={3} material={profile} position={[W / 2, H / 2, 0]} castShadow />
@@ -439,6 +456,44 @@ function Niche({ x, y, z, material }: { x: number; y: number; z: number; materia
         <cylinderGeometry args={[0.012, 0.012, 0.03, 16]} />
         <meshStandardMaterial color="#1F2022" roughness={0.4} />
       </mesh>
+    </group>
+  );
+}
+
+/**
+ * Painel de vidro temperado: a chapa com a aresta lapidada e, em volta, a borda esverdeada
+ * que o vidro mostra quando visto de lado. args = [largura, altura, espessura].
+ */
+function GlassPane({
+  args,
+  position,
+  glass,
+  edge,
+}: {
+  args: [number, number, number];
+  position: [number, number, number];
+  glass: THREE.Material;
+  edge: THREE.Material;
+}) {
+  const [w, h, d] = args;
+  const e = 0.0016; // espessura visível da borda
+  const sideways = w < d; // painel girado (lateral do box de canto): a largura fica em z
+  const along = sideways ? d : w;
+  return (
+    <group position={position}>
+      <RoundedBox args={args} radius={R_GLASS} smoothness={3} material={glass} />
+      {/* bordas de cima e de baixo */}
+      {[h / 2 - e / 2, -h / 2 + e / 2].map((y) => (
+        <mesh key={y} material={edge} position={[0, y, 0]}>
+          <boxGeometry args={sideways ? [w * 1.02, e, along - 0.004] : [along - 0.004, e, d * 1.02]} />
+        </mesh>
+      ))}
+      {/* bordas laterais */}
+      {[along / 2 - e / 2, -along / 2 + e / 2].map((o) => (
+        <mesh key={o} material={edge} position={sideways ? [0, 0, o] : [o, 0, 0]}>
+          <boxGeometry args={sideways ? [w * 1.02, h - 0.004, e] : [e, h - 0.004, d * 1.02]} />
+        </mesh>
+      ))}
     </group>
   );
 }
