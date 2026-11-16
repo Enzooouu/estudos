@@ -26,7 +26,9 @@ export const site = {
     { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '13:00', closes: '18:00' },
   ],
   /** página da JEL BOX no Google (avaliações e mapa) */
-  googleUrl: 'https://share.google/l7zcm4bUvqojtX2BT',
+  // abre a busca do Google já com o painel das avaliações da JEL BOX aberto
+  googleUrl:
+    'https://www.google.com/search?kgmid=/g/11r9ns8r85&hl=en-BR&q=*Vidra%C3%A7aria+e+serralheria+JEL+BOX*&shem=epsd1,ltae,rimspwouoe&shndl=30&source=sh/x/loc/osrp/m5/2&kgs=c01f6ffe3771f52f&utm_source=epsd1,ltae,rimspwouoe,sh/x/loc/osrp/m5/2#lrd=0x94ceff105a7e5115:0xab60238770df8924,1,,,,',
   /** endereço do mapa incorporado (Google Maps > Compartilhar > Incorporar um mapa > src do iframe) */
   mapEmbed: `https://www.google.com/maps?q=${encodeURIComponent('R. Angatuba, 18 - Rochdale, Osasco - SP, 06223-080')}&output=embed`,
 } as const;
