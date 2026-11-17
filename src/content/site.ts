@@ -295,7 +295,7 @@ export const steps = [
   {
     id: 'instalar',
     verb: 'Instalar',
-    text: 'A mesma equipe que mediu instala, nivela, veda com silicone neutro e só sai depois de abrir e fechar cada folha com você.',
+    text: 'A mesma equipe que mediu instala, nivela, veda com silicone neutro e só sai depois de abrir e fechar cada porta e janela com você.',
   },
 ] as const;
 

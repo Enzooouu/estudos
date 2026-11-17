@@ -46,12 +46,23 @@ export function Contact() {
         )}
       </Reveal>
       <div className="flex flex-col justify-between gap-3 text-base sm:flex-row">
-        <p className="flex items-center gap-2.5">
-          <Icon name="phone" className="text-glass" />
-          <a href={site.phoneHref} className="border-line border-b hover:border-current">
-            {site.phoneDisplay}
-          </a>
-        </p>
+        {/* sem e-mail, o telefone já aparece grande acima; aqui entra o e-mail quando houver */}
+        {site.email && (
+          <p className="flex items-center gap-2.5">
+            <Icon name="mail" className="text-glass" />
+            <a href={`mailto:${site.email}`} className="border-line border-b hover:border-current">
+              {site.email}
+            </a>
+          </p>
+        )}
+        {!site.email && (
+          <p className="flex items-center gap-2.5">
+            <Icon name="whats" className="text-glass" />
+            <a href={waLink('Olá, JEL BOX! Gostaria de um orçamento.')} target="_blank" rel="noopener" className="border-line border-b hover:border-current">
+              WhatsApp
+            </a>
+          </p>
+        )}
         <p className="flex items-center gap-2.5">
           <Icon name="insta" className="text-glass" />
           <a href={site.instagram.url} rel="noopener" className="border-line border-b hover:border-current">

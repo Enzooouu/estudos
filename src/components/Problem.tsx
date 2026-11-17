@@ -14,7 +14,7 @@ const items = [
   },
   {
     pain: 'Obra que deixa sujeira',
-    fix: 'A mesma equipe que mede instala, limpa e só sai depois de testar cada folha com você.',
+    fix: 'A mesma equipe que mede instala, limpa e só sai depois de testar cada porta com você.',
     quote: 'instalação sem sujeira',
     who: 'Priscila Silva',
   },
